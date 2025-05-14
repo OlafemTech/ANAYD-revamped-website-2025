@@ -1,0 +1,30 @@
+/* Hero Slider Styles */
+.hero-slider .slide[data-slide-id="0"] {
+  background-image: url(../../asset/images/general/anayd_ISADOSankofa_AYPs.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-slider .slide[data-slide-id="1"] {
+  background-image: url(../../asset/images/GEF\ Inception\ Project/_SCF2199.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-slider .slide[data-slide-id="2"] {
+  background-image: url(../../asset/images/gallery/anayd_ed_intl.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-slider .slide[data-slide-id="3"] {
+  background-image: url(../../asset/images/gallery/AID_virtual_hub_1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-slider .slide[data-slide-id="4"] {
+  background-image: url(../../asset/images/gallery/IMG_2454.jpg);
+  background-size: cover;
+  background-position: center;
+}
