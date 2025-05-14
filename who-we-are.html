@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Who We Are - African Network for Adolescents and Young Persons Development (ANAYD)" />
+    <meta name="keywords" content="Who We Are, Our Location, Legality, Networks, Structures, Funders, Partners, Donors, Supporters, African Network, Adolescents, Young Persons Development, NGO Funding, Development Partners" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>Who We Are - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20 min-h-screen">
+      <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Mobile Program Toggle -->
+          <div class="lg:hidden mb-6">
+            <button
+              id="program-menu-toggle"
+              class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+            >
+              <span>About ANAYD</span>
+              <i class="ri-arrow-down-s-line text-xl transition-transform" id="program-menu-icon"></i>
+            </button>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="lg:w-64 flex-shrink-0 hidden lg:block" id="program-sidebar">
+            <div class="bg-white rounded-xl p-6 shadow-sm sticky top-24 space-y-6 opacity-0 animate-slide-in-left">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">About Us</h3>
+                <nav class="space-y-2">
+                  <a href="who-we-are.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium">Who We Are</a>
+                  <a href="what-we-do.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">What We Do</a>
+                  <a href="meet-our-team.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Meet Our Team</a>
+                  <a href="our-funders.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Our Funders</a>
+                </nav>
+
+                <div class="mt-8">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Get Involved</h3>
+                  <nav class="space-y-2">
+                    <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                    <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                    <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                  </nav>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-8 p-6 bg-gradient-to-br from-primary to-secondary rounded-xl text-white">
+                  <h4 class="text-lg font-semibold mb-2">Support Our Cause</h4>
+                  <p class="text-sm text-white/90 mb-4">Join us in making a difference in the lives of young people across Africa.</p>
+                  <a href="donate.html" class="inline-block w-full px-6 py-3 bg-white text-primary font-semibold text-center rounded-lg hover:bg-gray-50 transition-colors">Donate Now</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <div class="flex-1">
+            <!-- Hero Section -->
+            <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-lg mb-8">
+              <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 opacity-0" data-animate="fade-in">Who We Are</h1>
+                <p class="text-lg text-blue-100 mb-8 opacity-0" data-animate="slide-up" data-delay="200">African Network of Adolescent & Young Persons Development (ANAYD) is a regional organization working for and with adolescents and young people in their diversities.</p>
+                <div class="flex justify-center gap-4 opacity-0" data-animate="fade-in" data-delay="400">
+                  <a href="donate.html" class="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition-colors">Donate</a>
+                  <a href="volunteer-get-involved.html" class="bg-blue-500 text-white hover:bg-blue-400 px-6 py-3 rounded-lg font-medium transition-colors">Get Involved</a>
+                </div>
+              </div>
+            </section>
+
+            <!-- Main Content -->
+            <div class="max-w-4xl">
+              <div class="prose max-w-none mb-12 opacity-0" data-animate="slide-up" data-delay="200">
+                <div class="mb-12">
+                  <img
+                    src="asset/images/gallery/youth-developement.jpg"
+                    alt="ANAYD Team 2024 Retreat"
+                    class="w-full h-64 object-cover rounded-lg mb-6"
+                  />
+                  <p class="text-gray-600 mb-4">
+                    which include (adolescents girls and young women (AGYW), adolescents and young people living with HIV (AYPLHIV), young key populations (YKPs) and young people living with disabilities (YPLWD)) both infected or affected with HIV, Tuberculosis and Malaria. It was form 2015 in Nigeria, but properly inaugurated on 29th September 2017 committed to promoting the rights and access to services for adolescents and young people in their diversities
+                    and today ANAYD is part of the success story in fight against HIV/AIDS, SRHR,GBV and other related health cases among adolescent and young people  in Nigeria and  Africa.
+                  </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                  <div
+                    class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary opacity-0" data-animate="slide-in-left" data-delay="400"
+                  >
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                      Our Mission
+                    </h3>
+                    <p class="text-gray-600">
+                      To lead the effort of mitigating the physical, 
+                      psychosocial and economic impact of HIV, Tuberculosis, 
+                      Malaria and other health related infections among adolescents and 
+                      young people in their diversities through information sharing, education, 
+                      advocacy, capacity building and economic empowerment.
+                    </p>
+                  </div>
+                  <div
+                    class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-secondary opacity-0" data-animate="slide-in-right" data-delay="600"
+                  >
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                      Our Vision
+                    </h3>
+                    <p class="text-gray-600">
+                      To see an Africa where the rights, welfare and 
+                      interests of adolescents and young people in their diversities 
+                      are assured and protected, and the larger society is protected 
+                      from the spread of health related diseases.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Goals and Objectives -->
+                <div class="grid grid-cols-1 gap-8 mb-12 opacity-0" data-animate="fade-in">
+                  <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary opacity-0" data-animate="fade-in" data-delay="200">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                      Goals
+                    </h3>
+                    <p class="text-gray-600">
+                      To ensure greater and meaning involvement of adolescents and young people in their diversities
+                      in policy formulation, decision making, governance, program design, development, implementations,
+                      monitoring and evaluation at all levels.
+                    </p>
+                  </div>
+                  <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-secondary opacity-0" data-animate="fade-in" data-delay="400">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                      Objectives
+                    </h3>
+                    <ul class="text-gray-600 list-disc pl-5 space-y-3">
+                      <li>To promote fundamental human rights and gender equality of adolescent and young people in their diversities.</li>
+                      <li>To promote comprehensive sexual reproductive health and right information and services for adolescent and young people in their diversities.</li>
+                      <li>To facilitate access to free and comprehensive prevention, treatment, care and support for adolescent and young people in their diversities.</li>
+                      <li>To provide and sustain a platform for adolescents and young people in their diversities to come together, exchange ideas through the instrument of peer support groups and forums.</li>
+                      <li>To facilitate meaningful involvement of adolescent and young people in their diversities in program design, development, implementations, monitoring and evaluation at all levels.</li>
+                      <li>To facilitate access to social economic support for adolescents and young people in their diversities in the country and Africa.</li>
+                      <li>To foster synergize and build positive partner relation and collaboration with other national, regional and global stakeholders, NGOs, CSOs and networks for effective programming and resource mobilization for adolescents and young people in their diversities.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Board of Trustee -->
+                <div class="mb-12">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0" data-animate="fade-in">
+                    Board of Trustee
+                  </h2>
+                  <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-6">
+                      <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                          <i class="ri-shield-star-line text-2xl text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                          <p class="text-gray-600">
+                            ANAYD is registered as a civil society organization and made up of three board members who were appointed from different works of life; professionals and public health consultants at high positions in the Nigerian and International HIV and SRHR responses.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Advisory Board Member -->
+                <div class="mb-12">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0" data-animate="fade-in">
+                    Advisory Board Member
+                  </h2>
+                  <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-6">
+                      <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                          <i class="ri-team-line text-2xl text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                          <p class="text-gray-600">
+                            The advisory board members of the organization compose of professional independent individuals who have serve or are still serving across government agencies, implementing partners, donor agency, private sectors and political law makers who upon request call by the organization to serve in such capacity when accepted; and adolescents and young people who serve to voice and share current issues as it face them towards also guiding the organization program approach in line with current needs. They all provide guidance and share expertise towards helping the organization growth and strengthen visibility.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Program Management Team -->
+                <div class="mb-12 opacity-0" data-animate="fade-in">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                    Program Management Team
+                  </h2>
+                  <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-6 space-y-6">
+                      <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                          <i class="ri-group-line text-2xl text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                          <p class="text-gray-600">
+                            The projects and activities of the organization funded by partners and donor agencies is been management, and supervise by the program management team of ANAYD. The team is made up of 10 young people who are professionals, vibrant intellectuals and creative to cause the change young people would love to see in our time.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                          <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <i class="ri-user-star-line mr-2 text-primary"></i>
+                            Program Officers
+                          </h4>
+                          <p class="text-gray-600">
+                            ANAYD has 9 program officers working as state actors and focal points across 10 states:
+                          </p>
+                          <div class="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Abia</div>
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Akwa Ibom</div>
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Anambra</div>
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Lagos</div>
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Benue</div>
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Kaduna</div>
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Abuja</div>
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Kwara</div>
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Kano</div>
+                            <div class="bg-white px-3 py-2 rounded text-center text-gray-600 text-sm">Taraba</div>
+                          </div>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                          <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <i class="ri-user-heart-line mr-2 text-primary"></i>
+                            Volunteer Network
+                          </h4>
+                          <p class="text-gray-600">
+                            Over 490 pool volunteers work with ANAYD for various projects and activities. Our volunteers include professionals with diverse qualifications:
+                          </p>
+                          <ul class="mt-3 grid grid-cols-2 gap-2 text-gray-600 text-sm">
+                            <li class="bg-white px-3 py-2 rounded">Masters Degree</li>
+                            <li class="bg-white px-3 py-2 rounded">Bachelor's Degree</li>
+                            <li class="bg-white px-3 py-2 rounded">NCE</li>
+                            <li class="bg-white px-3 py-2 rounded">Diploma</li>
+                            <li class="bg-white px-3 py-2 rounded">SSCE</li>
+                            <li class="bg-white px-3 py-2 rounded">Other Qualifications</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Geographical Locations Section -->
+                <div class="mb-12 opacity-0" data-animate="fade-in">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                    Geographical Locations & Network Members
+                  </h2>
+                  <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-6">
+                      <div class="space-y-6">
+                        <div>
+                          <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <i class="ri-map-pin-2-line mr-2 text-primary"></i>
+                            Network Coverage
+                          </h4>
+                          <div class="text-gray-600 space-y-2">
+                            <p>
+                              <span class="font-medium">Kaduna State:</span> Over 87 NGOs, CSOs, Networks and CBOs
+                            </p>
+                            <p>
+                              <span class="font-medium">Nigeria:</span> Over 90 NGOs, CSOs, CBOs, and networks across 37 states
+                            </p>
+                            <p>
+                              <span class="font-medium">West and Central Africa:</span> 7 NGOs and Networks
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <i class="ri-global-line mr-2 text-primary"></i>
+                            Operational States
+                          </h4>
+                          <div class="text-gray-600 space-y-2">
+                            <p class="mb-2">
+                              <span class="font-medium">Coverage across 6 geopolitical zones in 10 states:</span>
+                            </p>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Abia</div>
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Akwa Ibom</div>
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Anambra</div>
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Lagos</div>
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Benue</div>
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Kaduna</div>
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Abuja</div>
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Kwara</div>
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Kano</div>
+                              <div class="bg-gray-50 px-3 py-2 rounded-lg text-center">Taraba</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <i class="ri-funds-line mr-2 text-primary"></i>
+                            Global Fund Grant States
+                          </h4>
+                          <div class="text-gray-600 space-y-2">
+                            <p class="mb-2">
+                              <span class="font-medium">Currently operating in 7 states:</span>
+                            </p>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                              <div class="bg-primary/5 px-3 py-2 rounded-lg text-center">Akwa Ibom</div>
+                              <div class="bg-primary/5 px-3 py-2 rounded-lg text-center">Anambra</div>
+                              <div class="bg-primary/5 px-3 py-2 rounded-lg text-center">Lagos</div>
+                              <div class="bg-primary/5 px-3 py-2 rounded-lg text-center">Benue</div>
+                              <div class="bg-primary/5 px-3 py-2 rounded-lg text-center">Kaduna</div>
+                              <div class="bg-primary/5 px-3 py-2 rounded-lg text-center">Abuja</div>
+                              <div class="bg-primary/5 px-3 py-2 rounded-lg text-center">Taraba</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <i class="ri-team-line mr-2 text-primary"></i>
+                            Professional Network
+                          </h4>
+                          <p class="text-gray-600">
+                            ANAYD is supported by a diverse network of professionals including medical doctors, clinicians, advocates, activists, media personnel, academics, researchers, lab scientists, and community members (KPs and LGBTQ) who are personally committed to the organization's goals and objectives.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Legality Section -->
+                <div class="mb-12 opacity-0" data-animate="fade-in">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                    Legality
+                  </h2>
+                  <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-6">
+                      <div class="space-y-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                          <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                              <i class="ri-calendar-line mr-2 text-primary"></i>
+                              Key Dates
+                            </h4>
+                            <div class="space-y-2 text-gray-600">
+                              <p><span class="font-medium">Establishment:</span> October 25th, 2015</p>
+                              <p><span class="font-medium">Inauguration:</span> September 29th, 2017</p>
+                              <p><span class="font-medium">CAC Registration:</span> July 30th, 2019</p>
+                              <p><span class="font-medium">EFCC-SCUML Registration:</span> September 11th, 2019</p>
+                            </div>
+                          </div>
+                          <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                              <i class="ri-file-list-3-line mr-2 text-primary"></i>
+                              Registration Details
+                            </h4>
+                            <div class="space-y-2 text-gray-600">
+                              <p><span class="font-medium">CAC Number:</span> CAC/IT/NO: 133047</p>
+                              <p><span class="font-medium">Tax ID (TIN):</span> 21454235</p>
+                              <p><span class="font-medium">Registration Type:</span> Civil Society Organization & Incorporated Charity Body</p>
+                              <p><span class="font-medium">Legal Framework:</span> Money Laundering (Prohibition) Act, 2011, Section 5 (1) (a) and (4)</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Structure Section -->
+                <div class="mb-12 opacity-0" data-animate="fade-in">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                    Structure (Our Locations)
+                  </h2>
+                  <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-6">
+                      <div class="space-y-6">
+                        <div>
+                          <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <i class="ri-building-2-line mr-2 text-primary"></i>
+                            Headquarters
+                          </h4>
+                          <p class="text-gray-600">
+                            The organization's headquarters is located in Nigeria, with a complete management and governance structure. 
+                            A dedicated management board oversees its affairs across all states and locations within the country.
+                          </p>
+                        </div>
+
+                        <div>
+                          <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <i class="ri-map-pin-line mr-2 text-primary"></i>
+                            Office Locations
+                          </h4>
+                          <div class="grid gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg opacity-0" data-animate="fade-in" data-delay="400">
+                              <p class="text-gray-600 font-medium mb-1">Headquarters:</p>
+                              <p class="text-gray-600">No 39A Kujama Close, Barnawa, Kaduna State, Nigeria</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg opacity-0" data-animate="fade-in" data-delay="600">
+                              <p class="text-gray-600 font-medium mb-1">Abuja Offices:</p>
+                              <ul class="text-gray-600 space-y-2 list-disc pl-5">
+                                <li>3rd Floor, Wing D, Community Park: Bassan Plaza, Plot 759, Central Business District</li>
+                                <li>Block 7, Beside Number One Hotel, By SS Peter and Paul Catholic Church, Nyanya</li>
+                                <li>AYDEC office No 12, Cape town Street, Wuse Zone 4, 2nd Floor Suite 205B</li>
+                              </ul>
+                            </div>
+
+                            <div class="bg-gray-50 p-4 rounded-lg opacity-0" data-animate="fade-in" data-delay="800">
+                              <p class="text-gray-600 font-medium mb-1">Lagos Offices:</p>
+                              <ul class="text-gray-600 space-y-2 list-disc pl-5">
+                                <li>No 10, Modele Compound, Off Teiuosho Rd, Barracks Bus Stop, Surulere</li>
+                                <li>No 14, Gbeleyi Street Ogba Ikeja</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </main>
+                
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="py-12 bg-gray-50 opacity-0" data-animate="fade-in">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Get Involved
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Join us in our mission to empower young people across Nigeria and
+            West Africa. There are many ways you can contribute to our work.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8"
+          data-animate="slide-up"
+          data-delay="200"
+        >
+          <!-- Volunteer Card -->
+          <div
+            id="volunteer"
+            class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow opacity-0" data-animate="fade-in" data-delay="400"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="asset/images/gallery/AID_virtual_hub_1.jpg"
+                alt="Volunteer with ANAYD"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary"
+                >
+                  <i class="ri-user-heart-line"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Volunteer</h3>
+              <p class="text-gray-600 mb-6">
+                Share your skills and time with ANAYD. We have opportunities for
+                volunteers in various areas, including health education, digital
+                skills training, and community outreach.
+              </p>
+              <a
+                href="volunteer-get-involved.html"
+                class="inline-block bg-[#4285F4] hover:bg-[#3367D6] text-white transition-all duration-200 px-12 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >Become a Volunteer</a
+              >
+            </div>
+          </div>
+
+          <!-- Donate Card -->
+          <div
+            id="donate"
+            class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow opacity-0" data-animate="fade-in" data-delay="600"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="asset/images/general/anayd_health.jpg"
+                alt="Donate to ANAYD"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary"
+                >
+                  <i class="ri-hand-heart-line"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Donate</h3>
+              <p class="text-gray-600 mb-6">
+                Your financial support enables us to reach more young people
+                with life-changing programs. Every contribution, no matter the
+                size, makes a difference in the lives of African youth.
+              </p>
+              <a
+                href="donate.html"
+                class="inline-block bg-[#4285F4] hover:bg-[#3367D6] text-white transition-all duration-200 px-12 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >Make a Donation</a
+              >
+            </div>
+          </div>
+
+          <!-- Partner Card -->
+          <div
+            id="partner"
+            class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow opacity-0" data-animate="fade-in" data-delay="800"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="asset/images/general/anayd_ISADOSankofa_AYPs.jpg"
+                alt="Partner with ANAYD"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary"
+                >
+                  <i class="ri-building-line"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Partner With Us
+              </h3>
+              <p class="text-gray-600 mb-6">
+                We collaborate with organizations that share our vision for
+                youth development. Partnership opportunities include program
+                funding, technical support, and joint initiatives.
+              </p>
+              <a
+                href="partnership.html"
+                class="inline-block bg-[#4285F4] hover:bg-[#3367D6] text-white transition-all duration-200 px-12 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >Become a Partner</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    <script src="js/animations.js"></script>
+    <script src="js/sidebar-nav.js"></script>
+    <script src="asset/js/global-navigation.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Impact Chart
+        const chartDom = document.getElementById("impact-chart");
+        if (chartDom) {
+          const myChart = echarts.init(chartDom);
+          const option = {
+            animation: false,
+            tooltip: {
+              trigger: "axis",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              textStyle: {
+                color: "#1f2937",
+              },
+            },
+            legend: {
+              data: ["Youth Reached", "Communities Served", "Volunteers"],
+              textStyle: {
+                color: "#1f2937",
+              },
+            },
+            grid: {
+              left: "3%",
+              right: "4%",
+              bottom: "3%",
+              containLabel: true,
+            },
+            xAxis: {
+              type: "category",
+              boundaryGap: false,
+              data: [
+                "2018",
+                "2019",
+                "2020",
+                "2021",
+                "2022",
+                "2023",
+                "2024",
+                "2025",
+              ],
+              axisLabel: {
+                color: "#1f2937",
+              },
+            },
+            yAxis: {
+              type: "value",
+              axisLabel: {
+                color: "#1f2937",
+              },
+            },
+            series: [
+              {
+                name: "Youth Reached",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "rgba(87, 181, 231, 1)",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(87, 181, 231, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(87, 181, 231, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [5000, 8000, 12000, 15000, 18000, 21000, 23000, 25000],
+              },
+              {
+                name: "Communities Served",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "rgba(141, 211, 199, 1)",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(141, 211, 199, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(141, 211, 199, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [20, 35, 50, 65, 80, 95, 110, 120],
+              },
+              {
+                name: "Volunteers",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "rgba(251, 191, 114, 1)",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(251, 191, 114, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(251, 191, 114, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [30, 45, 65, 85, 100, 120, 135, 150],
+              },
+            ],
+          };
+
+          myChart.setOption(option);
+
+          window.addEventListener("resize", function () {
+            myChart.resize();
+          });
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animation Observer
+        const animationObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '50px'
+        });
+
+        // Observe all sections and animated groups
+        document.querySelectorAll('section, .group').forEach((element) => {
+          animationObserver.observe(element);
+        });
+      });
+    </script>
+  </body>
+</html>

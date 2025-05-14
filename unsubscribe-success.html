@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="You have been successfully unsubscribed from ANAYD newsletter." />
+    <title>Unsubscribe Successful - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <!-- Core libraries first -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+     <!-- Navbar Component -->
+     <div id="navbar-container" class="sticky top-0 z-50 transition-all duration-300" data-sticky="false"></div>
+
+     <!-- Unsubscribe Success Content -->
+     <section class="py-20">
+       <div class="container mx-auto px-4">
+         <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md text-center">
+           <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+             <i class="ri-check-line text-4xl text-green-600"></i>
+           </div>
+           <h1 class="text-3xl font-bold text-gray-900 mb-4">Successfully Unsubscribed</h1>
+           <p class="text-lg text-gray-600 mb-8">
+             You have been successfully unsubscribed from the ANAYD newsletter. You will no longer receive email updates from us.
+           </p>
+           <p class="text-gray-500 mb-8">
+             We're sorry to see you go. If you changed your mind or unsubscribed by mistake, you can always subscribe again on our website.
+           </p>
+           <a href="index.html" class="inline-block bg-primary text-white hover:bg-primary/90 transition-colors px-8 py-3 rounded-lg">
+             Return to Homepage
+           </a>
+         </div>
+       </div>
+     </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    <script src="js/animations.js"></script>
+  </body>
+</html>

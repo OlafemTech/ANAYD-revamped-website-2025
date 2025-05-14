@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="2023 Annual Report | African Network of Adolescent & Young Persons Development" />
+    <meta name="keywords" content="ANAYD, Annual Report 2023, Impact Report, African Network, Adolescents, Young Persons, Development, UNICEF, UNIAiDs, WHO" />
+    <meta name="author" content="ANAYD" />
+    <title>Annual Report 2023 - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Component libraries -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    <script>
+        // Initialize Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.group');
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                animationObserver.observe(element);
+            });
+
+            // Mobile menu functionality
+            const impactMenuToggle = document.getElementById('impact-menu-toggle');
+            const impactMenuIcon = document.getElementById('impact-menu-icon');
+            const impactSidebar = document.getElementById('impact-sidebar');
+
+            // Initialize mobile menu state
+            let isMobileMenuOpen = false;
+
+            impactMenuToggle.addEventListener('click', function() {
+                isMobileMenuOpen = !isMobileMenuOpen;
+                impactSidebar.classList.toggle('hidden', !isMobileMenuOpen);
+                impactSidebar.classList.toggle('lg:block');
+                impactMenuIcon.style.transform = isMobileMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+                
+                // Add animation classes
+                if (isMobileMenuOpen) {
+                    impactSidebar.classList.add('animate-slide-in-left');
+                    impactSidebar.classList.remove('opacity-0');
+                } else {
+                    impactSidebar.classList.remove('animate-slide-in-left');
+                    impactSidebar.classList.add('opacity-0');
+                }
+            });
+
+            function handleResize() {
+                const isLargeScreen = window.innerWidth >= 1024; // lg breakpoint
+                
+                if (isLargeScreen) {
+                    impactSidebar.classList.remove('hidden');
+                    impactSidebar.classList.add('lg:block');
+                    impactSidebar.classList.add('animate-slide-in-left');
+                    impactSidebar.classList.remove('opacity-0');
+                } else if (!isMobileMenuOpen) {
+                    impactSidebar.classList.add('hidden');
+                    impactSidebar.classList.remove('lg:block');
+                    impactSidebar.classList.remove('animate-slide-in-left');
+                    impactSidebar.classList.add('opacity-0');
+                }
+            }
+
+            window.addEventListener('resize', handleResize);
+            handleResize(); // Initial check
+            
+            // Collapsible Financial Tables
+            const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+            
+            collapsibleHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    // Toggle the content visibility
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('hidden');
+                    
+                    // Update the toggle icon and text
+                    const toggleIcon = this.querySelector('.toggle-icon');
+                    const toggleText = this.querySelector('.toggle-text');
+                    
+                    if (content.classList.contains('hidden')) {
+                        toggleIcon.style.transform = 'rotate(0deg)';
+                        toggleText.textContent = 'Show Details';
+                    } else {
+                        toggleIcon.style.transform = 'rotate(180deg)';
+                        toggleText.textContent = 'Hide Details';
+                    }
+                });
+            });
+        });
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#3B82F6", secondary: "#10B981" },
+                    borderRadius: { button: "8px" },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+                        'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+                        'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Mobile Menu Toggle -->
+                <div class="lg:hidden mb-6">
+                    <button
+                        id="impact-menu-toggle"
+                        class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+                    >
+                        <span>Impact & Resources</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform" id="impact-menu-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:w-72 flex-shrink-0 hidden lg:block" id="impact-sidebar">
+                    <div class="bg-white rounded-xl shadow-sm p-6 opacity-0 animate-slide-in-left">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Impact</h3>
+                        <nav class="space-y-6">
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Annual Reports</p>
+                                <a href="annual-report-2023.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium hover:bg-primary/15 transition-all">2023 Report</a>
+                                <a href="annual-report-2022.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2022 Report</a>
+                                <a href="annual-report-2021.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2021 Report</a>
+                                <a href="annual-report-2020.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2020 Report</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Other Resources</p>
+                                <a href="statistics.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Statistics</a>
+                                <a href="success-stories.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Success Stories</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Get Involved</p>
+                                <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                                <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                                <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                                <div class="mt-4 bg-gradient-to-br from-blue-500 to-teal-500 rounded-lg p-4 text-white">
+                                    <h4 class="font-semibold mb-2">Support Our Cause</h4>
+                                    <p class="text-sm mb-3">Join us in making a difference in the lives of young people across Africa</p>
+                                    <a href="donate.html" class="inline-block bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors">Donate Now</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="lg:w-3/4">
+                    <!-- Hero Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group">
+                        <div class="max-w-3xl">
+                            <h1 class="text-4xl font-bold text-gray-900 mb-4 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Annual Report 2023</h1>
+                            <p class="text-lg text-gray-600 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in delay-100">A year of growth, impact, and community transformation in youth development across Africa.</p>
+                            <a href="asset/files/anayd files/ANAYD ANNUAL REPORT 2023 .pdf" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors opacity-0 animate-fade-in group-[.in-view]:animate-fade-in delay-200">
+                                <i class="ri-download-line mr-2"></i>
+                                Download Full Report
+                            </a>
+                        </div>
+                    </section>
+                    
+                    <!-- Contents -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Contents</h2>
+                        <div class="grid md:grid-cols-2 gap-8 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <div class="space-y-4">
+                                <a href="#executive-summary" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">1</div>
+                                        <span class="font-medium text-gray-900">Executive Summary</span>
+                                    </div>
+                                </a>
+                                <a href="#directors-note" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">2</div>
+                                        <span class="font-medium text-gray-900">Executive Director's Note</span>
+                                    </div>
+                                </a>
+                                <a href="#key-highlights" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">3</div>
+                                        <span class="font-medium text-gray-900">Key Highlights</span>
+                                    </div>
+                                </a>
+                                <a href="#target-beneficiaries" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">4</div>
+                                        <span class="font-medium text-gray-900">Target Beneficiaries</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="space-y-4">
+                                <a href="#program-impact" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">5</div>
+                                        <span class="font-medium text-gray-900">Program Impact</span>
+                                    </div>
+                                </a>
+                                <a href="#key-projects" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">6</div>
+                                        <span class="font-medium text-gray-900">Key Projects</span>
+                                    </div>
+                                </a>
+                                <a href="#key-lessons" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">7</div>
+                                        <span class="font-medium text-gray-900">Key Lessons</span>
+                                    </div>
+                                </a>
+                                <a href="#financial-statement" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">8</div>
+                                        <span class="font-medium text-gray-900">Financial Statement</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Executive Summary -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="executive-summary">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">EXECUTIVE SUMMARY</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">The 2023 Annual Report of the African Network of Adolescents and Young Persons Development (ANAYD) provides a comprehensive overview of our initiatives, impact, and strategic direction over the past year. Rooted in our commitment to empower adolescents and young people in their diversities, ANAYD has remained steadfast in addressing key issues affecting young people, including HIV prevention and treatment access, gender equality, economic empowerment, governance, and digital advocacy.</p>
+                            
+                            <p class="text-gray-700">Furthermore, influencing policies and decisions, fostering more inclusiveness of AYPs in forums and platforms to amplify their voices, and strengthening capacity of health care providers to improve performance and quality of integrated health care service for adolescents and young people in their diversities.</p>
+                            
+                            <p class="text-gray-700">This report highlights our achievements, challenges, and lessons learned while outlining our strategic priorities for the future. In 2023, ANAYD successfully implemented programs across multiple thematic areas, reaching millions of young people across Africa with health services, education, and advocacy platforms. Our partnerships with local, regional, and global stakeholders enabled us to drive policy influence, capacity-building initiatives, and grassroots-level impact.</p>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">KEY ACHIEVEMENTS OF 2023 INCLUDE:</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Strengthening HIV prevention, treatment, and PrEP accessibility among adolescents and young key populations.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Expanding youth-friendly services and safe spaces for sexual and reproductive health education.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Advocating for gender equality, youth leadership, and meaningful youth participation in governance.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Utilizing digital platforms to amplify advocacy messages and mobilize young people for action.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Enhancing data-driven programming and community-led monitoring for improved service delivery.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <p class="text-gray-700">Despite facing funding constraints, policy limitations, and socio-economic challenges, ANAYD remained agile, leveraging strategic partnerships, data, and innovation to advance its mission. The lessons from 2023 reaffirm the need for youth-centered and evidence-based approaches in tackling emerging and persistent challenges affecting young people.</p>
+                            
+                            <p class="text-gray-700">As we step into 2024, ANAYD remains committed to expanding its impact, advocating for inclusive policies, and ensuring that every young person—regardless of their background or circumstance—has access to the rights, opportunities, and support they need to thrive.</p>
+                        </div>
+                    </section>
+                    
+                    <!-- Executive Director's Note -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="directors-note">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">THE EXECUTIVE DIRECTOR'S NOTE</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <div class="md:flex gap-8 items-start">
+                                <div class="md:w-3/4">
+                                    <p class="text-gray-700 mb-4">Closing another impactful year, I am pleased to present the 2023 Annual Report of the African Network of Adolescents and Young Persons Development (ANAYD). This report is more than a record of our activities; it is a reflection of our unwavering commitment to empowering young people, advancing public health, and advocating for the rights and well-being of adolescents and young persons in their diversities.</p>
+                                    
+                                    <p class="text-gray-700 mb-4">The past year has reinforced the importance of strategic partnerships, data-driven interventions, and youth-centered programming in addressing the challenges faced by young people across Africa. From prevention and treatment access to gender equality, economic empowerment, and digital advocacy, ANAYD has continued to work tirelessly to ensure that no young person is left behind.</p>
+                                    
+                                    <p class="text-gray-700 mb-4">I would like to express my deepest appreciation to our dedicated staff, volunteers, partners, donors, and stakeholders who have contributed to our successes in 2023. Your unwavering support has enabled us to expand our reach, strengthen our impact, and foster meaningful change in the lives of the communities we serve.</p>
+                                    
+                                    <p class="text-gray-700 mb-4">As we look ahead to 2024, we remain committed to scaling up our programs, leveraging innovation, and advocating for policies that create an enabling environment for all young people, regardless of their background or circumstances. We recognize that the challenges remain significant, but with collaboration, resilience, and a shared vision for a better future, we are confident that we can achieve even greater milestones in the years ahead.</p>
+                                    
+                                    <p class="text-gray-700">On behalf of the ANAYD team, I thank you for your continued support, and I invite you to join us in building a healthier, more inclusive, and empowered future for young people across Africa.</p>
+                                    
+                                    <p class="font-semibold text-gray-900 mt-4">Sincerely,<br>Haruna Aaron Sunday<br>Executive Director</p>
+                                </div>
+                                <div class="md:w-1/4 mt-4 md:mt-0">
+                                    <div class="bg-gray-100 rounded-xl p-4">
+                                        <img src="asset/images/team/Aaron.jpg" alt="Haruna Aaron Sunday, Executive Director ANAYD" class="w-full h-auto rounded-lg mb-3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Key Highlights -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group" id="key-highlights">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Key Highlights</h2>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="ri-user-heart-line text-2xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Community Impact</h3>
+                                        <p class="text-primary font-medium">40,000+ Lives Touched</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600">Successfully reached and impacted over 40,000 young people through our comprehensive programs.</p>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[200ms]">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="ri-heart-pulse-line text-2xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Healthcare Programs</h3>
+                                        <p class="text-primary font-medium">80% Success Rate</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600">Achieved significant milestones in healthcare initiatives with improved success rates.</p>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[300ms]">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="ri-group-line text-2xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Community Engagement</h3>
+                                        <p class="text-primary font-medium">150+ Events</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600">Successfully organized and conducted over 150 community events and training sessions.</p>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[400ms]">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="ri-funds-line text-2xl text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Resource Allocation</h3>
+                                        <p class="text-primary font-medium">85% Program Efficiency</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600">Maintained high efficiency in resource utilization with 85% of funds supporting direct program activities.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Target Beneficiaries -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="target-beneficiaries">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">OUR TARGET BENEFICIARIES</h2>
+                        <div class="space-y-8 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">ADOLESCENTS AND YOUNG PEOPLE</h3>
+                                    <p class="text-gray-600 text-sm">General population aged 10-24 years</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">ADOLESCENTS AND YOUNG WOMEN</h3>
+                                    <p class="text-gray-600 text-sm">Focusing on gender-specific health and empowerment needs</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">ADOLESCENTS AND YOUNG PEOPLE LIVING WITH HIV</h3>
+                                    <p class="text-gray-600 text-sm">(AYPLHIV)</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">ADOLESCENTS AND YOUNG PEOPLE LIVING WITH DISABILITY</h3>
+                                    <p class="text-gray-600 text-sm">(YPWD)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">YOUNG FEMALE SEX WORKERS</h3>
+                                    <p class="text-gray-600 text-sm">(YFSW)</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">YOUNG MEN WHO HAVE SEX WITH MEN</h3>
+                                    <p class="text-gray-600 text-sm">(YMSM)</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">YOUNG PEOPLE WHO INJECT DRUGS</h3>
+                                    <p class="text-gray-600 text-sm">(YPWID)</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">YOUNG LGBTQI</h3>
+                                    <p class="text-gray-600 text-sm">Lesbian, Gay, Bisexual, Transgender, Queer, and Intersex</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                    <div class="p-6">
+                                        <div class="flex flex-col items-center text-center">
+                                            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                                <i class="ri-user-line text-3xl text-primary"></i>
+                                            </div>
+                                            <h3 class="text-2xl font-bold text-primary">11,419</h3>
+                                            <p class="text-gray-600">Male Beneficiaries</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                    <div class="p-6">
+                                        <div class="flex flex-col items-center text-center">
+                                            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                                <i class="ri-women-line text-3xl text-primary"></i>
+                                            </div>
+                                            <h3 class="text-2xl font-bold text-primary">17,589</h3>
+                                            <p class="text-gray-600">Female Beneficiaries</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Our Inclusive Approach</h3>
+                                <p class="text-gray-700">In 2023, ANAYD continued to expand its reach to diverse populations of adolescents and young people, ensuring that our programs and services are accessible, inclusive, and responsive to the unique needs of each group. Our targeted approach allows us to address specific challenges faced by different populations while maintaining a holistic view of youth development.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Program Impact -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="program-impact">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Program Impact</h2>
+                        <div class="space-y-8 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                    <i class="ri-heart-pulse-line text-primary mr-2"></i>
+                                    Network Initiative to Improve Key Population-Friendly Public Healthcare Services in Nigeria
+                                </h3>
+                                <p class="text-gray-700 mb-4">The African Network of Adolescents and Young Persons Development (ANAYD), with funding support from Initiative Sankofa d'Afrique de l'Ouest (ISDAO), implemented the Network Initiative to Improve Key Population-Friendly Public Healthcare Services in Nigeria project from November 2023 to February 2024. This four-month initiative was carried out in four states—Lagos, Anambra, Benue, Kaduna, and Rivers—and aimed to address barriers to healthcare access for adolescents and young people (AYPs) in their diversities, including HIV-prevalence states—Adolescents and Young Women (AGYW), Adolescents and Young People Living with HIV (AYPLHIV), Young Lesbian, Gay, Bisexual, Transgender, Queer, and Intersex (YLGBTQI+), and Young Persons with Disabilities (YPWD).</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-2">Objectives</h4>
+                                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                            <li>Promote access to non-discriminatory, youth-friendly, and integrated healthcare services for AYPs in their diversities.</li>
+                                            <li>Strengthen the capacity of healthcare workers to deliver comprehensive and non-discriminatory services.</li>
+                                            <li>Build alliances with key government stakeholders, health professionals, and youth organizations for sustained advocacy.</li>
+                                        </ol>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-2">Key Activities</h4>
+                                        <ul class="space-y-2 text-gray-700">
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-check-line text-primary mt-1"></i>
+                                                <span>Engaged 55 stakeholders, including government agencies, health professionals, and youth advocates</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-check-line text-primary mt-1"></i>
+                                                <span>Conducted advocacy visits to 15 government institutions</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-check-line text-primary mt-1"></i>
+                                                <span>Trained 121 healthcare workers on providing youth-friendly services</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-check-line text-primary mt-1"></i>
+                                                <span>Conducted 4 consultation meetings with 120 adolescents and young people</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-check-line text-primary mt-1"></i>
+                                                <span>Reached 19 million people through social media campaign</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Impact Highlights</h3>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span><strong>Increased Awareness:</strong> Over 120 stakeholders trained to provide non-discriminatory healthcare services tailored to the needs of AYPs.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span><strong>Stronger Alliances:</strong> Partnerships with 15 government institutions and key civil society organizations strengthened to sustain advocacy efforts.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span><strong>Broad Outreach:</strong> The social media campaign engaged millions, amplifying the call for inclusive health services.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span><strong>Healthcare Access:</strong> Trained healthcare workers began implementing non-stigmatizing and inclusive practices in eight healthcare facilities across the four states.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Important Figures</h3>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <p class="text-gray-600 text-sm">Stakeholders Engaged</p>
+                                            <p class="text-2xl font-bold text-primary">55</p>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <p class="text-gray-600 text-sm">Healthcare Workers Trained</p>
+                                            <p class="text-2xl font-bold text-primary">121</p>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <p class="text-gray-600 text-sm">Social Media Reach</p>
+                                            <p class="text-2xl font-bold text-primary">19M</p>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <p class="text-gray-600 text-sm">AYPs Consulted</p>
+                                            <p class="text-2xl font-bold text-primary">120</p>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <p class="text-gray-600 text-sm">Advocacy Visits</p>
+                                            <p class="text-2xl font-bold text-primary">15</p>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <p class="text-gray-600 text-sm">ICASA Participants</p>
+                                            <p class="text-2xl font-bold text-primary">23</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
+                                <p class="text-gray-700">The project has laid the foundation for a more inclusive healthcare system for adolescents and young people in Nigeria. By addressing stigma, building capacity, and fostering alliances, the initiative has improved access to quality healthcare for key populations. Sustaining these efforts will require continuous collaboration among stakeholders, policy reform, and investment in youth-focused health initiatives.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Key Projects -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="key-projects">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Key Projects</h2>
+                        <div class="space-y-8 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <!-- ICASA Conference -->
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-4">ICASA 2023 CONFERENCE VIRTUAL HUB</h3>
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <p class="text-gray-700 mb-4">The International Conference on AIDS and STIs in Africa (ICASA) 2023 was a beacon of hope and urgency, illuminating the critical battle against HIV/AIDS and other emerging diseases in Africa. This pivotal event, held in the aftermath of the COVID-19 pandemic, gathered leaders, activists, scientists, and communities to address the complexities of the region's health landscape and its impact on vulnerable populations.</p>
+                                            
+                                            <p class="text-gray-700 mb-4">Themed "AIDS is Not Over: Address Inequalities, Accelerate Inclusion, and Innovation," ICASA underscored the continued threat of AIDS and the imperative need to act decisively. Key objectives revolved around mainstreaming equity, reinforcing domestic financing and community response, addressing multiple health crises, and bolstering health systems to mitigate the impact of various diseases, including HIV/AIDS, COVID-19, Ebola, and Hepatitis.</p>
+                                            
+                                            <p class="text-gray-700">The conference emphasized the invaluable role of communities in leading the fight against HIV/AIDS. It shed light on the dire consequences of diverting HIV resources to combat COVID-19, hindering progress in HIV response efforts. Yet, the call to action remained resolute - Africa cannot relent in striving for an AIDS-free future.</p>
+                                        </div>
+                                        <div>
+                                            <div class="bg-gray-50 rounded-xl p-6 mb-4">
+                                                <h4 class="font-semibold text-gray-900 mb-3">Virtual Hub</h4>
+                                                <p class="text-gray-700 mb-4">As part of efforts supporting communities to lead the journey to end AIDS in Africa, ANAYD hosted a virtual hub in Nigeria which allowed Adolescents and Young Persons (AYPs) in their diversities to join the conference virtually. Participants identified the vital roles that program ownership, advocacy and storytelling play in young people's efforts to contribute maximally to the fight against AIDS.</p>
+                                                
+                                                <div class="grid grid-cols-2 gap-4 mt-4">
+                                                    <img src="asset/images/icasa-hub-1.jpg" alt="ICASA Virtual Hub participants" class="w-full h-auto rounded-lg">
+                                                    <img src="asset/images/icasa-hub-2.jpg" alt="ICASA Virtual Hub session" class="w-full h-auto rounded-lg">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="bg-blue-50 rounded-xl p-4 border-l-4 border-primary">
+                                                <p class="text-gray-700">"Ultimately, ICASA 2023 was a rallying cry for collective action and solidarity in the fight against HIV/AIDS and emerging diseases. The resounding message echoed - through unity, innovation, and community-led initiatives, an AIDS-free Africa is an achievable reality."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Young Emerging Leaders -->
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-4">YOUNG EMERGING LEADERS PROGRAMME (YEL)</h3>
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <p class="text-gray-700 mb-4">The Young Emerging Leaders Programme (YEL) was a transformative and dynamic initiative spearheaded by GNP+ and Y+ Global and implemented in Nigeria by ANAYD. Designed to amplify the voices of young people living with or affected by HIV, the programme strengthened their capacity to engage in national and global decision-making platforms.</p>
+                                            
+                                            <p class="text-gray-700 mb-4">Over seven months (June to December 2023), three carefully selected young leaders—Emmanuel, Darington, and Joy—embarked on a journey of personal and professional growth through advocacy, training, and strategic engagement.</p>
+                                            
+                                            <div class="bg-gray-50 rounded-xl p-4 mt-4">
+                                                <h4 class="font-semibold text-gray-900 mb-2">Programme Objectives</h4>
+                                                <ul class="space-y-2 text-gray-700">
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>Equip YELs with knowledge and skills to influence decision-making processes at the global level</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>Strengthen their ability to advocate for key populations, young people living with HIV, and adolescents and young persons affected by HIV</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>Support meaningful engagement with stakeholders, policymakers, and institutions to achieve sustainable outcomes in HIV programming and SRHR advocacy</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="bg-gray-50 rounded-xl p-4 mb-4">
+                                                <h4 class="font-semibold text-gray-900 mb-2">Key Achievements</h4>
+                                                <ul class="space-y-3 text-gray-700">
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                        <span><strong>Global Recognition:</strong> Emmanuel and Joy represented their communities on international platforms, ensuring the inclusion of young persons' voices in global HIV advocacy.</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                        <span><strong>Community Impact:</strong> Through targeted campaigns and in-country advocacy, the YELs fostered greater awareness of SRHR and HIV prevention within their communities.</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                        <span><strong>Skills Development:</strong> The YELs enhanced their technical and advocacy skills, empowering them to sustain their work beyond the programme's duration.</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <p class="text-gray-700">The Young Emerging Leaders Programme (YEL) has successfully empowered three Nigerian youth to advocate for HIV/AIDS awareness and SRHR on global platforms. By equipping them with the tools and knowledge to influence decision-making, the programme has set a precedent for future cohorts. Though concluded, the YELs remain steadfast in their commitment to fostering change within their communities and inspiring the next generation of advocates. The sustainability of such initiatives will rely heavily on strategic planning, increased funding, and continued mentorship.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- ANAYD/EGPAF AP3 AYP Social Network Testing -->
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-4">ANAYD/EGPAF AP3 AYP SOCIAL NETWORK TESTING (SNT) PROJECT</h3>
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <p class="text-gray-700 mb-4">The African Network of Adolescents and Young People Development (ANAYD), in partnership with the Elizabeth Glaser Pediatric AIDS Foundation (EGPAF), convened a stakeholders' engagement meeting to introduce the Social Network Testing (SNT) project under the AP3 AYP initiative. The meeting aimed to discuss the implementation strategy, stakeholder roles, and key priorities for the project within Lagos State. The engagement provided an avenue for alignment of efforts and the establishment of collaborative partnerships for successful project execution.</p>
+                                            
+                                            <div class="bg-gray-50 rounded-xl p-4 mt-4">
+                                                <h4 class="font-semibold text-gray-900 mb-2">Objectives</h4>
+                                                <ul class="space-y-2 text-gray-700">
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>To introduce the ANAYD/EGPAF AP3 AYP Social Network Testing (SNT) Project.</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>To foster collaboration among stakeholders and align priorities for effective project implementation.</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>To review lessons learned from the STAR III Project and explore strategies for scaling up Social and Sexual Network Testing among Adolescents and Young People (AYP).</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>To discuss innovative approaches to HIV self-testing (HIVST) and PrEP distribution among target populations in Lagos State.</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="bg-gray-50 rounded-xl p-4 mb-4">
+                                                <h4 class="font-semibold text-gray-900 mb-2">STAR III Project Achievements</h4>
+                                                <p class="text-gray-700 mb-3">ANAYD provided an in-depth review of the STAR III Project, which served as a foundation for the SNT initiative. Key outcomes included:</p>
+                                                <ul class="space-y-2 text-gray-700">
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>18,500 individuals reached with HIV self-testing kits</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>118 reactive cases confirmed positive and successfully linked to care</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>15,701 condoms and lubricants distributed, coupled with risk reduction counseling</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-check-line text-primary mt-1"></i>
+                                                        <span>748 clients enrolled on PrEP for HIV prevention</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="bg-blue-50 rounded-xl p-4 border-l-4 border-primary">
+                                                <h4 class="font-semibold text-gray-900 mb-2">Key Actions for the SNT Project</h4>
+                                                <ul class="space-y-2 text-gray-700">
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-arrow-right-line text-primary mt-1"></i>
+                                                        <span>Expanding social and sexual network testing among AYP in Alimosho, Mushin, and Ifako-Ijaiye LCAs</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-arrow-right-line text-primary mt-1"></i>
+                                                        <span>Enhancing digital outreach and demand creation for HIVST and PrEP</span>
+                                                    </li>
+                                                    <li class="flex items-start gap-2">
+                                                        <i class="ri-arrow-right-line text-primary mt-1"></i>
+                                                        <span>Aligning with state priorities and engaging local partners to ensure targeted interventions</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Social Media Impact -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="social-media-impact">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">SOCIAL MEDIA IMPACT</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <div class="flex flex-col md:flex-row gap-8 items-center">
+                                <div class="md:w-1/2">
+                                    <div class="bg-gray-50 rounded-xl p-6">
+                                        <div class="flex items-center justify-center mb-6">
+                                            <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
+                                                <i class="ri-global-line text-4xl text-primary"></i>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-center text-primary mb-2">19 Million</h3>
+                                        <p class="text-xl text-center text-gray-700 font-medium">Social Media Reach</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="md:w-1/2">
+                                    <div class="space-y-4">
+                                        <h3 class="text-lg font-semibold text-gray-900">Education Saves Lives Social Media Campaign</h3>
+                                        <p class="text-gray-700">The Education Saves Lives Campaign launched by ANAYD with UNESCO Nigeria in 2023 is a powerful initiative designed to advocate for the well-being of adolescents and youth in Nigeria. It raises awareness about the importance of education in addressing pressing global challenges such as public health, gender equality, and the well-being of youth, particularly in Nigeria.</p>
+                                        
+                                        <p class="text-gray-700">The campaign focused on the critical role that education plays in saving lives, with a particular emphasis on empowering young people and adolescents. It aimed to promote awareness of how education can be a tool for health education, reducing maternal mortality, improving family planning, combating HIV/AIDS, and empowering individuals to make informed health decisions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Campaign Highlights</h3>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span><strong>Platform:</strong> Strategic use of Facebook, Instagram, and Twitter</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span><strong>Engagement:</strong> Stakeholders, educators, and influencers participated</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span><strong>Hashtags:</strong> #EducationSavesLives and #Nigeria amplified the message</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Campaign Results</h3>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Over 4.5 million reach across social media platforms</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>High levels of engagement including mentions, shares, likes</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Strong platform for advocacy and mobilization</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Key Takeaways</h3>
+                                    <p class="text-gray-700">The 2023 Education Saves Lives campaign reaffirmed the essential link between education and health outcomes, underscoring that access to education is not just about academic success but also about improving the quality of life for individuals and communities.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Social Media Impact Comparison Across Platforms</h3>
+                                    <div class="h-80 bg-gray-50 rounded-lg p-4">
+                                        <div class="flex items-end justify-around h-64 gap-4">
+                                            <!-- Twitter -->
+                                            <div class="flex flex-col items-center">
+                                                <div class="flex flex-col items-center mb-2">
+                                                    <div class="h-48 w-16 bg-blue-400 rounded-t-lg relative overflow-hidden">
+                                                        <div class="absolute bottom-0 w-full">
+                                                            <!-- Likes bar -->
+                                                            <div class="h-24 bg-blue-600 w-full"></div>
+                                                            <!-- Comments bar -->
+                                                            <div class="h-12 bg-blue-800 w-full"></div>
+                                                            <!-- Shares bar -->
+                                                            <div class="h-8 bg-blue-900 w-full"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex space-x-1 mt-1">
+                                                        <div class="w-3 h-3 bg-blue-600 rounded-full"></div>
+                                                        <div class="w-3 h-3 bg-blue-800 rounded-full"></div>
+                                                        <div class="w-3 h-3 bg-blue-900 rounded-full"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="text-sm font-medium">Twitter</span>
+                                            </div>
+                                            
+                                            <!-- Facebook -->
+                                            <div class="flex flex-col items-center">
+                                                <div class="flex flex-col items-center mb-2">
+                                                    <div class="h-48 w-16 bg-indigo-400 rounded-t-lg relative overflow-hidden">
+                                                        <div class="absolute bottom-0 w-full">
+                                                            <!-- Likes bar -->
+                                                            <div class="h-40 bg-indigo-600 w-full"></div>
+                                                            <!-- Comments bar -->
+                                                            <div class="h-16 bg-indigo-800 w-full"></div>
+                                                            <!-- Shares bar -->
+                                                            <div class="h-10 bg-indigo-900 w-full"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex space-x-1 mt-1">
+                                                        <div class="w-3 h-3 bg-indigo-600 rounded-full"></div>
+                                                        <div class="w-3 h-3 bg-indigo-800 rounded-full"></div>
+                                                        <div class="w-3 h-3 bg-indigo-900 rounded-full"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="text-sm font-medium">Facebook</span>
+                                            </div>
+                                            
+                                            <!-- Instagram -->
+                                            <div class="flex flex-col items-center">
+                                                <div class="flex flex-col items-center mb-2">
+                                                    <div class="h-48 w-16 bg-pink-400 rounded-t-lg relative overflow-hidden">
+                                                        <div class="absolute bottom-0 w-full">
+                                                            <!-- Likes bar -->
+                                                            <div class="h-44 bg-pink-600 w-full"></div>
+                                                            <!-- Comments bar -->
+                                                            <div class="h-20 bg-pink-800 w-full"></div>
+                                                            <!-- Shares bar -->
+                                                            <div class="h-12 bg-pink-900 w-full"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex space-x-1 mt-1">
+                                                        <div class="w-3 h-3 bg-pink-600 rounded-full"></div>
+                                                        <div class="w-3 h-3 bg-pink-800 rounded-full"></div>
+                                                        <div class="w-3 h-3 bg-pink-900 rounded-full"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="text-sm font-medium">Instagram</span>
+                                            </div>
+                                            
+                                            <!-- TikTok -->
+                                            <div class="flex flex-col items-center">
+                                                <div class="flex flex-col items-center mb-2">
+                                                    <div class="h-48 w-16 bg-teal-400 rounded-t-lg relative overflow-hidden">
+                                                        <div class="absolute bottom-0 w-full">
+                                                            <!-- Likes bar -->
+                                                            <div class="h-48 bg-teal-600 w-full"></div>
+                                                            <!-- Comments bar -->
+                                                            <div class="h-30 bg-teal-800 w-full"></div>
+                                                            <!-- Shares bar -->
+                                                            <div class="h-24 bg-teal-900 w-full"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex space-x-1 mt-1">
+                                                        <div class="w-3 h-3 bg-teal-600 rounded-full"></div>
+                                                        <div class="w-3 h-3 bg-teal-800 rounded-full"></div>
+                                                        <div class="w-3 h-3 bg-teal-900 rounded-full"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="text-sm font-medium">TikTok</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-center mt-4">
+                                            <div class="flex items-center space-x-6">
+                                                <div class="flex items-center">
+                                                    <div class="w-3 h-3 bg-blue-600 rounded-full mr-1"></div>
+                                                    <span class="text-xs text-gray-600">Likes</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <div class="w-3 h-3 bg-blue-800 rounded-full mr-1"></div>
+                                                    <span class="text-xs text-gray-600">Comments</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <div class="w-3 h-3 bg-blue-900 rounded-full mr-1"></div>
+                                                    <span class="text-xs text-gray-600">Shares</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Key Lessons -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="key-lessons">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">KEY LESSONS IN 2023</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">The implementation of various programs and initiatives in 2023 provided valuable insights that will guide future interventions. These lessons highlight key challenges, successes, and areas for improvement in advancing the rights, health, and well-being of adolescents and young persons in their diversities.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">1</span>
+                                        Strengthening Multi-Sectoral Collaboration
+                                    </h3>
+                                    <p class="text-gray-700">One of the most impactful takeaways was the importance of collaboration between governmental agencies, civil society organizations, and international partners. Programs that integrated efforts from multiple stakeholders—such as NACA, the Federal Ministry of Health (FMOH), and UNAIDS—proved to be more effective, especially in service delivery and advocacy. Going forward, stronger coordination mechanisms and structured engagement strategies with key stakeholders will be essential in sustaining progress.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">2</span>
+                                        Community-Led Approaches Yield Greater Impact
+                                    </h3>
+                                    <p class="text-gray-700">The engagement of adolescents and young people (AYP) in program design, implementation, and advocacy significantly increased ownership and uptake of services. Community-led monitoring, peer-led sensitization, and youth-friendly services proved to be critical drivers in increasing demand for HIV testing, treatment adherence, and sexual and reproductive health services. Future programs will further prioritize peer-driven interventions and capacity building for young advocates to enhance meaningful participation.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">3</span>
+                                        Digital Platforms as a Game Changer
+                                    </h3>
+                                    <p class="text-gray-700">The use of social media, digital campaigns, and online advocacy played a pivotal role in reaching and engaging young people, particularly through Twitter campaigns like Education Saves Lives and online demand creation for HIV Self-Testing (HIVST). However, digital literacy gaps and accessibility issues among marginalized groups, including young persons with disabilities (YPWD), were identified as barriers. There is a need to develop inclusive digital strategies and expand multilingual content to ensure broader reach.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">4</span>
+                                        Addressing Structural Barriers to Healthcare Access
+                                    </h3>
+                                    <p class="text-gray-700">Despite significant progress, stigma, discrimination, and policy limitations continue to hinder access to health services, particularly for key populations (KP), young men who have sex with men (YMSM), and young female sex workers (YFSW). Some beneficiaries reported fear of being identified and stigmatized, preventing them from seeking services. Strengthening safe spaces, confidentiality protocols, and policy advocacy remains essential in ensuring that AYP, regardless of background, have unrestricted access to healthcare.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">5</span>
+                                        The Need for Sustainable Funding Models
+                                    </h3>
+                                    <p class="text-gray-700">Financial constraints remain a major challenge, with heavy reliance on donor funding limiting the long-term sustainability of programs. While initiatives like Demand Side Financing (DSF) for HIVST demonstrated success, there is an urgent need to diversify funding streams through private sector engagement, government buy-in, and innovative financing mechanisms such as social enterprises and community-led funding models.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">6</span>
+                                        Integration of Mental Health Support in HIV and SRHR Services
+                                    </h3>
+                                    <p class="text-gray-700">The increasing demand for mental health support among AYP highlighted the interconnection between mental health and health-seeking behavior. Adolescents and young people living with HIV (AYPLHIV) expressed challenges related to treatment fatigue, depression, and social isolation. While psychosocial support services were incorporated into some programs, a more structured and accessible mental health framework is needed, including counseling services, psychosocial support groups, and awareness campaigns on mental well-being.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">7</span>
+                                        Leveraging Advocacy to Drive Policy Change
+                                    </h3>
+                                    <p class="text-gray-700">Policy engagement efforts throughout 2023 reinforced the power of strategic advocacy in influencing policy reforms. Through platforms like the National Prevention Technical Working Group (NPTWG) and Global Fund dialogues, young advocates successfully contributed to discussions on PrEP access, HIV prevention, and gender-responsive policies. However, advocacy efforts must be sustained and scaled up to push for policy implementation and accountability at both state and national levels.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">8</span>
+                                        Tailored Approaches for Reaching Underrepresented Groups
+                                    </h3>
+                                    <p class="text-gray-700">Certain groups, including young persons with disabilities (YPWD), adolescents aged 10-14 years, remain underserved due to service accessibility challenges and cultural stigmatization. Lessons from the Social Network Testing (SNT) approach highlighted the effectiveness of targeted, community-specific strategies in reaching hidden populations. Future interventions must integrate more data-driven, age-sensitive, and disability-inclusive programming to ensure that no group is left behind.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
+                                <p class="text-gray-700">In looking forward to 2024, ANAYD remains committed to leveraging these insights to enhance program delivery, foster meaningful youth engagement, and advocate for policies that create an enabling environment for all young people, regardless of their background or circumstances.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Financial Statement -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="financial-statement">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Financial Statement</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">In 2023, ANAYD.org maintained strong financial health, with a focus on maximizing program impact while ensuring operational sustainability. Our financial management practices prioritize transparency, accountability, and efficient resource allocation to achieve our mission of improving the lives of adolescents and young people across Africa.</p>
+                            
+                            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <i class="ri-funds-line text-2xl text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900">Total Revenue</h3>
+                                            <p class="text-primary font-medium">₦50,488,197</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">Primarily from donations and grants, with a small portion from other income sources.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <i class="ri-hand-heart-line text-2xl text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900">Total Expenditure</h3>
+                                            <p class="text-primary font-medium">₦50,257,083</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">Primarily office expenditure, with smaller allocations for depreciation and audit fees.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <i class="ri-line-chart-line text-2xl text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900">Surplus</h3>
+                                            <p class="text-primary font-medium">₦231,114</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">Representing a positive balance that will be reinvested in our programs.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Statement of Income and Expenditure -->
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden mb-6">
+                                <button class="collapsible-header w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                                    <h3 class="text-lg font-semibold text-gray-900">Statement of Income and Expenditure</h3>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm text-gray-500 toggle-text">Show Details</span>
+                                        <i class="ri-arrow-down-s-line text-xl text-gray-500 toggle-icon transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div class="collapsible-content hidden p-4">
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-left">
+                                            <thead>
+                                                <tr class="border-b border-gray-200">
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Income</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">2023 (₦)</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">2022 (₦)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Donations/Grants received</td>
+                                                    <td class="py-3 px-4 text-gray-600">50,187,542</td>
+                                                    <td class="py-3 px-4 text-gray-600">47,342,775</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Other income</td>
+                                                    <td class="py-3 px-4 text-gray-600">-</td>
+                                                    <td class="py-3 px-4 text-gray-600">14,647,055</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Refunds</td>
+                                                    <td class="py-3 px-4 text-gray-600">300,655</td>
+                                                    <td class="py-3 px-4 text-gray-600">2,736,500</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200 font-semibold">
+                                                    <td class="py-3 px-4 text-gray-700">TOTAL INCOME</td>
+                                                    <td class="py-3 px-4 text-gray-700">50,488,197</td>
+                                                    <td class="py-3 px-4 text-gray-700">64,726,330</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                                        <table class="w-full text-left mt-6">
+                                            <thead>
+                                                <tr class="border-b border-gray-200">
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Expenditure</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">2023 (₦)</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">2022 (₦)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Office expenditure</td>
+                                                    <td class="py-3 px-4 text-gray-600">50,001,309</td>
+                                                    <td class="py-3 px-4 text-gray-600">55,226,009</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Depreciation</td>
+                                                    <td class="py-3 px-4 text-gray-600">105,774</td>
+                                                    <td class="py-3 px-4 text-gray-600">105,774</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Audit fees</td>
+                                                    <td class="py-3 px-4 text-gray-600">150,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">100,000</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200 font-semibold">
+                                                    <td class="py-3 px-4 text-gray-700">TOTAL EXPENDITURE</td>
+                                                    <td class="py-3 px-4 text-gray-700">50,257,083</td>
+                                                    <td class="py-3 px-4 text-gray-700">55,431,783</td>
+                                                </tr>
+                                                <tr class="font-semibold">
+                                                    <td class="py-3 px-4 text-gray-700">Surplus/deficit of Income over expenditure</td>
+                                                    <td class="py-3 px-4 text-gray-700">231,114</td>
+                                                    <td class="py-3 px-4 text-gray-700">9,294,547</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Statement of Financial Position -->
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden mb-6">
+                                <button class="collapsible-header w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                                    <h3 class="text-lg font-semibold text-gray-900">Statement of Financial Position</h3>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm text-gray-500 toggle-text">Show Details</span>
+                                        <i class="ri-arrow-down-s-line text-xl text-gray-500 toggle-icon transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div class="collapsible-content hidden p-4">
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-left">
+                                            <thead>
+                                                <tr class="border-b border-gray-200">
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold"></th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">2023 (₦)</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">2022 (₦)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600 font-semibold">Fixed Assets at NBV</td>
+                                                    <td class="py-3 px-4 text-gray-600">364,816</td>
+                                                    <td class="py-3 px-4 text-gray-600">470,590</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600 font-semibold">Current Assets</td>
+                                                    <td class="py-3 px-4 text-gray-600">24,130,343</td>
+                                                    <td class="py-3 px-4 text-gray-600">4,988,539</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200 font-semibold">
+                                                    <td class="py-3 px-4 text-gray-700">Total Assets</td>
+                                                    <td class="py-3 px-4 text-gray-700">24,495,159</td>
+                                                    <td class="py-3 px-4 text-gray-700">5,459,129</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600 font-semibold">Current Liabilities</td>
+                                                    <td class="py-3 px-4 text-gray-600">3,150,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">-</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200 font-semibold">
+                                                    <td class="py-3 px-4 text-gray-700">Net Assets</td>
+                                                    <td class="py-3 px-4 text-gray-700">21,345,159</td>
+                                                    <td class="py-3 px-4 text-gray-700">-</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200 font-semibold">
+                                                    <td class="py-3 px-4 text-gray-700">Financed By: Accumulated fund</td>
+                                                    <td class="py-3 px-4 text-gray-700">21,345,159</td>
+                                                    <td class="py-3 px-4 text-gray-700">6,036,614</td>
+                                                </tr>
+                                                <tr class="font-semibold">
+                                                    <td class="py-3 px-4 text-gray-700">Total Fund</td>
+                                                    <td class="py-3 px-4 text-gray-700">21,345,159</td>
+                                                    <td class="py-3 px-4 text-gray-700">6,036,614</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Financial Outlook for 2024</h3>
+                                <p class="text-gray-700">Based on our financial performance in 2023 and secured funding commitments, we project continued growth in 2024. We aim to increase our program funding while maintaining administrative costs at current levels. This will allow us to expand our reach and impact across more communities in Africa, particularly focusing on scaling up our successful HIV/AIDS programs and digital initiatives.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <script src="js/animations.js"></script>
+</body>
+</html>

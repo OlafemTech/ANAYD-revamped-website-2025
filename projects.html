@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Gender Based Violence (GBV)- African Network for Adolescents and Young Persons Development (ANAYD)" />
+    <meta name="keywords" content="Gender Based Violence, GBV, Gender, Violence, Human right, Our Work, Services, Projects, Programs, Core Strategies, Thematic Areas, Donors, Supporters, African Network, Adolescents, Young Persons Development, NGO Funding, Development Partners" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>GBV - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script> -->
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="pt-20 min-h-screen">
+      <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Mobile Menu Toggle -->
+          <div class="lg:hidden mb-6">
+            <button
+              id="projects-menu-toggle"
+              class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+            >
+              <span>Projects & Reports</span>
+              <i class="ri-arrow-down-s-line text-xl transition-transform" id="projects-menu-icon"></i>
+            </button>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="lg:w-72 flex-shrink-0 hidden lg:block" id="projects-sidebar">
+            <div class="bg-white rounded-xl shadow-sm p-6 sticky top-24 opacity-0 animate-slide-in-left">
+              <h3 class="text-lg font-semibold text-primary mb-4 relative">Projects<span class="absolute -left-3 top-1/2 transform -translate-y-1/2 w-1.5 h-6 bg-primary rounded-r-md"></span></h3>
+              <nav class="space-y-6">
+                <div class="space-y-2">
+                  <p class="font-medium text-gray-900">Project Reports</p>
+                  <a href="project-reports.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">All Project Report</a>
+                  <a href="projects.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium hover:bg-primary/15 transition-all">Projects Overview</a>
+                  <a href="annual-report-2023.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Our Annual Report</a>
+                </div>
+                <div class="space-y-2">
+                  <p class="font-medium text-gray-900">Other Resources</p>
+                  <a href="statistics.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Statistics</a>
+                  <a href="success-stories.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Success Stories</a>
+                </div>
+                <div class="space-y-2">
+                  <p class="font-medium text-gray-900">Get Involved</p>
+                  <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                  <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partnership</a>
+                </div>
+                <div class="mt-4 bg-gradient-to-br from-blue-500 to-teal-500 rounded-lg p-4 text-white">
+                  <h4 class="font-semibold mb-2">Support Our Projects</h4>
+                  <p class="text-sm mb-3">Join us in making a difference in the lives of young people across Africa</p>
+                  <a href="donate.html" class="inline-block bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors">Donate Now</a>
+                </div>
+              </nav>
+            </div>
+          </aside>
+
+          <!-- Main Content Area -->
+          <div class="flex-1">
+            <div class="space-y-12">
+              <!-- Page Title -->
+              <div class="border-b border-gray-200 pb-8">
+                <h1 class="text-4xl font-bold text-gray-900" data-animate="slide-up">Our Projects</h1>
+                <p class="mt-4 text-lg text-gray-600" data-animate="slide-up" data-delay="200">Discover our impactful initiatives and programs that are making a difference in communities across Africa.</p>
+              </div>
+          
+              <!-- Analytics Overview -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Project Distribution Chart -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="fade-in">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">Project Distribution</h3>
+            <div class="aspect-square">
+              <canvas id="projectDistributionChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Yearly Progress Chart -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="fade-in" data-delay="200">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">Yearly Progress</h3>
+            <div class="aspect-[4/3]">
+              <canvas id="yearlyProgressChart"></canvas>
+            </div>
+          </div>       <!-- Key Metrics -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 lg:col-span-2" data-animate="fade-in" data-delay="400">
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 rounded-lg p-6 text-center">
+                      <h4 class="text-lg font-semibold text-gray-900 mb-2">Total Fund Raised</h4>
+                      <p class="text-3xl font-bold text-primary">$448,367</p>
+                      <p class="text-lg text-gray-600 mt-1">#151,737,823</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-6 text-center">
+                      <h4 class="text-lg font-semibold text-gray-900 mb-2">Active Projects</h4>
+                      <p class="text-3xl font-bold text-primary">28+</p>
+                      <p class="text-sm text-gray-600 mt-1">Across Nigeria</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-6 text-center">
+                      <h4 class="text-lg font-semibold text-gray-900 mb-2">People Impacted</h4>
+                      <p class="text-3xl font-bold text-primary">6Million+</p>
+                      <p class="text-sm text-gray-600 mt-1">Direct Beneficiaries</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Focus Areas -->
+              <div class="bg-gray-50 rounded-xl p-6">
+                <h3 class="text-xl font-semibold mb-4">Key Focus Areas</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HIV/AIDS</span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Youth Leadership</span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Healthcare</span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Education</span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">COVID-19</span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">SRHR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto px-4 py-16">
+        <div class="max-w-5xl mx-auto space-y-6">
+          <!-- Current Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-project-item>
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-health-book-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-2">
+                  <h3 class="text-xl font-semibold text-gray-900">Inclusive Health For All</h3>
+                  <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Current</span>
+                </div>
+                <p class="text-sm text-blue-600 mb-2">USD 30,000 | Oct 2023 - Jan 2024</p>
+                <p class="text-gray-600">Currently Implementing a USD 30,000 (22,963,500 Naira) grant supported by ISDAO for a 4 months (October 2023-January 2024). The Network initiative to improving key population friendly public healthcare service in Nigeria(#Inclusivehealth4all). The project is geared towards improving healthcare workers capacity to provide key population friendly service to adolescents and young people in their diversities in an integrated approach across 4 states namely (Anambra, Benue, Kaduna and Rivers).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SNT Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="100">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-test-tube-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Social Networking Testing (SNT) Project</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 51,000 | Apr - Sep 2023</p>
+                <p class="text-gray-600">Implemented a USD51,000 (23,500,000 Naira) grant supported by Elizabeth Glaser Pediatric AIDS Foundation (EGPAF) for 6 months (April -September 2023). The Social Networking Testing (SNT) Project is Strategy 1 under the ongoing AP3 Project which aims at reaching about 71,000 adolescents and young people in their diversities with HIV Testing Service across 9 Local Government Areas of 3 state namely (Benue, Lagos and Rivers state) in Nigeria.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Young Emerging Leaders Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="200" data-project-item>
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-user-star-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Young Emerging Leaders Project</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 6,400 | Jun - Dec 2023</p>
+                <p class="text-gray-600">Implemented a USD 6,400 (2,841,600) grant supported by Global Network of Young People Living with HIV (Y+) for 6 months (June-December 2023) Young Emerging Leaders Project in Nigeria.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATA Youth Summit -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="300">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-group-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">PATA Youth Summit 2022</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 4,800 | Nov 2022</p>
+                <p class="text-gray-600">Hosted PATA YOUTH SUMMIT 2022 Virtual Hub to support meaningful participation of 29 adolescents and young people in their diversities on 21st to 23rd November 2022 with 4800 USD (2,126,400) support from Global Network of Young People Living with HIV (Y+ Global).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Save Life Campaign -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="400" data-project-item>
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-book-open-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Education Save Life Campaign</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 3,614 | Sep 2022</p>
+                <p class="text-gray-600">Implemented 1 Month (1st-30th September 2022) Education Save Life Campaign with 3,614 USD (1,572,090) funding support from UNESCO.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- IAS HIV Cure Research Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="500">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-microscope-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">HIV Cure Research Project</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 10,000 | Jan - Dec 2022</p>
+                <p class="text-gray-600">Implemented a 10,000USD (4,100,000 Naira) grant by International AIDS Society (IAS) for 12 months project (January 2022-December 2022). Aimed at implementing advocacy strategies to build and support HIV cure research in Nigeria, build advocacy networks and promote access to HIV cure education and information for clients, advocates and healthcare providers in Lagos and Kaduna State Nigeria.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social AID Fund Project 2.0 -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="600">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-funds-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Social AID Fund Project 2.0</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 5,110 | Nov 2021 - Apr 2022</p>
+                <p class="text-gray-600">Implemented a 5,110USD (2,095,100 Naira) grant supported by Global Network of Young People Living with HIV (Y+) and UNIADS Global Office to implement a 6months (November 2021 -April 2022) "Social AID Fund Project 2.0" in Nigeria. Developed a situation analysis report on COVID-19 impact amongst adolescents and young people living with HIV and young key populations. Provided support worth 600USD each for 6 persons from different groups (AYPLHIV, YFSW, YPWID, AGYW, Young Positive Mothers and YLGBTQI) for economic empowerment through skill acquisition in 6 states (Abia, Anambra, Akwa Ibom, Kaduna, Oyo, and Taraba).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- UNAIDS Community Response Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="700">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-global-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">West Africa HIV Community Response</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 100,000 | Mar 2021 - Feb 2022</p>
+                <p class="text-gray-600">Currently implementing a 12month (March 2021-February 2022) 100,000USD (38,500,000 Naira) grant UNAIDS supported project in 3 Countries Nigeria, Senegal and Liberia, titled: Strengthening Community Response on HIV for adolescents and young people in west and central Africa with ANAYD serving as the Implementing partner for Nigeria to work in Benue and Akwa Ibom States.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- HIV Self Testing DSF Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="800">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-test-tube-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">HIV Self Testing Demand Side Financing</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 6,288 | Jul - Sep 2022</p>
+                <p class="text-gray-600">Implemented a 3months (July-September 2022) $6,288 (2,735,280) grant HIV Self Testing Demand Side Financing (DSF) For HIV Self-Testing Online Demand Side Financing. Currently, the project is at a phase of Demand Side Financing (DSF) for HIVST kit distribution towards achieving the Total Market Approach (TMA) to sustainability in Nigeria. ANAYD remains a key implementing partner with JHPIEGO on the extended STARIII #DSF4HIVST intervention in the four (4) coverage states which include: Akwa-Ibom, Lagos, Rivers and FCT Abuja.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- AIDS2022 Conference Virtual Hub -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="900">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-global-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">AIDS2022 Conference Virtual Hub</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 3,000 | Jul - Aug 2022</p>
+                <p class="text-gray-600">Hosted AIDS2022 Conference Virtual Hub to support meaningful participation of 17 adolescents and young people in their diversities on 28th July-2nd August 2022 with 3000 USD (1,245,020) support from Global Network of Young People Living with HIV (Y+ Global).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- HIV Self Testing Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1000">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-test-tube-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">HIV Self Testing Project</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 57,205 | Sep 2021 - Mar 2022</p>
+                <p class="text-gray-600">Implemented a 7months (20th September 2021-30th March 2022) HIV Self Testing Project in Lagos State of 57,205USD (23,556,300 Naira) JHPIEGO grant aimed at generating demand creation and HIV Self Testing Service uptake and optimization for a target of 30,0000 adolescents and young people in their diversities. A total of 18,500 persons were reached with HIVST information while 18,500 HIVSTK have been distributed to AYP and results reported comprising 8,797 males and 9,703 females. A total of 159 reactive results were reported with 137 confirmed cases.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- COVID-19 Research Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1100">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-virus-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">COVID-19 Impact Research</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 72,532 | Apr 2021 - Jun 2022</p>
+                <p class="text-gray-600">Implemented a 15months (April 2021-June 2022) research project of 72,532USD (27,562,160 Naira) grant UNAIDS HQ supported in partnership with Institution of public health Obafemi Awolowo University Ibadan. Title: Studying Social, Economic, and Health COVID-19 impact on adolescents' girls and young women living with HIV. The research projects focus on reaching divers AGYWLHIV such as Female sex workers, migrants, refugees, Transgender, Living with disabilities in 6 states across 6 geopolitical zone of Nigeria with a total target of 480 for each 5 sub population groups and 2,400 in total.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Global Fund C19RM Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1200">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-shield-star-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Global Fund C19RM Project</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 12,000 | Apr - Jun 2021</p>
+                <p class="text-gray-600">Implemented Global Fund COVID-19 Response Mechanism (C19RM) Technical Assistant 12,000USD (4,560,000 Naira) Grant for Adolescents and Young People project across 3 geopolitical zones and 3 states (Anambra, Rivers and Lagos States) in Nigeria from April 2021 to June 2021. Aimed at promoting AYP knowledge of global fund and COVID-19 response mechanism, defining priorities for adolescents and young people in their diversities in the C19RM process and supporting AYPs meaningful involvement in priority setting.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Youth Rise C19RM Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1300">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-medicine-bottle-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Youth Rise COVID-19 Response</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 5,000 | May - Jun 2021</p>
+                <p class="text-gray-600">Implemented Youth Rise COVID-19 Response Mechanism (C19RM) 5000USD (1,900,000 Naira) Grant for Consultation with Young People who inject and use drugs (YPWID) across 5 geopolitical zones and 6 states (Anambra, Akwa Ibom, Benue, FCT, Kaduna, and Lagos) States in Nigeria in May-June 2021. Reached 20 YPWIDS with knowledge on C19RM and supported 1 YPWID to engage in Nigeria's C19RM grant application process.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- UNESCO Spotlight Initiative -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1400">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-women-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">UNESCO Spotlight Initiative</h3>
+                <p class="text-sm text-blue-600 mb-2">Apr - Jul 2021</p>
+                <p class="text-gray-600">Partnered with Society for Family Health (SFH) to implement a 3 months UNESCO Funded Spotlight Initiative project across 6 states in Nigeria (Adamawa, Cross Rivers, Ebonyi, FCT, Lagos, Sokoto). The project aimed at preventing Sexual and Gender Based Violence (SGBV) against adolescent girls and young women, and strengthening the capacity of 90 youth networks and organizations to carry out peer education and support young people (age 10-25 years) to access comprehensive sexuality education (CSE) and SRHR services.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Community Engagement Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1500">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-community-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Community Engagement Project</h3>
+                <p class="text-sm text-blue-600 mb-2">Dec 2020 - Ongoing</p>
+                <p class="text-gray-600">Partnered with Education as Vaccine (EVA) with funding support from UNFPA Nigeria to implement Community Engagement Project targeting 10 communities in 2 LGAs of Kaduna State. Reached 50 community leaders, 23 law enforcement official responders, 10 CSOs from 10 communities with capacity on Sexual Gender Based Violence (SGBV) and COVID-19, empowering them to reach over 2000 community members with sensitization on these issues.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Adolescents Kits Intervention -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1600">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-tools-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Adolescents Kits Intervention</h3>
+                <p class="text-sm text-blue-600 mb-2">Aug 2020 - Ongoing</p>
+                <p class="text-gray-600">Partnered with UNICEF for the implementation of #Adolescents Kits Intervention project in two pilot communities and LGAs of Kaduna State namely Igabi and Lere LGA. Trained 4 young people as master trainers, selected 24 community facilitators, and recruited over 200 adolescents and young people for roll out of twice-weekly community circle sessions.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social AID Fund Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1700">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-hand-heart-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Social AID Fund Project</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 4,418 | Dec 2020 - Jan 2021</p>
+                <p class="text-gray-600">Partnered with Global Network of Young People Living with HIV (Y+) with funding support from UNIADS Global Office to implement a 4,418USD (1,678,840 Naira) grant for "Social AID Fund Project" in Nigeria. Developed a situation analysis report on COVID-19 impact amongst adolescents and young people living with HIV and young key populations. Provided support worth 44USD each for over 97 AYPLHIV and YKPs with COVID-19 support across 13 states in Nigeria.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mental Health for AYPHIV -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1800">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-mental-health-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Mental Health for AYPHIV</h3>
+                <p class="text-sm text-blue-600 mb-2">Oct - Dec 2020</p>
+                <p class="text-gray-600">Partnered with Global Network of Young People Living with HIV (Y+) to implement National Consultation and case studies on mental health for AYPHIV in Nigeria. A project rolled out in 3 countries: Chile, Etwasini and Nigeria from October 2020 to December 2020.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- AYP COVID-19 Impact Project -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="1900">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-virus-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">AYP COVID-19 Impact Project</h3>
+                <p class="text-sm text-blue-600 mb-2">Sep - Nov 2020</p>
+                <p class="text-gray-600">Partnered with StrongEnoughGirls to implement AYP COVID-19 impact project in 9 states with funding support from UNESCO. ANAYD covered 3 states namely Benue, Kaduna and Taraba and engaged 9 young people (3 each per state) as field volunteers who were trained on use of ODK and deployed to engage community peers with interviews.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Socio-Economic Tailoring Skill Empowerment -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="2000">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-scissors-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Socio-Economic Tailoring Skill Empowerment</h3>
+                <p class="text-sm text-blue-600 mb-2">Sep - Dec 2020</p>
+                <p class="text-gray-600">Collaborated with EHRAAI Socio-Economic Tailoring Skill Empowerment project from September to December 2020. The project aimed at training key and vulnerable groups living with HIV who were impacted negatively due to COVID-19 pandemic. 10 Adolescents and Young People living with HIV from ANAYD were given free scholarship for the 4-month tailoring training with startup loans provided afterward.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Global Fund Technical Assistant -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="2100">
+            <div class="flex items-start gap-4">
+              <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="ri-funds-box-line text-3xl text-white"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Global Fund Technical Assistant</h3>
+                <p class="text-sm text-blue-600 mb-2">USD 50,000 | Feb - Jul 2020</p>
+                <p class="text-gray-600">Implemented Global Fund Technical Assistant 50,000USD (17,500,000 Naira) Grant for Adolescents and Young People project across 6 geopolitical zones and 6 states (Anambra, AkwaIbom, Lagos, Taraba, Benue and Kaduna) States in Nigeria from February 2020 to July 2020. Aimed at promoting AYP knowledge of global fund, engagement in Nigeria country dialogue and monitoring and evaluation of the implementation of Nigeria 2020-2022 grant circle. Reached 150 adolescents and young people with knowledge on global fund structure and operations.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    <!-- Navigation and Load More Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize all interactive elements
+        initializeMobileMenu();
+        initializeDropdowns();
+        initializeCounters();
+      });
+
+      function initializeMobileMenu() {
+        const projectsMenuToggle = document.getElementById('projects-menu-toggle');
+        const projectsMenuIcon = document.getElementById('projects-menu-icon');
+        const projectsSidebar = document.getElementById('projects-sidebar');
+
+        // Initialize mobile menu state
+        let isMobileMenuOpen = false;
+
+        if (projectsMenuToggle && projectsMenuIcon && projectsSidebar) {
+          projectsMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            isMobileMenuOpen = !isMobileMenuOpen;
+            projectsSidebar.classList.toggle('hidden', !isMobileMenuOpen);
+            projectsSidebar.classList.toggle('lg:block');
+            projectsMenuIcon.style.transform = isMobileMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+            
+            // Add animation classes
+            if (isMobileMenuOpen) {
+              projectsSidebar.classList.add('animate-slide-in-left');
+              projectsSidebar.classList.remove('opacity-0');
+            } else {
+              projectsSidebar.classList.remove('animate-slide-in-left');
+              projectsSidebar.classList.add('opacity-0');
+            }
+          });
+
+          function handleResize() {
+            if (window.innerWidth >= 1024) { // lg breakpoint
+              projectsSidebar.classList.remove('hidden');
+              projectsSidebar.classList.add('lg:block');
+              if (!projectsSidebar.classList.contains('animate-slide-in-left')) {
+                projectsSidebar.classList.add('animate-slide-in-left');
+                projectsSidebar.classList.remove('opacity-0');
+              }
+            } else {
+              if (!isMobileMenuOpen) {
+                projectsSidebar.classList.add('hidden');
+                projectsSidebar.classList.remove('animate-slide-in-left');
+                projectsSidebar.classList.add('opacity-0');
+              }
+            }
+          }
+
+          window.addEventListener('resize', handleResize);
+          handleResize(); // Initial check
+        }
+      }
+
+      function initializeDropdowns() {
+        const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+        
+        function closeAllDropdowns(exceptTrigger = null) {
+          dropdownTriggers.forEach(trigger => {
+            if (trigger !== exceptTrigger) {
+              const button = trigger.querySelector('button');
+              const menu = trigger.querySelector('.dropdown-menu');
+              if (button && menu) {
+                button.setAttribute('aria-expanded', 'false');
+                menu.classList.remove('show');
+              }
+            }
+          });
+        }
+
+        dropdownTriggers.forEach(trigger => {
+          const button = trigger.querySelector('button');
+          const menu = trigger.querySelector('.dropdown-menu');
+          
+          if (button && menu) {
+            // Remove hidden class initially
+            menu.classList.remove('hidden');
+            
+            button.addEventListener('click', (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              
+              const isExpanded = button.getAttribute('aria-expanded') === 'true';
+              
+              // Close other dropdowns
+              closeAllDropdowns(trigger);
+              
+              // Toggle current dropdown
+              button.setAttribute('aria-expanded', !isExpanded);
+              menu.classList.toggle('show');
+            });
+          }
+        });
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.dropdown-trigger')) {
+            closeAllDropdowns();
+          }
+        });
+      }
+
+      function initializeCounters() {
+        const counters = [
+          { id: 'fundsCounter', start: 0, end: 5000000 },
+          { id: 'peopleCounter', start: 0, end: 50000 },
+          { id: 'projectsCounter', start: 0, end: 12 }
+        ];
+
+        counters.forEach(counter => {
+          const element = document.getElementById(counter.id);
+          if (element) {
+            animateValue(element, counter.start, counter.end, 2000);
+          }
+        });
+      }
+
+      function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const current = Math.floor(progress * (end - start) + start);
+          obj.innerHTML = obj.id === 'fundsDollarCounter' 
+            ? '$' + current.toLocaleString() 
+            : current.toLocaleString();
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+    </script>
+
+    <!-- Counter and Charts Script -->
+    <script>
+      // Counter Animation Function
+      function animateCounter(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const current = Math.floor(progress * (end - start) + start);
+          obj.textContent = obj.id === 'fundsDollarCounter' 
+            ? '$' + current.toLocaleString() 
+            : current.toLocaleString();
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+
+      // Initialize Counter Animations
+      document.addEventListener('DOMContentLoaded', () => {
+        const counterObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.dataset.delay || 0;
+              setTimeout(() => {
+                entry.target.classList.add('animate-fade-in');
+              }, delay);
+              counterObserver.unobserve(entry.target);
+            }
+          });
+        });
+
+        document.querySelectorAll('.counter').forEach(counter => {
+          counterObserver.observe(counter);
+        });
+      });
+
+      // Chart.js Configuration
+      document.addEventListener('DOMContentLoaded', () => {
+        // Donut Chart - Project Distribution
+        const donutChartCtx = document.getElementById('projectDistributionChart').getContext('2d');
+        new Chart(donutChartCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['HIV/AIDS', 'TB', 'Malaria', 'GBV', 'COVID-19', 'SR/IR'],
+            datasets: [{
+              data: [30, 15, 20, 15, 10, 10],
+              backgroundColor: [
+                '#4285F4',
+                '#F4B400',
+                '#0F9D58',
+                '#DB4437',
+                '#673AB7',
+                '#E91E63'
+              ],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  padding: 20,
+                  usePointStyle: true
+                }
+              }
+            },
+            cutout: '70%'
+          }
+        });
+
+        // Bar Chart - Yearly Progress
+        const barChartCtx = document.getElementById('yearlyProgressChart').getContext('2d');
+        new Chart(barChartCtx, {
+          type: 'bar',
+          data: {
+            labels: ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+            datasets: [{
+              label: 'People Reached',
+              data: [25000, 75000, 100000, 125000, 150000, 175000, 200000, 225000],
+              backgroundColor: '#4285F4',
+              borderRadius: 8
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: {
+                  display: true,
+                  color: '#E5E7EB'
+                }
+              },
+              x: {
+                grid: {
+                  display: false
+                }
+              }
+            }
+          }
+        });
+      }); 
+
+      // Counter Animation
+      function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const current = Math.floor(progress * (end - start) + start);
+          obj.innerHTML = obj.id === 'fundsDollarCounter' 
+            ? '$' + current.toLocaleString() 
+            : current.toLocaleString();
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+
+      // Initialize and Animate Counters
+      const counters = [
+        { id: 'fundsCounter', start: 0, end: 5000000 },
+        { id: 'peopleCounter', start: 0, end: 50000 },
+        { id: 'projectsCounter', start: 0, end: 12 }
+      ];
+
+      counters.forEach(counter => {
+        const element = document.getElementById(counter.id);
+        if (element) {
+          animateValue(element, counter.start, counter.end, 2000);
+        }
+      });
+
+      // Intersection Observer for Animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.dataset.delay || 0;
+              setTimeout(() => {
+                entry.target.classList.add(`animate-${entry.target.dataset.animate}`);
+              }, parseInt(delay));
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll('[data-animate]').forEach(element => {
+        observer.observe(element);
+      });
+    </script>
+
+    <!-- Partners Section -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-8" data-animate="fade-in">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Our Partners & Funders
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        <style>
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .partners-track {
+            animation: scroll 40s linear infinite;
+            width: max-content;
+          }
+          .partners-slider:hover .partners-track {
+            animation-play-state: paused;
+          }
+        </style>
+        <div
+          class="partners-slider overflow-hidden"
+          data-animate="slide-up"
+          data-delay="200"
+        >
+          <div class="partners-track flex space-x-8">
+            <!-- First set of partners -->
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/ARFH.jpeg"
+                alt="ARFH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CIHP.png"
+                alt="CIHP"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CSIWCA.jpeg"
+                alt="CSIWCA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DHRAN.png"
+                alt="DHRAN"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DRAC.jpg"
+                alt="DRAC"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EGPAF.jpeg"
+                alt="EGPAF"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EVA.png"
+                alt="EVA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/FHI360.png"
+                alt="FHI360"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/GNYPLH.jpg"
+                alt="GNYPLH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/Global Fund.png"
+                alt="Global Fund"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/HHCSI.jpg"
+                alt="HHCSI"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/IAS.png"
+                alt="IAS"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/ISDAO.png"
+                alt="ISDAO"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/JHPEIGO.png"
+                alt="JHPEIGO"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <!-- Duplicate slides for continuous scrolling -->
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/KADSACA.jpeg"
+                alt="KADSACA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/NACA.jpg"
+                alt="NACA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/NEPWAN.jpg"
+                alt="NEPWAN"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/NYETHA.jpg"
+                alt="NYETHA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/Nigeria.jpg"
+                alt="Nigeria"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/SFH.jpeg"
+                alt="SFH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNAIDS.jpg"
+                alt="UNAIDS"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNESCO.jpg"
+                alt="UNESCO"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNFPA.png"
+                alt="UNFPA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNICEF.jpeg"
+                alt="UNICEF"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/Y+ Global.png"
+                alt="Y+ Global"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/usaid.png"
+                alt="USAID"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            
+            <!-- Duplicate logos for continuous scrolling -->
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/ARFH.jpeg"
+                alt="ARFH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CIHP.png"
+                alt="CIHP"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CSIWCA.jpeg"
+                alt="CSIWCA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DHRAN.png"
+                alt="DHRAN"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DRAC.jpg"
+                alt="DRAC"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EGPAF.jpeg"
+                alt="EGPAF"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EVA.png"
+                alt="EVA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/FHI360.png"
+                alt="FHI360"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    <script src="js/animations.js"></script>
+    <script src="asset/js/global-navigation.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Impact Chart
+    const chartDom = document.getElementById("impact-chart");
+    if (chartDom) {
+      const myChart = echarts.init(chartDom);
+      const option = {
+        animation: false,
+        tooltip: {
+          trigger: "axis",
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+          textStyle: {
+            color: "#1f2937",
+          },
+        },
+        legend: {
+          data: ["Youth Reached", "Communities Served", "Volunteers"],
+          textStyle: {
+            color: "#1f2937",
+          },
+        },
+        grid: {
+          left: "3%",
+          right: "4%",
+          bottom: "3%",
+          containLabel: true,
+        },
+        xAxis: {
+          type: "category",
+          boundaryGap: false,
+          data: [
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+          ],
+          axisLabel: {
+            color: "#1f2937",
+          },
+        },
+        yAxis: {
+          type: "value",
+          axisLabel: {
+            color: "#1f2937",
+          },
+        },
+        series: [
+          {
+            name: "Youth Reached",
+            type: "line",
+            smooth: true,
+            lineStyle: {
+              width: 3,
+              color: "rgba(87, 181, 231, 1)",
+            },
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: "rgba(87, 181, 231, 0.3)",
+                },
+                {
+                  offset: 1,
+                  color: "rgba(87, 181, 231, 0.1)",
+                },
+              ]),
+            },
+            emphasis: {
+              focus: "series",
+            },
+            data: [5000, 8000, 12000, 15000, 18000, 21000, 23000, 25000],
+          },
+          {
+            name: "Communities Served",
+            type: "line",
+            smooth: true,
+            lineStyle: {
+              width: 3,
+              color: "rgba(141, 211, 199, 1)",
+            },
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: "rgba(141, 211, 199, 0.3)",
+                },
+                {
+                  offset: 1,
+                  color: "rgba(141, 211, 199, 0.1)",
+                },
+              ]),
+            },
+            emphasis: {
+              focus: "series",
+            },
+            data: [20, 35, 50, 65, 80, 95, 110, 120],
+          },
+          {
+            name: "Volunteers",
+            type: "line",
+            smooth: true,
+            lineStyle: {
+              width: 3,
+              color: "rgba(251, 191, 114, 1)",
+            },
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: "rgba(251, 191, 114, 0.3)",
+                },
+                {
+                  offset: 1,
+                  color: "rgba(251, 191, 114, 0.1)",
+                },
+              ]),
+            },
+            emphasis: {
+              focus: "series",
+            },
+            data: [30, 45, 65, 85, 100, 120, 135, 150],
+          },
+        ],
+      };
+
+      myChart.setOption(option);
+
+      window.addEventListener("resize", function () {
+        myChart.resize();
+      });
+    }
+  });
+</script>
+</body>
+</html>

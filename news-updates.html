@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Stay updated with the latest news, success stories, and press releases from ANAYD (African Network for Adolescents and Young Persons Development). Follow our impact and initiatives in youth development across Africa." />
+    <meta name="keywords" content="ANAYD news, youth development updates, success stories, press releases, community impact, youth initiatives, African development news, adolescent programs, young persons achievements, NGO updates, development impact stories, youth empowerment news, ANAYD press, latest developments" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>News & Update - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <!-- Core libraries first -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- App-specific scripts -->
+    <script src="asset/js/events-carousel.js" defer></script>
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+<!-- Coming Soon Section -->
+    <section class="min-h-screen bg-gradient-to-br from-blue-800 via-blue-900 to-blue-950 relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute w-96 h-96 bg-cyan-500/10 rounded-full -top-20 -left-20 animate-blob1"></div>
+            <div class="absolute w-96 h-96 bg-blue-500/10 rounded-full top-1/2 left-1/3 animate-blob2"></div>
+            <div class="absolute w-96 h-96 bg-sky-500/10 rounded-full bottom-20 right-20 animate-blob3"></div>
+        </div>
+
+        <!-- Content Overlay -->
+        <div class="relative min-h-screen flex items-center justify-center px-4">
+            <div class="text-center max-w-4xl mx-auto space-y-8 animate-float">
+                <div class="inline-block mb-8">
+                    <div class="relative">
+                        <div class="w-24 h-24 border-4 border-white/20 rounded-full animate-spin-slow"></div>
+                        <div class="w-24 h-24 border-4 border-t-cyan-400 rounded-full absolute inset-0 animate-spin-reverse"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="ri-newspaper-line text-3xl text-white"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-title">
+                    News & Updates
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto mb-12 animate-fade-in">
+                    Stay informed about our latest initiatives, achievements, and community impact. Fresh content coming soon!
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-6 animate-fade-up">
+                    <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-center w-48">
+                        <div class="text-3xl font-bold text-white mb-2 animate-count" data-target="12">0</div>
+                        <div class="text-blue-200">Latest News</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-center w-48">
+                        <div class="text-3xl font-bold text-white mb-2 animate-count" data-target="6">0</div>
+                        <div class="text-blue-200">Success Stories</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-center w-48">
+                        <div class="text-3xl font-bold text-white mb-2 animate-count" data-target="4">0</div>
+                        <div class="text-blue-200">Press Releases</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    <script src="js/animations.js"></script>
+    <script src="js/sidebar-nav.js"></script>
+    <script src="asset/js/global-navigation.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animation Observer
+        const animationOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+
+        const animationObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.dataset.delay || 0;
+              setTimeout(() => {
+                entry.target.classList.add("in-view");
+              }, delay);
+              // Only unobserve if the element is not in the hero section or welcome section
+              if (!entry.target.closest("#hero-section") && !entry.target.closest("#welcome")) {
+                animationObserver.unobserve(entry.target);
+              }
+            } else {
+              // Remove in-view class when element is not in viewport (for hero and welcome sections)
+              if (entry.target.closest("#hero-section") || entry.target.closest("#welcome")) {
+                entry.target.classList.remove("in-view");
+              }
+            }
+          });
+        }, animationOptions);
+
+        document.querySelectorAll("[data-animate]").forEach((element) => {
+          animationObserver.observe(element);
+        });
+
+        // Original DOMContentLoaded code
+        // Initialize hero slider
+        const heroSlides = document.querySelectorAll(".hero-slider .slide");
+        let currentHeroIndex = 0;
+
+        function showHeroSlide(index) {
+          heroSlides.forEach((slide) => {
+            slide.style.opacity = "0";
+            slide.style.zIndex = "0";
+          });
+          heroSlides[index].style.opacity = "1";
+          heroSlides[index].style.zIndex = "1";
+        }
+
+        function nextHeroSlide() {
+          currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
+          showHeroSlide(currentHeroIndex);
+        }
+
+        showHeroSlide(0);
+        setInterval(nextHeroSlide, 5000);
+
+        // About Slider
+        const aboutSlides = document.querySelectorAll(".about-slider .slide");
+        let currentAboutIndex = 0;
+
+        function showAboutSlide(index) {
+          aboutSlides.forEach((slide) => {
+            slide.style.opacity = "0";
+            slide.style.zIndex = "0";
+          });
+          aboutSlides[index].style.opacity = "1";
+          aboutSlides[index].style.zIndex = "1";
+        }
+
+        function nextAboutSlide() {
+          currentAboutIndex = (currentAboutIndex + 1) % aboutSlides.length;
+          showAboutSlide(currentAboutIndex);
+        }
+
+        showAboutSlide(0);
+        setInterval(nextAboutSlide, 4000);
+
+        // Success Stories Slider
+        const storiesTrack = document.querySelector(".stories-track");
+        const storySlides = document.querySelectorAll(".story-slide");
+        const storyDots = document.querySelectorAll(".story-dot");
+        let currentStoryIndex = 0;
+
+        function updateStorySlider() {
+          const offset = currentStoryIndex * -100;
+          storiesTrack.style.transform = `translateX(${offset}%)`;
+          storyDots.forEach((dot, index) => {
+            dot.classList.toggle("bg-primary", index === currentStoryIndex);
+            dot.classList.toggle("bg-gray-300", index !== currentStoryIndex);
+          });
+        }
+
+        storyDots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            currentStoryIndex = index;
+            updateStorySlider();
+          });
+        });
+
+        // Contact Form
+        const contactForm = document.getElementById("contact-form");
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            console.log("Form submitted:", data);
+            // Add your form submission logic here
+            contactForm.reset();
+          });
+        }
+
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          },
+        );
+
+        fadeElements.forEach((element) => {
+          observer.observe(element);
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Charts
+        const fundingCtx = document.getElementById('fundingChart');
+        if (fundingCtx) {
+          new Chart(fundingCtx, {
+            type: 'doughnut',
+            data: fundingData,
+            options: {
+              responsive: true,
+              plugins: {
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }
+          });
+        }
+
+        // Impact Chart
+        const chartDom = document.getElementById("impact-chart");
+        if (chartDom) {
+          const myChart = echarts.init(chartDom);
+          const fundingData = {
+            labels: ['HIV/AIDS', 'TB', 'Malaria', 'GBV', 'COVID-19', 'SRHR'],
+            datasets: [{
+              data: [30, 20, 15, 15, 10, 10],
+              backgroundColor: ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899']
+            }]
+          };
+
+          const impactData = {
+            labels: ['2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+              label: 'People Reached',
+              data: [5000, 8000, 12000, 15000, 20000],
+              backgroundColor: '#3B82F6'
+            }]
+          };
+
+          const option = {
+            animation: false,
+            tooltip: {
+              trigger: "axis",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              textStyle: {
+                color: "#1f2937",
+              },
+            },
+            legend: {
+              data: ["People Reached"],
+              textStyle: {
+                color: "#1f2937",
+              },
+            },
+            grid: {
+              left: "3%",
+              right: "4%",
+              bottom: "3%",
+              containLabel: true,
+            },
+            xAxis: {
+              type: "category",
+              boundaryGap: false,
+              data: impactData.labels,
+              axisLabel: {
+                color: "#1f2937",
+              },
+            },
+            yAxis: {
+              type: "value",
+              axisLabel: {
+                color: "#1f2937",
+              },
+            },
+            series: [
+              {
+                name: "People Reached",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "#3B82F6",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(59, 130, 246, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(59, 130, 246, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: impactData.datasets[0].data
+              }
+            ]
+          };
+
+          myChart.setOption(option);
+
+          window.addEventListener("resize", function () {
+            myChart.resize();
+          });
+        }
+      });
+    </script>
+
+    <!-- Animation Observer -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target); // Stop observing once animation is triggered
+              }
+            });
+          },
+          {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+          }
+        );
+
+        // Observe sections with animations
+        document.querySelectorAll('#hero-section, #who-we-are').forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
+  </body>
+</html>
+

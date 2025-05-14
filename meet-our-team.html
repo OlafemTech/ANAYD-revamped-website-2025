@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Meet Our Team - African Network for Adolescents and Young Persons Development (ANAYD)" />
+    <meta name="keywords" content="ANAYD Team, Executive Team, Team Members, Leadership, African Network, Adolescents, Young Persons Development, NGO Team, Development Professionals" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>Meet Our Team - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20 min-h-screen">
+      <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Mobile Program Toggle -->
+          <div class="lg:hidden mb-6">
+            <button
+              id="program-menu-toggle"
+              class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+            >
+              <span>About ANAYD</span>
+              <i class="ri-arrow-down-s-line text-xl transition-transform" id="program-menu-icon"></i>
+            </button>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="lg:w-64 flex-shrink-0 hidden lg:block" id="program-sidebar">
+            <div class="bg-white rounded-xl p-6 shadow-sm sticky top-24 space-y-6 opacity-0 animate-slide-in-left">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">About Us</h3>
+                <nav class="space-y-2">
+                  <a href="who-we-are.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Who We Are</a>
+                  <a href="what-we-do.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">What We Do</a>
+                  <a href="meet-our-team.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium">Meet Our Team</a>
+                  <a href="our-funders.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Our Funders</a>
+                </nav>
+
+                <div class="mt-8">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Get Involved</h3>
+                  <nav class="space-y-2">
+                    <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                    <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                    <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                  </nav>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-8 p-6 bg-gradient-to-br from-primary to-secondary rounded-xl text-white">
+                  <h4 class="text-lg font-semibold mb-2">Support Our Cause</h4>
+                  <p class="text-sm text-white/90 mb-4">Join us in making a difference in the lives of young people across Africa.</p>
+                  <a href="donate.html" class="inline-block w-full px-6 py-3 bg-white text-primary font-semibold text-center rounded-lg hover:bg-gray-50 transition-colors">Donate Now</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="flex-1">
+            <!-- Hero Section -->
+            <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-lg mb-8">
+              <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 opacity-0" data-animate="fade-in">Meet Our Team</h1>
+                <p class="text-lg text-blue-100 mb-8 opacity-0" data-animate="slide-up" data-delay="200">Our dedicated team of professionals works tirelessly to create positive change in the lives of adolescents and young people across Africa.</p>
+                <div class="flex justify-center gap-4 opacity-0" data-animate="fade-in" data-delay="400">
+                  <a href="donate.html" class="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition-colors">Donate</a>
+                  <a href="volunteer-get-involved.html" class="bg-blue-500 text-white hover:bg-blue-400 px-6 py-3 rounded-lg font-medium transition-colors">Get Involved</a>
+                </div>
+              </div>
+            </section>
+
+
+                  <i class="ri-map-pin-2-line mr-2 text-primary"></i>
+                  State Coverage
+                </h3>
+                <p class="text-gray-600">Operating across 10 states: Abia, Akwa Ibom, Anambra, Lagos, Benue, Kaduna, Abuja, Kwara, Kano and Taraba</p>
+            <!-- Executive Team Section -->
+            <div class="max-w-4xl">
+              <div class="flex items-center justify-between mb-6">
+                <h1 class="text-4xl font-bold text-gray-900">Meet Our Executives Team</h1>
+                <button class="md:hidden text-gray-500 hover:text-primary transition-colors" onclick="toggleTeam(this)" title="Toggle team members visibility">
+                  <i class="ri-arrow-down-s-line text-2xl" id="team-toggle-icon"></i>
+                </button>
+              </div>
+              <div id="team-content" class="prose max-w-none transition-all duration-300 overflow-hidden md:!h-auto">
+                <!-- Leadership Team Section -->
+                <div class="mb-12" id="leadership">
+                  <!-- <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                    Our Leadership Team - The Executives
+                  </h2> -->
+                  <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-6">
+                      <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                          <i class="ri-team-line text-2xl text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                          <p class="text-gray-600 mb-6">
+                            The projects and activities of the organization funded by partners and donor agencies is been management, 
+                            and supervise by the program management team of ANAYD. The team is made up of 9 young people who are 
+                            professionals, vibrant intellectuals and creative to cause the change young people would love to see in our time.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Team Section -->
+                <!-- Desktop Grid View -->
+                <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 py-12 max-w-7xl mx-auto">
+                  <!-- Team members cards -->
+                  <!-- Mr Aaron Sunday | Executive Director -->
+                  <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in" data-delay="200">
+                    <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                      <img src="asset/images/team/Aaron.jpg" alt="Mr Aaron Sunday" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Mr. Aaron Sunday</h3>
+                    <p class="text-primary mb-3">Executive Director</p>
+                    <p class="text-gray-600 text-sm mb-4">Executive-director@anayd.org</p>
+                    <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Connect on LinkedIn">
+                        <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Twitter">
+                        <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Instagram">
+                        <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Agnes Dogara | Program Lead -->
+                  <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="slide-in-right" data-delay="300">
+                    <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                      <img src="asset/images/team/Agnes.jpg" alt="Agnes Dogara" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Agnes Dogara</h3>
+                    <p class="text-primary mb-3">Programs Lead</p>
+                    <p class="text-gray-600 text-sm mb-4">Porgram-lead@anayd.org</p>
+                    <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Connect on LinkedIn">
+                        <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Twitter">
+                        <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Instagram">
+                        <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Naankang Sogotdiel | Human Resources Lead -->
+                  <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="slide-in-left" data-delay="400">
+                    <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                      <img src="asset/images/team/Naankang.jpg" alt="Naankang Sogotdiel" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Naankang Sogotdiel</h3>
+                    <p class="text-primary mb-3">Human Resources Lead</p>
+                    <p class="text-gray-600 text-sm mb-4">Human-resources-lead@anayd.org</p>
+                    <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Connect on LinkedIn">
+                        <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Twitter">
+                        <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Instagram">
+                        <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Chinazo A. Umenwobi | Mass & Media Communications Lead -->
+                  <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="slide-in-right" data-delay="500">
+                    <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                      <img src="asset/images/team/Chinazo.jpg" alt="Chinazo A. Umenwobi" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Chinazo A. Umenwobi</h3>
+                    <p class="text-primary mb-3">Mass & Media Comm. Lead</p>
+                    <p class="text-gray-600 text-sm mb-4">Comms-Director@anayd.org</p>
+                    <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Connect on LinkedIn">
+                        <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Twitter">
+                        <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Instagram">
+                        <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Danladi A. Onuh | Finance & Compliance Lead -->
+                  <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="slide-in-left" data-delay="600">
+                    <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                      <img src="asset/images/team/Danladi.jpg" alt="Danladi A. Onuh" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Danladi A. Onuh</h3>
+                    <p class="text-primary mb-3">Finance & Compliance Lead</p>
+                    <p class="text-gray-600 text-sm mb-4">finance-compliance-lead@anayd.org</p>
+                    <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Connect on LinkedIn">
+                        <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Twitter">
+                        <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Instagram">
+                        <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Habeeb N. Oluwafemi | ICT Lead/Web Admin -->
+                  <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="slide-in-right" data-delay="700">
+                    <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                      <img src="asset/images/team/Najeeb.jpg" alt="Habeeb N. Oluwafemi" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Habeeb N. Oluwafemi</h3>
+                    <p class="text-primary mb-3">ICT Lead/Web Admin</p>
+                    <p class="text-gray-600 text-sm mb-4">ict-lead@anayd.org</p>
+                    <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                      <a href="https://www.linkedin.com/in/habeeb-oluwafemi-0b1999bb/" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Connect on LinkedIn">
+                        <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                      </a>
+                      <a href="https://x.com/femi_ultim8" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Twitter">
+                        <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                      </a>
+                      <a href="https://www.instagram.com/habeeb_femi_/" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Instagram">
+                        <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Sakinat Bello | Associate Program Lead for Climate Change -->
+                  <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="slide-in-left" data-delay="800">
+                    <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                      <img src="asset/images/team/Sakinat.jpg" alt="Sakinat Bello" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Sakinat Bello</h3>
+                    <p class="text-primary mb-3">Ass. Program Lead-Climate Change</p>
+                    <p class="text-gray-600 text-sm mb-4">climate-change-lead@anayd.org</p>
+                    <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Connect on LinkedIn">
+                        <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Twitter">
+                        <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Instagram">
+                        <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Adeboye O. Joshua | Associate Communication Officer -->
+                  <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="slide-in-right" data-delay="900">
+                    <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                      <img src="asset/images/team/Joshua.jpg" alt="Adeboye O. Joshua" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Adeboye O. Joshua</h3>
+                    <p class="text-primary mb-3">Ass. Communication Officer</p>
+                    <p class="text-gray-600 text-sm mb-4">associate-communication-officer@anayd.org</p>
+                    <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Connect on LinkedIn">
+                        <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Twitter">
+                        <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Instagram">
+                        <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Judith Okosun | Associate Programs Lead on SRHR/GBV -->
+                  <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="slide-in-left" data-delay="1000">
+                    <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                      <img src="asset/images/team/Judith.jpg" alt="Judith Okosun" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Judith Okosun</h3>
+                    <p class="text-primary mb-3">Ass. Programs Lead on SRHR/GBV</p>
+                    <p class="text-gray-600 text-sm mb-4">associate-lead-srhr-gbv@anayd.org</p>
+                    <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Connect on LinkedIn">
+                        <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Twitter">
+                        <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                      </a>
+                      <a href="#" class="text-gray-600 hover:text-primary transition-all hover:-translate-x-1" title="Follow on Instagram">
+                        <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Mobile Single Column View -->
+                <div class="md:hidden space-y-6 px-4 py-8">
+                  <!-- Team members cards -->
+                  <div class="space-y-6">
+                    <!-- Mr Aaron Sunday | Executive Director -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in">
+                      <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                        <img src="asset/images/team/Aaron.jpg" alt="Mr Aaron Sunday" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-1">Mr. Aaron Sunday</h3>
+                      <p class="text-primary mb-3">Executive Director</p>
+                      <p class="text-gray-600 text-sm mb-4">Executive-director@anayd.org</p>
+                      <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Agnes Dogara | Program Lead -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in">
+                      <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                        <img src="asset/images/team/Agnes.jpg" alt="Agnes Dogara" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-1">Agnes Dogara</h3>
+                      <p class="text-primary mb-3">Programs Lead</p>
+                      <p class="text-gray-600 text-sm mb-4">Program-lead@anayd.org</p>
+                      <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Naankang Sogotdiel | Human Resources Lead -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in">
+                      <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                        <img src="asset/images/team/Naankang.jpg" alt="Naankang Sogotdiel" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-1">Naankang Sogotdiel</h3>
+                      <p class="text-primary mb-3">Human Resources Lead</p>
+                      <p class="text-gray-600 text-sm mb-4">Human-resources-lead@anayd.org</p>
+                      <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Chinazo A. Umenwobi | Mass & Media Communications Lead -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in">
+                      <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                        <img src="asset/images/team/Chinazo.jpg" alt="Chinazo A. Umenwobi" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-1">Chinazo A. Umenwobi</h3>
+                      <p class="text-primary mb-3">Mass & Media Comm. Lead</p>
+                      <p class="text-gray-600 text-sm mb-4">Comms-Director@anayd.org</p>
+                      <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Danladi A. Onuh | Finance & Compliance Lead -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in">
+                      <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                        <img src="asset/images/team/Danladi.jpg" alt="Danladi A. Onuh" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-1">Danladi A. Onuh</h3>
+                      <p class="text-primary mb-3">Finance & Compliance Lead</p>
+                      <p class="text-gray-600 text-sm mb-4">finance-compliance-lead@anayd.org</p>
+                      <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Habeeb N. Oluwafemi | ICT Lead/Web Admin -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in">
+                      <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                        <img src="asset/images/team/Najeeb.jpg" alt="Habeeb N. Oluwafemi" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-1">Habeeb N. Oluwafemi</h3>
+                      <p class="text-primary mb-3">ICT Lead/Web Admin</p>
+                      <p class="text-gray-600 text-sm mb-4">ict-lead@anayd.org</p>
+                      <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                        <a href="https://www.linkedin.com/in/habeeb-oluwafemi-0b1999bb/" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                        </a>
+                        <a href="https://x.com/femi_ultim8" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/habeeb_femi_/" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Sakinat Bello | Associate Program Lead for Climate Change -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in">
+                      <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                        <img src="asset/images/team/Sakinat.jpg" alt="Sakinat Bello" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-1">Sakinat Bello</h3>
+                      <p class="text-primary mb-3">Ass. Program Lead-Climate Change</p>
+                      <p class="text-gray-600 text-sm mb-4">climate-change-lead@anayd.org</p>
+                      <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Adeboye O. Joshua | Associate Communication Officer -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in">
+                      <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                        <img src="asset/images/team/Joshua.jpg" alt="Adeboye O. Joshua" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-1">Adeboye O. Joshua</h3>
+                      <p class="text-primary mb-3">Ass. Communication Officer</p>
+                      <p class="text-gray-600 text-sm mb-4">associate-communication-officer@anayd.org</p>
+                      <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Judith Okosun | Associate Programs Lead on SRHR/GBV -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 text-center group hover:shadow-md transition-shadow animate-when-visible" data-animate="fade-in">
+                      <div class="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                        <img src="asset/images/team/Judith.jpg" alt="Judith Okosun" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-1">Judith Okosun</h3>
+                      <p class="text-primary mb-3">Ass. Programs Lead on SRHR/GBV</p>
+                      <p class="text-gray-600 text-sm mb-4">associate-lead-srhr-gbv@anayd.org</p>
+                      <div class="opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -right-1 top-8 flex flex-col items-center justify-center space-y-4 bg-white/90 p-2 rounded-l-lg shadow-md">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-linkedin-fill text-xl" aria-label="LinkedIn"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-twitter-fill text-xl" aria-label="Twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all hover:translate-x-1">
+                          <i class="ri-instagram-fill text-xl" aria-label="Instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="py-20 bg-gray-50 opacity-0" data-animate="fade-in">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Get Involved
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Join us in our mission to empower young people across Nigeria and
+            West Africa. There are many ways you can contribute to our work.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8"
+          data-animate="slide-up"
+          data-delay="200"
+        >
+          <!-- Volunteer Card -->
+          <div
+            id="volunteer"
+            class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow"
+            data-animate="fade-in"
+            data-delay="400"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="asset/images/gallery/AID_virtual_hub_1.jpg"
+                alt="Volunteer with ANAYD"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary"
+                >
+                  <i class="ri-user-heart-line"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Volunteer</h3>
+              <p class="text-gray-600 mb-6">
+                Share your skills and time with ANAYD. We have opportunities for
+                volunteers in various areas, including health education, digital
+                skills training, and community outreach.
+              </p>
+              <a
+                href="volunteer-get-involved.html"
+                class="inline-block bg-[#4285F4] hover:bg-[#3367D6] text-white transition-all duration-200 px-12 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >Become a Volunteer</a
+              >
+            </div>
+          </div>
+
+          <!-- Donate Card -->
+          <div
+            id="donate"
+            class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow"
+            data-animate="fade-in"
+            data-delay="400"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="asset/images/general/anayd_health.jpg"
+                alt="Donate to ANAYD"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary"
+                >
+                  <i class="ri-hand-heart-line"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Donate</h3>
+              <p class="text-gray-600 mb-6">
+                Your financial support enables us to reach more young people
+                with life-changing programs. Every contribution, no matter the
+                size, makes a difference in the lives of African youth.
+              </p>
+              <a
+                href="donate.html"
+                class="inline-block bg-[#4285F4] hover:bg-[#3367D6] text-white transition-all duration-200 px-12 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >Make a Donation</a
+              >
+            </div>
+          </div>
+
+          <!-- Partner Card -->
+          <div
+            id="partner"
+            class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-md transition-shadow"
+            data-animate="fade-in"
+            data-delay="400"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="asset/images/general/anayd_ISADOSankofa_AYPs.jpg"
+                alt="Partner with ANAYD"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+              >
+                <div
+                  class="w-6 h-6 flex items-center justify-center text-primary"
+                >
+                  <i class="ri-building-line"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                Partner With Us
+              </h3>
+              <p class="text-gray-600 mb-6">
+                We collaborate with organizations that share our vision for
+                youth development. Partnership opportunities include program
+                funding, technical support, and joint initiatives.
+              </p>
+              <a
+                href="partnership.html"
+                class="inline-block bg-[#4285F4] hover:bg-[#3367D6] text-white transition-all duration-200 px-12 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >Become a Partner</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/sidebar-nav.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animation Observer
+        const animationObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '50px'
+        });
+
+        // Observe all sections and animated groups
+        document.querySelectorAll('[data-animate]').forEach((element) => {
+          animationObserver.observe(element);
+        });
+
+        // Mobile menu toggle for team page
+        const teamToggle = document.getElementById('program-menu-toggle');
+        if (teamToggle) {
+          teamToggle.addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+            const icon = document.getElementById('program-menu-icon');
+            icon.classList.toggle('rotate-180');
+          });
+        }
+      });
+    </script>
+</body>
+</html>

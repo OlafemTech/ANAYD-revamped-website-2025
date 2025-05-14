@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="ANAYD's Privacy Policy - Learn how we protect and handle your personal information while delivering healthcare and development programs across Africa." />
+    <meta name="keywords" content="ANAYD privacy policy, data protection, personal information, healthcare data privacy, NGO privacy standards, African data protection, youth healthcare privacy, information security, data handling, privacy rights" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="ANAYD - African Network of Adolescent & Young Persons Development" />
+    <meta property="og:description" content="Empowering African youth through healthcare initiatives, HIV/AIDS prevention, and sustainable development programs. Join ANAYD in transforming lives across Africa." />
+    <meta property="og:image" content="https://anayd.org/asset/images/og-image.jpg" />
+    <meta property="og:url" content="https://anayd.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ANAYD" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ANAYD_Africa" />
+    <meta name="twitter:title" content="ANAYD - Transforming Youth Healthcare in Africa" />
+    <meta name="twitter:description" content="Leading initiatives in youth healthcare, HIV/AIDS prevention, and sustainable development across Africa. Partnering with WHO, UNAIDS, UNFPA, and ECOWAS." />
+    <meta name="twitter:image" content="https://anayd.org/asset/images/twitter-card.jpg" />
+    <title>Privacy Policy - African Network of Adolescent & Young Persons Development</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <!-- Core libraries first -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- App-specific scripts -->
+    <script src="asset/js/events-carousel.js" defer></script>
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-600 py-20 -mb-16 relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] [mask-image:linear-gradient(to_bottom,white,transparent_50%)]" aria-hidden="true"></div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-6" data-animate="fade-in">Privacy Policy</h1>
+          <p class="text-lg text-blue-100 max-w-2xl mx-auto" data-animate="slide-up" data-delay="200">
+            Your privacy is our priority. Learn how we protect and handle your personal information.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16 -mt-16 relative z-10">
+      <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+        <div class="space-y-8">
+          <!-- Introduction Section -->
+          <section class="space-y-6" data-animate="fade-in">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Introduction
+            </h2>
+            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 transform hover:scale-[1.02] transition-transform duration-300">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <i class="ri-shield-keyhole-line text-2xl text-blue-600"></i>
+                </div>
+                <div>
+                  <p class="text-gray-700 leading-relaxed">
+                    ANAYD (African Network for Adolescents and Young Persons Development) is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you interact with our organization.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Information Collection Section -->
+          <section class="space-y-6" data-animate="slide-up" data-delay="200">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Information We Collect
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Personal Info Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-profile-line text-2xl text-purple-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Personal Information</h3>
+                </div>
+                <ul class="space-y-3">
+                  <li class="flex items-start space-x-3">
+                    <i class="ri-checkbox-circle-line text-purple-600 text-lg mt-1"></i>
+                    <span class="text-gray-700">Personal identification details</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <i class="ri-checkbox-circle-line text-purple-600 text-lg mt-1"></i>
+                    <span class="text-gray-700">Health-related information</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <i class="ri-checkbox-circle-line text-purple-600 text-lg mt-1"></i>
+                    <span class="text-gray-700">Demographic information</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Program Data Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-database-2-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Program Data</h3>
+                </div>
+                <ul class="space-y-3">
+                  <li class="flex items-start space-x-3">
+                    <i class="ri-checkbox-circle-line text-blue-600 text-lg mt-1"></i>
+                    <span class="text-gray-700">Program participation data</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <i class="ri-checkbox-circle-line text-blue-600 text-lg mt-1"></i>
+                    <span class="text-gray-700">Feedback and survey responses</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Information Usage Section -->
+          <section class="space-y-6" data-animate="slide-up" data-delay="300">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              How We Use Your Information
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Service Delivery Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-service-line text-2xl text-green-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Service Delivery</h3>
+                </div>
+                <p class="text-gray-700">Deliver healthcare and development programs effectively</p>
+              </div>
+
+              <!-- Communication Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-message-3-line text-2xl text-indigo-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Communication</h3>
+                </div>
+                <p class="text-gray-700">Keep you informed about our services and programs</p>
+              </div>
+
+              <!-- Improvement Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-line-chart-line text-2xl text-orange-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Improvement</h3>
+                </div>
+                <p class="text-gray-700">Monitor and enhance our programs and services</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Data Protection Section -->
+          <section class="space-y-6" data-animate="slide-up" data-delay="400">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Data Protection
+            </h2>
+            <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 shadow-inner border border-blue-100 transform hover:scale-[1.02] transition-transform duration-300">
+              <p class="text-gray-700 leading-relaxed mb-6">We implement appropriate technical and organizational measures to ensure the security of your personal information:</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                  <div class="flex items-start space-x-3">
+                    <i class="ri-lock-password-line text-2xl text-blue-600 mt-1"></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-800 mb-1">Encryption</h4>
+                      <p class="text-gray-600 text-sm">Encryption of sensitive data</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                  <div class="flex items-start space-x-3">
+                    <i class="ri-database-2-line text-2xl text-blue-600 mt-1"></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-800 mb-1">Secure Storage</h4>
+                      <p class="text-gray-600 text-sm">Secure storage systems</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                  <div class="flex items-start space-x-3">
+                    <i class="ri-shield-keyhole-line text-2xl text-blue-600 mt-1"></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-800 mb-1">Access Control</h4>
+                      <p class="text-gray-600 text-sm">Access controls and authentication</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                  <div class="flex items-start space-x-3">
+                    <i class="ri-file-search-line text-2xl text-blue-600 mt-1"></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-800 mb-1">Security Audits</h4>
+                      <p class="text-gray-600 text-sm">Regular security assessments</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                  <div class="flex items-start space-x-3">
+                    <i class="ri-user-settings-line text-2xl text-blue-600 mt-1"></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-800 mb-1">Staff Training</h4>
+                      <p class="text-gray-600 text-sm">Staff training on data protection</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Information Sharing Section -->
+          <section class="space-y-6" data-animate="slide-up" data-delay="500">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Information Sharing
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Healthcare Providers Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-hospital-line text-2xl text-green-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Healthcare Providers</h3>
+                </div>
+                <p class="text-gray-700">Medical professionals involved in your care</p>
+              </div>
+
+              <!-- Partner Organizations Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-team-line text-2xl text-purple-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Partner Organizations</h3>
+                </div>
+                <p class="text-gray-700">Trusted partners for program delivery</p>
+              </div>
+
+              <!-- Regulatory Authorities Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-government-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Regulatory Authorities</h3>
+                </div>
+                <p class="text-gray-700">When required by law and regulations</p>
+              </div>
+
+              <!-- Research Partners Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-microscope-line text-2xl text-indigo-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Research Partners</h3>
+                </div>
+                <p class="text-gray-700">Anonymized data for research purposes only</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Your Rights Section -->
+          <section class="space-y-6" data-animate="slide-up" data-delay="600">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Your Rights
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Data Access Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-folder-user-line text-2xl text-teal-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Data Access</h3>
+                </div>
+                <p class="text-gray-700">Access and view your personal information</p>
+              </div>
+
+              <!-- Data Control Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-edit-line text-2xl text-indigo-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Data Control</h3>
+                </div>
+                <p class="text-gray-700">Request corrections or deletion of your data</p>
+              </div>
+
+              <!-- Consent Management Card -->
+              <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i class="ri-toggle-line text-2xl text-purple-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800">Consent</h3>
+                </div>
+                <p class="text-gray-700">Manage your data processing preferences</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Contact Section -->
+          <section class="space-y-6" data-animate="slide-up" data-delay="700">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Contact Us
+            </h2>
+            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 transform hover:scale-[1.02] transition-transform duration-300">
+              <p class="text-gray-700 leading-relaxed mb-6">For any privacy-related questions or concerns, please contact us at:</p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-blue-100 p-3 rounded-lg">
+                    <i class="ri-mail-line text-xl text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-900">Email</h4>
+                    <p class="text-sm text-gray-600">privacy@anayd.org</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="bg-indigo-100 p-3 rounded-lg">
+                    <i class="ri-phone-line text-xl text-indigo-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-900">Phone</h4>
+                    <p class="text-sm text-gray-600">+234(0)816-431-7505</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="bg-violet-100 p-3 rounded-lg">
+                    <i class="ri-map-pin-line text-xl text-violet-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-900">Address</h4>
+                    <p class="text-sm text-gray-600">No. 39A Gyari Avenue GRA, Barnawa, Kaduna State, Nigeria</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Updates Section -->
+          <section class="space-y-6" data-animate="slide-up" data-delay="800">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Updates to This Policy
+            </h2>
+            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 transform hover:scale-[1.02] transition-transform duration-300">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0">
+                  <i class="ri-refresh-line text-2xl text-teal-600"></i>
+                </div>
+                <div>
+                  <p class="text-gray-700 leading-relaxed mb-4">
+                    We may update this Privacy Policy from time to time. The latest version will always be available on our website.
+                  </p>
+                  <div class="flex items-center space-x-2 text-sm text-gray-500">
+                    <i class="ri-time-line"></i>
+                    <span>Last updated: May 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+      <script src="js/animations.js"></script>
+</body>
+</html>
+

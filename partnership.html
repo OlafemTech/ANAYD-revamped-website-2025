@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Partner with ANAYD to make a lasting impact in youth development across Africa. Join our mission to empower the next generation." />
+    <meta name="keywords" content="partnership, NGO partnership, Africa, youth development, corporate partnership, CSR" />
+    <meta name="author" content="ANAYD" />
+    <title>Partnership - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20 min-h-screen">
+      <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Mobile Program Toggle -->
+          <div class="lg:hidden mb-6">
+            <button
+              id="program-menu-toggle"
+              class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+            >
+              <span>Get Involved</span>
+              <i class="ri-arrow-down-s-line text-xl transition-transform" id="program-menu-icon"></i>
+            </button>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="lg:w-64 flex-shrink-0 hidden lg:block" id="program-sidebar">
+            <div class="bg-white rounded-xl p-6 shadow-sm sticky top-24 space-y-6 opacity-0 animate-slide-in-left">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Our Programs</h3>
+                <nav class="space-y-2">
+                  <a href="hiv-aids-program.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">HIV/AIDS</a>
+                  <a href="malaria.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Malaria</a>
+                  <a href="tuberculosis.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Tuberculosis</a>
+                  <a href="gbv.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">GBV</a>
+                  <a href="srhr.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">SRHR</a>
+                  <a href="digital-skills.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Digital Skills Training</a>
+                  <a href="community-outreach.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Community Outreach</a>
+                </nav>
+
+                <div class="mt-8">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Get Involved</h3>
+                  <nav class="space-y-2">
+                    <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                    <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                    <a href="partnership.html" class="block px-4 py-2 rounded-lg text-primary font-medium">Partner With Us</a>
+                  </nav>
+
+                  <!-- Support Our Cause Box -->
+                  <div class="mt-8 bg-primary text-white p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold mb-2">Support Our Cause</h3>
+                    <p class="text-sm text-white/90 mb-4">Join us in making a difference in the lives of young people across Africa.</p>
+                    <a href="donate.html" class="inline-block w-full px-6 py-3 bg-white text-primary font-semibold text-center rounded-lg hover:bg-gray-50 transition-colors">Donate Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content Area -->
+          <div class="flex-1 space-y-16">
+            <!-- Why Partner Section -->
+            <section class="bg-white rounded-xl shadow-sm p-8 opacity-0 animate-slide-in-right">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">Why Partner with ANAYD?</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <i class="ri-line-chart-line text-xl text-primary"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-1">Impact & Reach</h3>
+                      <p class="text-gray-600">Over 6Million+ youth impacted across the 36 States of Nigeria.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <i class="ri-team-line text-xl text-primary"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-1">Community Focus</h3>
+                      <p class="text-gray-600">Deep community connections and grassroots engagement for sustainable impact.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <i class="ri-award-line text-xl text-primary"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-1">Track Record</h3>
+                      <p class="text-gray-600">Successfully delivered programs with major international organizations.</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <i class="ri-heart-line text-xl text-primary"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-1">Shared Values</h3>
+                      <p class="text-gray-600">Commitment to transparency, accountability, and measurable outcomes.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Partnership Types -->
+            <section class="bg-white rounded-xl shadow-sm p-8 opacity-0 animate-slide-in-right">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">Types of Partnerships</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-lg p-6">
+                  <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                    <i class="ri-building-line text-primary text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Corporate</h3>
+                  <p class="text-gray-600">Strategic partnerships with businesses for sustainable community development.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-6">
+                  <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                    <i class="ri-broadcast-line text-primary text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Media</h3>
+                  <p class="text-gray-600">Collaboration with media outlets for awareness and advocacy campaigns.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-6">
+                  <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                    <i class="ri-government-line text-primary text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Institutional</h3>
+                  <p class="text-gray-600">Partnerships with government agencies and international organizations.</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Partnership Form -->
+            <section class="bg-white rounded-xl shadow-sm p-8 opacity-0 animate-slide-in-right">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">Become a Partner</h2>
+              <form class="space-y-6" id="partnership-form" action="backend/handlers/partnership.php" method="POST">
+                <input type="hidden" name="csrf_token" value="<?php echo generate_csrf_token(); ?>">
+                <!-- Contact Details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                    <input type="text" id="full-name" name="contact_person" required
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary">
+                  </div>
+                  <div>
+                    <label for="organization" class="block text-sm font-medium text-gray-700 mb-1">Organization/Company Name *</label>
+                    <input type="text" id="organization" name="organization_name" required
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="position" class="block text-sm font-medium text-gray-700 mb-1">Position/Title *</label>
+                    <input type="text" id="position" name="position" required
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary">
+                  </div>
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                    <input type="email" id="email" name="email" required
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary">
+                  </div>
+                  <div>
+                    <label for="website" class="block text-sm font-medium text-gray-700 mb-1">Website or Social Media</label>
+                    <input type="url" id="website" name="website"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary">
+                  </div>
+                </div>
+
+                <!-- Partnership Details -->
+                <div>
+                  <label for="partnership-type" class="block text-sm font-medium text-gray-700 mb-1">Type of Partnership *</label>
+                  <select id="partnership-type" name="partnership_type" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary">
+                    <option value="">Select type</option>
+                    <option value="financial">Financial Sponsorship</option>
+                    <option value="resource">Resource Donation</option>
+                    <option value="media">Media Support</option>
+                    <option value="skills">Skills/Training</option>
+                    <option value="event">Event Collaboration</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Reason for Partnership *</label>
+                  <textarea id="message" name="proposal" rows="4" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
+                </div>
+
+                <div>
+                  <label for="duration" class="block text-sm font-medium text-gray-700 mb-1">Proposed Duration/Timeline *</label>
+                  <select id="duration" name="duration" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary">
+                    <option value="">Select duration</option>
+                    <option value="one-time">One-time Project</option>
+                    <option value="3-months">3 Months</option>
+                    <option value="6-months">6 Months</option>
+                    <option value="1-year">1 Year</option>
+                    <option value="ongoing">Ongoing</option>
+                  </select>
+                </div>
+
+                <!-- Additional Information -->
+                <div>
+                  <label for="past-projects" class="block text-sm font-medium text-gray-700 mb-1">Past CSR Projects or Related Work</label>
+                  <textarea id="past-projects" name="past-projects" rows="3"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
+                </div>
+
+                <div>
+                  <label for="hear-about" class="block text-sm font-medium text-gray-700 mb-1">How did you hear about us? *</label>
+                  <select id="hear-about" name="hear-about" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary">
+                    <option value="">Select option</option>
+                    <option value="social-media">Social Media</option>
+                    <option value="search">Search Engine</option>
+                    <option value="referral">Referral</option>
+                    <option value="event">Event</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <!-- Consent Section -->
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <input type="checkbox" id="contact-consent" name="contact-consent" required
+                      class="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary">
+                    <label for="contact-consent" class="ml-2 block text-sm text-gray-600">
+                      I agree to be contacted regarding partnership opportunities *
+                    </label>
+                  </div>
+                  <div class="flex items-start">
+                    <input type="checkbox" id="terms" name="terms" required
+                      class="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary">
+                    <label for="terms" class="ml-2 block text-sm text-gray-600">
+                      I agree to the <a href="#" class="text-primary hover:text-primary/90">Terms and Conditions</a> and
+                      <a href="#" class="text-primary hover:text-primary/90">Privacy Policy</a> *
+                    </label>
+                  </div>
+                </div>
+
+                <div class="flex items-center">
+                  <button type="submit"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-button text-white bg-primary hover:bg-primary/90 transition-colors">
+                    Submit Partnership Request
+                  </button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Partners Section -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-8" data-animate="fade-in">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Our Partners & Funders
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        <style>
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .partners-track {
+            animation: scroll 40s linear infinite;
+            width: max-content;
+          }
+          .partners-slider:hover .partners-track {
+            animation-play-state: paused;
+          }
+        </style>
+        <div
+          class="partners-slider overflow-hidden"
+          data-animate="slide-up"
+          data-delay="200"
+        >
+          <div class="partners-track flex space-x-8">
+            <!-- First set of partners -->
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/ARFH.jpeg"
+                alt="ARFH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CIHP.png"
+                alt="CIHP"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CSIWCA.jpeg"
+                alt="CSIWCA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DHRAN.png"
+                alt="DHRAN"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DRAC.jpg"
+                alt="DRAC"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EGPAF.jpeg"
+                alt="EGPAF"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EVA.png"
+                alt="EVA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/FHI360.png"
+                alt="FHI360"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/GNYPLH.jpg"
+                alt="GNYPLH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/Global Fund.png"
+                alt="Global Fund"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/HHCSI.jpg"
+                alt="HHCSI"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/IAS.png"
+                alt="IAS"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/ISDAO.png"
+                alt="ISDAO"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/JHPEIGO.png"
+                alt="JHPEIGO"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <!-- Duplicate slides for continuous scrolling -->
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/KADSACA.jpeg"
+                alt="KADSACA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/NACA.jpg"
+                alt="NACA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/NEPWAN.jpg"
+                alt="NEPWAN"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/NYETHA.jpg"
+                alt="NYETHA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/Nigeria.jpg"
+                alt="Nigeria"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/SFH.jpeg"
+                alt="SFH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNAIDS.jpg"
+                alt="UNAIDS"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNESCO.jpg"
+                alt="UNESCO"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNFPA.png"
+                alt="UNFPA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNICEF.jpeg"
+                alt="UNICEF"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/Y+ Global.png"
+                alt="Y+ Global"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/usaid.png"
+                alt="USAID"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            
+            <!-- Duplicate logos for continuous scrolling -->
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/ARFH.jpeg"
+                alt="ARFH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CIHP.png"
+                alt="CIHP"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CSIWCA.jpeg"
+                alt="CSIWCA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DHRAN.png"
+                alt="DHRAN"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DRAC.jpg"
+                alt="DRAC"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EGPAF.jpeg"
+                alt="EGPAF"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EVA.png"
+                alt="EVA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/FHI360.png"
+                alt="FHI360"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Animation and Mobile Menu Scripts -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animation Observer
+        const animationObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '50px'
+        });
+
+        // Observe all sections and animated groups
+        document.querySelectorAll('section, .group').forEach((element) => {
+          animationObserver.observe(element);
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('program-menu-toggle');
+        const menuIcon = document.getElementById('program-menu-icon');
+        const sidebar = document.getElementById('program-sidebar');
+
+        if (menuToggle && menuIcon && sidebar) {
+          menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+            menuIcon.style.transform = sidebar.classList.contains('hidden') ? '' : 'rotate(180deg)';
+          });
+        }
+
+        // Handle resize to show sidebar on larger screens
+        const handleResize = () => {
+          if (window.innerWidth >= 1024) { // lg breakpoint
+            sidebar.classList.remove('hidden');
+            menuIcon.style.transform = '';
+          } else {
+            sidebar.classList.add('hidden');
+          }
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initial check
+
+        // Initialize footer
+        const footerContainer = document.getElementById('footer-container');
+        if (footerContainer) {
+          fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => {
+              footerContainer.innerHTML = html;
+            });
+        }
+
+        // Form Submission Handler
+        const partnershipForm = document.getElementById('partnership-form');
+        if (partnershipForm) {
+          partnershipForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = `<div class="flex items-center justify-center"><svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Processing...</div>`;
+            
+            // Collect form data
+            const formData = new FormData(this);
+            
+            // Send form data to server
+            fetch('backend/handlers/partnership.php', {
+              method: 'POST',
+              body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+              // Reset button state
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalButtonText;
+              
+              if (data.success) {
+                // Get partnership type for customized message
+                const partnershipType = document.getElementById('partnership-type').value;
+                const partnershipTypeText = document.getElementById('partnership-type').options[document.getElementById('partnership-type').selectedIndex].text;
+                
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-lg z-50 max-w-md w-full';
+                successMessage.innerHTML = `
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <i class="ri-check-line text-2xl text-green-500" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Partnership Request Submitted!</h3>
+                    <p class="text-gray-600 mb-4">Thank you for your interest in partnering with ANAYD as a <strong>${partnershipTypeText}</strong> partner.</p>
+                    <p class="text-gray-600 mb-6">We have sent a confirmation email to your provided address with more details. Our partnership team will review your request and contact you within 3-5 business days.</p>
+                    <button class="bg-primary text-white hover:bg-primary/90 transition-colors px-6 py-2 rounded-button">Close</button>
+                  </div>
+                `;
+
+                // Add overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'fixed inset-0 bg-black bg-opacity-50 z-40';
+
+                // Add to DOM
+                document.body.appendChild(overlay);
+                document.body.appendChild(successMessage);
+
+                // Close button functionality
+                const closeButton = successMessage.querySelector('button');
+                closeButton.addEventListener('click', function () {
+                  document.body.removeChild(overlay);
+                  document.body.removeChild(successMessage);
+                  partnershipForm.reset();
+                });
+              } else {
+                // Show error message
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg z-50 max-w-md w-full';
+                errorMessage.innerHTML = `
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <i class="ri-close-line text-2xl text-red-500" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Submission Error</h3>
+                    <p class="text-gray-600 mb-6">${data.message || 'There was an error submitting your partnership request. Please try again or contact us directly.'}</p>
+                    <button class="bg-primary text-white hover:bg-primary/90 transition-colors px-6 py-2 rounded-button">Close</button>
+                  </div>
+                `;
+
+                // Add overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'fixed inset-0 bg-black bg-opacity-50 z-40';
+
+                // Add to DOM
+                document.body.appendChild(overlay);
+                document.body.appendChild(errorMessage);
+
+                // Close button functionality
+                const closeButton = errorMessage.querySelector('button');
+                closeButton.addEventListener('click', function () {
+                  document.body.removeChild(overlay);
+                  document.body.removeChild(errorMessage);
+                });
+              }
+            })
+            .catch(error => {
+              // Reset button state
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalButtonText;
+              
+              // Show error message
+              const errorMessage = document.createElement('div');
+              errorMessage.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg z-50 max-w-md w-full';
+              errorMessage.innerHTML = `
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="ri-close-line text-2xl text-red-500" aria-hidden="true"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2">Connection Error</h3>
+                  <p class="text-gray-600 mb-6">There was a problem connecting to our server. Please check your internet connection and try again.</p>
+                  <button class="bg-primary text-white hover:bg-primary/90 transition-colors px-6 py-2 rounded-button">Close</button>
+                </div>
+              `;
+
+              // Add overlay
+              const overlay = document.createElement('div');
+              overlay.className = 'fixed inset-0 bg-black bg-opacity-50 z-40';
+
+              // Add to DOM
+              document.body.appendChild(overlay);
+              document.body.appendChild(errorMessage);
+
+              // Close button functionality
+              const closeButton = errorMessage.querySelector('button');
+              closeButton.addEventListener('click', function () {
+                document.body.removeChild(overlay);
+                document.body.removeChild(errorMessage);
+              });
+              
+              console.error('Form submission error:', error);
+            });
+          });
+        }
+      });
+    </script>
+      <script src="js/animations.js"></script>
+</body>
+</html>
+

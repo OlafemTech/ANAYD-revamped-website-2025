@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Project Reports - African Network for Adolescents and Young Persons Development (ANAYD)" />
+    <meta name="keywords" content="Project Reports, Research, Publications, Downloads, African Network, Adolescents, Young Persons Development, NGO Reports, Development Partners" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>Project Reports - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards',
+              'swipe-in': 'swipeIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+              'fade-up': 'fadeUp 0.8s ease-out forwards',
+              'fade-down': 'fadeDown 0.8s ease-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              swipeIn: {
+                '0%': { transform: 'translateX(100px) rotate(5deg)', opacity: '0' },
+                '100%': { transform: 'translateX(0) rotate(0)', opacity: '1' },
+              },
+              fadeUp: {
+                '0%': { transform: 'translateY(30px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              fadeDown: {
+                '0%': { transform: 'translateY(-30px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="pt-20 min-h-screen">
+      <!-- Mobile Menu Toggle -->
+      <div class="container mx-auto px-4 py-4 lg:hidden">
+        <button
+          id="reports-menu-toggle"
+          class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+        >
+          <span>Filter Reports</span>
+          <i class="ri-arrow-down-s-line text-xl transition-transform" id="reports-menu-icon"></i>
+        </button>
+        
+        <!-- Mobile Filter Menu -->
+        <div id="reports-mobile-filter" class="hidden mt-3 bg-white rounded-xl shadow-sm p-4 animate-slide-in-left">
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-medium text-gray-900 mb-2">Categories</h4>
+              <div class="space-y-2">
+                <a href="#download-all" class="block px-3 py-1.5 rounded-lg bg-primary/10 text-primary font-medium hover:bg-primary/15 transition-all">All Reports</a>
+                <a href="#impact-reports" class="block px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Impact Reports</a>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium text-gray-900 mb-2">Topics</h4>
+              <div class="flex flex-wrap gap-2">
+                <button class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded hover:bg-blue-200 transition-colors">Health</button>
+                <button class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded hover:bg-green-200 transition-colors">COVID-19</button>
+                <button class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded hover:bg-purple-200 transition-colors">Funding</button>
+                <button class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded hover:bg-yellow-200 transition-colors">Advocacy</button>
+                <button class="px-3 py-1 bg-red-100 text-red-800 text-xs font-medium rounded hover:bg-red-200 transition-colors">Impact</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hero Section -->
+      <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center opacity-0 animate-fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Project Reports</h1>
+            <p class="text-xl text-blue-100 mb-8">Access and download our comprehensive research and project reports</p>
+            
+            <!-- Search Bar -->
+            <div class="relative max-w-2xl mx-auto">
+              <input 
+                type="text" 
+                id="report-search" 
+                placeholder="Search for reports..." 
+                class="w-full px-6 py-4 rounded-full text-gray-800 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+              >
+              <button class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-primary text-white p-2 rounded-full hover:bg-blue-700 transition-colors" title="Search reports">
+                <i class="ri-search-line text-xl"></i>
+                <span class="sr-only">Search reports</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Download All Section -->
+      <section id="download-all" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center mb-12 opacity-0 animate-fade-up">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">All Project Reports</h2>
+            <p class="text-lg text-gray-600">Browse and download our complete collection of project reports and research publications</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Health Category Reports -->
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="100">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">Adolescent and Youth Tuberculosis</h3>
+                  <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Health</span>
+                </div>
+                <p class="text-gray-600 mb-4">A comprehensive report on tuberculosis prevention and treatment strategies for adolescents and young adults, highlighting key interventions and outcomes.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: March 2023</span>
+                  <span class="text-sm text-gray-500">2.9 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/ADOLESCENT AND YOUTH TUBERCULOSIS.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="200">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">HIV Self-Testing Africa (STAR III)</h3>
+                  <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Health</span>
+                </div>
+                <p class="text-gray-600 mb-4">Details of the STAR III initiative promoting HIV self-testing across Africa, including implementation strategies, community engagement, and testing outcomes.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: August 2022</span>
+                  <span class="text-sm text-gray-500">5.5 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/HIV-SELF-TESTING-AFRICA_STAR-III-INITIATIVE.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="300">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">RMNCAH+ Assessment Report 2022</h3>
+                  <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Health</span>
+                </div>
+                <p class="text-gray-600 mb-4">Assessment of Reproductive, Maternal, Newborn, Child, and Adolescent Health Plus initiatives, evaluating program effectiveness and community impact.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: December 2022</span>
+                  <span class="text-sm text-gray-500">7.0 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/ANAYD RMNCAH+ ASSESSMENT REPORT 2022.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <!-- COVID-19 Category Reports -->
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="400">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">COVID-19 Response Mechanism</h3>
+                  <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">COVID-19</span>
+                </div>
+                <p class="text-gray-600 mb-4">Technical assistance report documenting ANAYD's COVID-19 response strategies, community impact, and lessons learned during the pandemic.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: July 2021</span>
+                  <span class="text-sm text-gray-500">12.8 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/ANAYD GF COVID-19 RESPONSE MECHANISM  TA Report.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="500">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">COVID-19 Impact on AYPLHIV & YKPs</h3>
+                  <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">COVID-19</span>
+                </div>
+                <p class="text-gray-600 mb-4">Situation analysis report on COVID-19's impact amongst Adolescents and Young People Living with HIV and Young Key Populations in Nigeria.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: October 2021</span>
+                  <span class="text-sm text-gray-500">2.3 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/ANAYD OF SITUATION ANALYSIS REPORT ON COVID-19 IMPACT AMONGST AYPLHIV & YKPS IN NIGERIA.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="600">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">COVID-19 SRHR Project</h3>
+                  <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">COVID-19</span>
+                </div>
+                <p class="text-gray-600 mb-4">Report on the Sexual and Reproductive Health and Rights project implemented during the COVID-19 pandemic, addressing challenges and adaptations.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: April 2022</span>
+                  <span class="text-sm text-gray-500">5.2 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/COVID19 SRHR PROJECT.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <!-- Funding Category Reports -->
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="700">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">Global Funds TA Grant</h3>
+                  <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Funding</span>
+                </div>
+                <p class="text-gray-600 mb-4">Detailed report on the Global Funds Technical Assistance grant, outlining project implementation, resource allocation, and community impact metrics.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: September 2022</span>
+                  <span class="text-sm text-gray-500">33.4 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/ANAYD GLOBAL FUNDS TA GRANT PROJECT REPORT.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="800">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">Social AID Fund Project 2021</h3>
+                  <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Funding</span>
+                </div>
+                <p class="text-gray-600 mb-4">Overview of the Social AID Fund project, detailing resource allocation, beneficiary demographics, and measurable community outcomes in 2021.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: December 2021</span>
+                  <span class="text-sm text-gray-500">3.1 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/ANAYD SOCIAL AID FUND PROJECT  REPORT 2021.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="900">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">Social AID Fund 2.0 Project</h3>
+                  <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Funding</span>
+                </div>
+                <p class="text-gray-600 mb-4">Follow-up report on the Social AID Fund 2.0, highlighting expanded initiatives, new communities served, and improved outcomes from the previous implementation.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: June 2023</span>
+                  <span class="text-sm text-gray-500">6.5 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/Social AID Fund 2.0 Project Report.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <!-- Advocacy Category Reports -->
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="1000">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">ISDAO Project Report</h3>
+                  <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Advocacy</span>
+                </div>
+                <p class="text-gray-600 mb-4">Details of the ISDAO initiative focusing on improving social development and advocacy outcomes across target communities in Africa.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: February 2022</span>
+                  <span class="text-sm text-gray-500">15.1 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/ANAYD  ISDAO Project Report .pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="1100">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">YouthRise Global C19RM Consultation</h3>
+                  <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Advocacy</span>
+                </div>
+                <p class="text-gray-600 mb-4">Report on the YouthRise Global COVID-19 Response Mechanism consultation, documenting youth perspectives, challenges, and recommendations for pandemic response.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: June 2021</span>
+                  <span class="text-sm text-gray-500">2.8 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/ANYAYD  YouthRise Global C19RM Consultation REPORT June 2021.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="1200">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">GEF Inception Meeting</h3>
+                  <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Advocacy</span>
+                </div>
+                <p class="text-gray-600 mb-4">Documentation of the Global Environment Facility inception meeting, outlining project goals, stakeholder engagement, and implementation strategies.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: August 2022</span>
+                  <span class="text-sm text-gray-500">1.4 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/GEF INCEPTION MEETING  (1) (1).pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Impact Reports Section -->
+      <section id="impact-reports" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center mb-12 opacity-0 animate-fade-down">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Impact Reports</h2>
+            <p class="text-lg text-gray-600">Detailed analysis of our programs' impact on communities and individuals across Africa</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Impact Report Cards -->
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="100">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">HIV Services Access Report</h3>
+                  <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Impact</span>
+                </div>
+                <p class="text-gray-600 mb-4">Analysis of factors associated with poor access to HIV and sexual and reproductive health services for women and girls living with HIV in Nigeria.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: November 2022</span>
+                  <span class="text-sm text-gray-500">0.7 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/Factors-associated-with-poor-access-to-HIV-and-sexual-and-reproductive-health-services-in-Nigeria-for-women-and-girls-living-with-HIV-during-the.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="200">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">STAR Project DSF4HIVST</h3>
+                  <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Impact</span>
+                </div>
+                <p class="text-gray-600 mb-4">Impact assessment of the Demand-Side Financing for HIV Self-Testing initiative under the STAR Project, documenting outcomes and community reception.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: August 2022</span>
+                  <span class="text-sm text-gray-500">0.6 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/REPORT_DSF4HIVST_STAR_PROJECT_ANAYD_AUGUST_2022.pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden opacity-0 animate-swipe-in" data-delay="300">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-xl font-semibold text-gray-900">Youth TB Comprehensive Report</h3>
+                  <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Impact</span>
+                </div>
+                <p class="text-gray-600 mb-4">Comprehensive side-by-side analysis of tuberculosis prevention, treatment, and outcomes among adolescents and youth across multiple regions.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm text-gray-500">Published: April 2023</span>
+                  <span class="text-sm text-gray-500">66.0 MB</span>
+                </div>
+              </div>
+              <div class="border-t border-gray-100 bg-gray-50 p-4">
+                <a href="asset/files/projects report/ANAYD ADOLESCENT AND YOUTH TUBERCULOSIS (COMPLETE SIDE BY SIDE).pdf" class="flex items-center justify-center gap-2 text-primary font-medium hover:text-primary-dark transition-colors" download>
+                  <i class="ri-file-download-line text-lg"></i>
+                  Download Report
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partners Section -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-8" data-animate="fade-in">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Our Partners & Funders
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        <style>
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .partners-track {
+            animation: scroll 40s linear infinite;
+            width: max-content;
+          }
+          .partners-slider:hover .partners-track {
+            animation-play-state: paused;
+          }
+        </style>
+        <div
+          class="partners-slider overflow-hidden"
+          data-animate="slide-up"
+          data-delay="200"
+        >
+          <div class="partners-track flex space-x-8">
+            <!-- First set of partners -->
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/ARFH.jpeg"
+                alt="ARFH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CIHP.png"
+                alt="CIHP"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CSIWCA.jpeg"
+                alt="CSIWCA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DHRAN.png"
+                alt="DHRAN"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DRAC.jpg"
+                alt="DRAC"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EGPAF.jpeg"
+                alt="EGPAF"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EVA.png"
+                alt="EVA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/FHI360.png"
+                alt="FHI360"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/GNYPLH.jpg"
+                alt="GNYPLH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/Global Fund.png"
+                alt="Global Fund"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/HHCSI.jpg"
+                alt="HHCSI"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/IAS.png"
+                alt="IAS"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/ISDAO.png"
+                alt="ISDAO"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/JHPEIGO.png"
+                alt="JHPEIGO"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <!-- Duplicate slides for continuous scrolling -->
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/KADSACA.jpeg"
+                alt="KADSACA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/NACA.jpg"
+                alt="NACA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/NEPWAN.jpg"
+                alt="NEPWAN"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/NYETHA.jpg"
+                alt="NYETHA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/Nigeria.jpg"
+                alt="Nigeria"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/SFH.jpeg"
+                alt="SFH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNAIDS.jpg"
+                alt="UNAIDS"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNESCO.jpg"
+                alt="UNESCO"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNFPA.png"
+                alt="UNFPA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/UNICEF.jpeg"
+                alt="UNICEF"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/Y+ Global.png"
+                alt="Y+ Global"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/usaid.png"
+                alt="USAID"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            
+            <!-- Duplicate logos for continuous scrolling -->
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/ARFH.jpeg"
+                alt="ARFH"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CIHP.png"
+                alt="CIHP"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/CSIWCA.jpeg"
+                alt="CSIWCA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DHRAN.png"
+                alt="DHRAN"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/DRAC.jpg"
+                alt="DRAC"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EGPAF.jpeg"
+                alt="EGPAF"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/EVA.png"
+                alt="EVA"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+            <div class="partner-slide flex-shrink-0">
+              <img
+                src="asset/images/Partners/FHI360.png"
+                alt="FHI360"
+                class="h-20 w-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/dropdown.js"></script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Mobile Menu Toggle
+        const reportsMenuToggle = document.getElementById('reports-menu-toggle');
+        const reportsMenuIcon = document.getElementById('reports-menu-icon');
+        const reportsMobileFilter = document.getElementById('reports-mobile-filter');
+        
+        if (reportsMenuToggle && reportsMobileFilter) {
+          reportsMenuToggle.addEventListener('click', function() {
+            reportsMobileFilter.classList.toggle('hidden');
+            reportsMenuIcon.classList.toggle('rotate-180');
+            
+            // Add slide animation when showing
+            if (!reportsMobileFilter.classList.contains('hidden')) {
+              reportsMobileFilter.classList.add('animate-slide-in-left');
+              setTimeout(() => {
+                reportsMobileFilter.classList.remove('animate-slide-in-left');
+              }, 600); // Match animation duration
+            }
+          });
+        }
+        
+        // Category filter buttons in mobile view
+        const topicButtons = document.querySelectorAll('.flex-wrap button');
+        if (topicButtons.length > 0) {
+          topicButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              const category = this.textContent.toLowerCase();
+              
+              // Toggle active state
+              this.classList.toggle('bg-opacity-50');
+              this.classList.toggle('ring-2');
+              this.classList.toggle('ring-offset-1');
+              
+              // Filter cards based on category
+              filterCardsByCategory(category, this.classList.contains('ring-2'));
+            });
+          });
+        }
+        
+        function filterCardsByCategory(category, isActive) {
+          const cards = document.querySelectorAll('.grid > div');
+          
+          if (!isActive) {
+            // If deactivated, show all cards again
+            cards.forEach(card => {
+              card.style.display = 'block';
+              
+              // Add re-entry animation
+              card.classList.add('animate-scale-in');
+              setTimeout(() => {
+                card.classList.remove('animate-scale-in');
+              }, 600);
+            });
+            return;
+          }
+          
+          cards.forEach(card => {
+            const cardCategory = card.querySelector('span').textContent.toLowerCase();
+            
+            if (cardCategory.includes(category)) {
+              card.style.display = 'block';
+              
+              // Add highlight animation
+              card.classList.add('animate-scale-in');
+              setTimeout(() => {
+                card.classList.remove('animate-scale-in');
+              }, 600);
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }
+        
+        // Search functionality
+        const searchInput = document.getElementById('report-search');
+        const searchButton = document.querySelector('.relative button');
+        const reportCards = document.querySelectorAll('.grid > div');
+        
+        // Function to perform search
+        function performSearch() {
+          const searchTerm = searchInput.value.toLowerCase().trim();
+          let resultsFound = false;
+          
+          reportCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const description = card.querySelector('p').textContent.toLowerCase();
+            const category = card.querySelector('span').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+              card.style.display = 'block';
+              resultsFound = true;
+              
+              // Add highlight animation for matching results
+              if (searchTerm !== '') {
+                card.classList.add('animate-scale-in');
+                setTimeout(() => {
+                  card.classList.remove('animate-scale-in');
+                }, 600);
+              }
+            } else {
+              card.style.display = 'none';
+            }
+          });
+          
+          // Scroll to results if found
+          if (resultsFound && searchTerm !== '') {
+            const firstVisibleCard = document.querySelector('.grid > div[style="display: block"]');
+            if (firstVisibleCard) {
+              firstVisibleCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+          
+          return false; // Prevent form submission
+        }
+        
+        // Input event listener (real-time search)
+        if (searchInput) {
+          searchInput.addEventListener('input', performSearch);
+          
+          // Enter key in search input
+          searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              performSearch();
+            }
+          });
+        }
+        
+        // Search button click event
+        if (searchButton) {
+          searchButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            performSearch();
+          });
+        }
+        
+        // Enhanced Intersection Observer for animations
+        const animatedElements = document.querySelectorAll('[class*="animate-"]');
+        const reportSections = document.querySelectorAll('section');
+        
+        // Animation observer for individual elements
+        const elementObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.getAttribute('data-delay') || 0;
+              setTimeout(() => {
+                entry.target.style.opacity = '1';
+              }, delay);
+              elementObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        // Section observer for scroll direction effects
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Get all cards in this section
+              const cards = entry.target.querySelectorAll('.grid > div');
+              
+              // Determine scroll direction
+              const scrollDown = window.scrollY > lastScrollY;
+              lastScrollY = window.scrollY;
+              
+              // Apply staggered animations based on scroll direction
+              cards.forEach((card, index) => {
+                // Remove any existing animation classes
+                card.classList.remove('animate-swipe-in', 'animate-fade-up', 'animate-fade-down');
+                
+                // Reset opacity to enable re-animation
+                card.style.opacity = '0';
+                
+                // Apply new animation based on scroll direction
+                setTimeout(() => {
+                  if (scrollDown) {
+                    card.classList.add('animate-fade-up');
+                  } else {
+                    card.classList.add('animate-fade-down');
+                  }
+                  card.style.opacity = '1';
+                }, index * 100); // Staggered delay
+              });
+            }
+          });
+        }, { threshold: 0.2 });
+        
+        // Track last scroll position to determine direction
+        let lastScrollY = window.scrollY;
+        
+        // Apply observers to elements
+        animatedElements.forEach(element => {
+          elementObserver.observe(element);
+        });
+        
+        // Apply section observer to all sections
+        reportSections.forEach(section => {
+          sectionObserver.observe(section);
+        });
+        
+        // Add scroll event listener to update lastScrollY
+        window.addEventListener('scroll', function() {
+          // Throttle the scroll event to improve performance
+          if (!window.scrollThrottleTimeout) {
+            window.scrollThrottleTimeout = setTimeout(function() {
+              lastScrollY = window.scrollY;
+              window.scrollThrottleTimeout = null;
+            }, 100);
+          }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 100,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Our Funders - African Network for Adolescents and Young Persons Development (ANAYD)" />
+    <meta name="keywords" content="ANAYD Funders, Partners, Donors, Supporters, African Network, Adolescents, Young Persons Development, NGO Funding, Development Partners" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>Our Funders - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20 min-h-screen">
+      <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Mobile Program Toggle -->
+          <div class="lg:hidden mb-6">
+            <button
+              id="program-menu-toggle"
+              class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+            >
+              <span>About ANAYD</span>
+              <i class="ri-arrow-down-s-line text-xl transition-transform" id="program-menu-icon"></i>
+            </button>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="lg:w-64 flex-shrink-0 hidden lg:block" id="program-sidebar">
+            <div class="bg-white rounded-xl p-6 shadow-sm sticky top-24 space-y-6 opacity-0 animate-slide-in-left">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">About Us</h3>
+                <nav class="space-y-2">
+                  <a href="who-we-are.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Who We Are</a>
+                  <a href="what-we-do.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">What We Do</a>
+                  <a href="meet-our-team.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Meet Our Team</a>
+                  <a href="our-funders.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium">Our Funders</a>
+                </nav>
+
+                <div class="mt-8">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Get Involved</h3>
+                  <nav class="space-y-2">
+                    <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                    <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                    <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                  </nav>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-8 p-6 bg-gradient-to-br from-primary to-secondary rounded-xl text-white">
+                  <h4 class="text-lg font-semibold mb-2">Support Our Cause</h4>
+                  <p class="text-sm text-white/90 mb-4">Join us in making a difference in the lives of young people across Africa.</p>
+                  <a href="donate.html" class="inline-block w-full px-6 py-3 bg-white text-primary font-semibold text-center rounded-lg hover:bg-gray-50 transition-colors">Donate Now</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <div class="flex-1">
+            <div class="max-w-5xl">
+              <!-- Hero Section -->
+              <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-lg mb-8">
+                <div class="max-w-3xl mx-auto text-center">
+                  <h1 class="text-4xl md:text-5xl font-bold mb-6 opacity-0" data-animate="fade-in">Our Funders</h1>
+                  <p class="text-lg text-blue-100 mb-8 opacity-0" data-animate="slide-up" data-delay="200">We are grateful to our funders and partners who support our mission to empower adolescents and young people across Africa.</p>
+                  <div class="flex justify-center gap-4 opacity-0" data-animate="fade-in" data-delay="400">
+                    <a href="donate.html" class="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition-colors">Donate</a>
+                    <a href="partnership.html" class="bg-blue-500 text-white hover:bg-blue-400 px-6 py-3 rounded-lg font-medium transition-colors">Partner With Us</a>
+                  </div>
+                </div>
+              </section>
+                <div class="prose max-w-none mb-12 opacity-0" data-animate="slide-up" data-delay="200">
+                  <p class="text-lg text-gray-600">
+                    We are grateful for the support of our funders who make our work possible. Their commitment to youth development and social change in Africa has been instrumental in our success.
+                  </p>
+                </div>
+              </section>
+
+              <!-- Past & Current Funders Section -->
+              <section class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 opacity-0" data-animate="fade-in">Past & Current Funders</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <!-- ISDAO -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/ISDAO.png" alt="ISDAO Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">ISDAO</h3>
+                      <p class="text-gray-600 mb-4">Supporting LGBTQI+ movements and promoting equality in West Africa.</p>
+                    </div>
+                  </div>
+
+                  <!-- EGPAF -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="100">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/EGPAF.jpeg" alt="EGPAF Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">EGPAF</h3>
+                      <p class="text-gray-600 mb-4">Dedicated to preventing and eliminating pediatric HIV/AIDS through research, advocacy, and prevention programs.</p>
+                    </div>
+                  </div>
+
+                  <!-- JHPEIGO -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="200">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/JHPEIGO.png" alt="JHPEIGO Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">JHPEIGO</h3>
+                      <p class="text-gray-600 mb-4">Improving healthcare services through education, innovation, and capacity building in gynecology and obstetrics.</p>
+                    </div>
+                  </div>
+
+                  <!-- UNICEF -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="300">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/UNICEF.jpeg" alt="UNICEF Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">UNICEF</h3>
+                      <p class="text-gray-600 mb-4">Working globally to protect children's rights through education, healthcare, and emergency relief programs.</p>
+                    </div>
+                  </div>
+
+                  <!-- Global Fund -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="400">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/globalfund.png" alt="Global Fund Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Global Fund</h3>
+                      <p class="text-gray-600 mb-4">Fighting AIDS, tuberculosis and malaria through international partnerships and financing.</p>
+                    </div>
+                  </div>
+
+                  <!-- UNAIDS -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="500">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/UNAIDS.jpg" alt="UNAIDS Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">UNAIDS</h3>
+                      <p class="text-gray-600 mb-4">Leading the global effort to end AIDS as a public health threat by 2030.</p>
+                    </div>
+                  </div>
+
+                  <!-- FHI360 -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="600">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/FHI360.png" alt="FHI360 Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">FHI360</h3>
+                      <p class="text-gray-600 mb-4">Promoting integrated human development and health solutions worldwide.</p>
+                    </div>
+                  </div>
+
+                  <!-- ARFH -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="700">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/ARFH.jpeg" alt="ARFH Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">ARFH</h3>
+                      <p class="text-gray-600 mb-4">Association of Reproductive & Family Health - Advancing reproductive health and family planning.</p>
+                    </div>
+                  </div>
+
+                  <!-- Y+ Global -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="800">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/Y+ Global.png" alt="Y+ Global Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Y+ Global</h3>
+                      <p class="text-gray-600 mb-4">Strengthening young people living with HIV through advocacy and community engagement.</p>
+                    </div>
+                  </div>
+
+                  <!-- KADSACA -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="900">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/KADSACA.jpeg" alt="KADSACA Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">KADSACA</h3>
+                      <p class="text-gray-600 mb-4">Kaduna State AIDS Control Agency - Leading the state's response to HIV/AIDS through comprehensive programs.</p>
+                    </div>
+                  </div>
+
+                  <!-- UNFPA -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="1000">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/UNFPA.png" alt="UNFPA Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">UNFPA</h3>
+                      <p class="text-gray-600 mb-4">United Nations Population Fund - Delivering a world where every pregnancy is wanted, every childbirth is safe.</p>
+                    </div>
+                  </div>
+
+                  <!-- CIHP -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="1100">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/CIHP.png" alt="CIHP Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">CIHP</h3>
+                      <p class="text-gray-600 mb-4">Center for Integrated Health Programs - Strengthening health systems and improving healthcare delivery.</p>
+                    </div>
+                  </div>
+
+                  <!-- IAS -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="1200">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/IAS.png" alt="IAS Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">IAS</h3>
+                      <p class="text-gray-600 mb-4">International AIDS Society - Leading the global fight against HIV through scientific excellence and human dignity.</p>
+                    </div>
+                  </div>
+
+                  <!-- EVA -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="1300">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/EVA.png" alt="EVA Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">EVA</h3>
+                      <p class="text-gray-600 mb-4">Education as A Vaccine - Empowering young people through education and health awareness programs.</p>
+                    </div>
+                  </div>
+
+                  <!-- CSIWCA -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="1400">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/CSIWCA.jpeg" alt="CSIWCA Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">CSIWCA</h3>
+                      <p class="text-gray-600 mb-4">Civil Society Institute for Health - Advancing healthcare initiatives in West and Central Africa.</p>
+                    </div>
+                  </div>
+
+                  <!-- SFH -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="1500">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/Partners/SFH.jpeg" alt="SFH Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">SFH</h3>
+                      <p class="text-gray-600 mb-4">Society for Family Health Nigeria - Improving access to essential health products and services.</p>
+                    </div>
+                  </div>
+
+                  <!-- AIDFOUNDATION -->
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="1600">
+                    <div class="flex flex-col items-center text-center">
+                      <div class="w-24 h-24 mb-4 rounded-lg overflow-hidden bg-gray-50 p-2">
+                        <img src="asset/images/funders/aidfoundation-logo.png" alt="AIDFOUNDATION Logo" class="w-full h-full object-contain">
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">AIDFOUNDATION</h3>
+                      <p class="text-gray-600 mb-4">Supporting innovative solutions to combat HIV/AIDS and promote public health initiatives.</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <script src="js/animations.js"></script>
+    <script src="js/sidebar-nav.js"></script>
+    <script src="asset/js/global-navigation.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Impact Chart
+        const chartDom = document.getElementById("impact-chart");
+        if (chartDom) {
+          const myChart = echarts.init(chartDom);
+          const option = {
+            animation: false,
+            tooltip: {
+              trigger: "axis",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              textStyle: {
+                color: "#1f2937",
+              },
+            },
+            legend: {
+              data: ["Youth Reached", "Communities Served", "Volunteers"],
+              textStyle: {
+                color: "#1f2937",
+              },
+            },
+            grid: {
+              left: "3%",
+              right: "4%",
+              bottom: "3%",
+              containLabel: true,
+            },
+            xAxis: {
+              type: "category",
+              boundaryGap: false,
+              data: [
+                "2018",
+                "2019",
+                "2020",
+                "2021",
+                "2022",
+                "2023",
+                "2024",
+                "2025",
+              ],
+              axisLabel: {
+                color: "#1f2937",
+              },
+            },
+            yAxis: {
+              type: "value",
+              axisLabel: {
+                color: "#1f2937",
+              },
+            },
+            series: [
+              {
+                name: "Youth Reached",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "rgba(87, 181, 231, 1)",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(87, 181, 231, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(87, 181, 231, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [5000, 8000, 12000, 15000, 18000, 21000, 23000, 25000],
+              },
+              {
+                name: "Communities Served",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "rgba(141, 211, 199, 1)",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(141, 211, 199, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(141, 211, 199, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [20, 35, 50, 65, 80, 95, 110, 120],
+              },
+              {
+                name: "Volunteers",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "rgba(251, 191, 114, 1)",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(251, 191, 114, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(251, 191, 114, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [30, 45, 65, 85, 100, 120, 135, 150],
+              },
+            ],
+          };
+
+          myChart.setOption(option);
+
+          window.addEventListener("resize", function () {
+            myChart.resize();
+          });
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animation Observer
+        const animationObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '50px'
+        });
+
+        // Observe all sections and animated groups
+        document.querySelectorAll('section, .group').forEach((element) => {
+          animationObserver.observe(element);
+        });
+      });
+    </script>
+  </body>
+</html>

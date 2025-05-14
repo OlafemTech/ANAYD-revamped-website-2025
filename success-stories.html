@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Success Stories | African Network of Adolescent & Young Persons Development" />
+    <meta name="keywords" content="ANAYD, Success Stories, Impact Stories, African Network, Adolescents, Young Persons, Development, UNICEF, UNIAiDs, WHO" />
+    <meta name="author" content="Habeeb" />
+    <title>Success Stories - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Component libraries -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#3B82F6", secondary: "#10B981" },
+                    borderRadius: { button: "8px" },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+                        'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+                        'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    
+    <script>
+        // Initialize mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const impactMenuToggle = document.getElementById('impact-menu-toggle');
+            const impactMenuIcon = document.getElementById('impact-menu-icon');
+            const impactSidebar = document.getElementById('impact-sidebar');
+
+            // Initialize mobile menu state
+            let isMobileMenuOpen = false;
+
+            if (impactMenuToggle && impactMenuIcon && impactSidebar) {
+                impactMenuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    isMobileMenuOpen = !isMobileMenuOpen;
+                    impactSidebar.classList.toggle('hidden', !isMobileMenuOpen);
+                    impactSidebar.classList.toggle('lg:block');
+                    impactMenuIcon.style.transform = isMobileMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+                    
+                    // Add animation classes
+                    if (isMobileMenuOpen) {
+                        impactSidebar.classList.add('animate-slide-in-left');
+                        impactSidebar.classList.remove('opacity-0');
+                    } else {
+                        impactSidebar.classList.remove('animate-slide-in-left');
+                        impactSidebar.classList.add('opacity-0');
+                    }
+                });
+
+                function handleResize() {
+                    const isLargeScreen = window.innerWidth >= 1024; // lg breakpoint
+                    
+                    if (isLargeScreen) {
+                        impactSidebar.classList.remove('hidden');
+                        impactSidebar.classList.add('lg:block');
+                        impactSidebar.classList.add('animate-slide-in-left');
+                        impactSidebar.classList.remove('opacity-0');
+                    } else if (!isMobileMenuOpen) {
+                        impactSidebar.classList.add('hidden');
+                        impactSidebar.classList.remove('lg:block');
+                        impactSidebar.classList.remove('animate-slide-in-left');
+                        impactSidebar.classList.add('opacity-0');
+                    }
+                }
+
+                window.addEventListener('resize', handleResize);
+                handleResize(); // Initial check
+            }
+        });
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Mobile Menu Toggle -->
+                <div class="lg:hidden mb-6">
+                    <button
+                        id="impact-menu-toggle"
+                        class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+                    >
+                        <span>Impact & Resources</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform" id="impact-menu-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:w-72 flex-shrink-0 hidden lg:block" id="impact-sidebar">
+                    <div class="bg-white rounded-xl shadow-sm p-6 opacity-0 animate-slide-in-left">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Impact</h3>
+                        <nav class="space-y-6">
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Annual Reports</p>
+                                <a href="annual-report-2023.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2023 Report</a>
+                                <a href="annual-report-2022.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2022 Report</a>
+                                <a href="annual-report-2021.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2021 Report</a>
+                                <a href="annual-report-2020.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2020 Report</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Other Resources</p>
+                                <a href="statistics.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Statistics</a>
+                                <a href="success-stories.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium hover:bg-primary/15 transition-all">Success Stories</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Get Involved</p>
+                                <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                                <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                                <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                                <div class="mt-4 bg-gradient-to-br from-blue-500 to-teal-500 rounded-lg p-4 text-white">
+                                    <h4 class="font-semibold mb-2">Support Our Cause</h4>
+                                    <p class="text-sm mb-3">Join us in making a difference in the lives of young people across Africa</p>
+                                    <a href="donate.html" class="inline-block bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors">Donate Now</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="lg:w-3/4">
+                    <!-- Hero Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group">
+                        <div class="max-w-3xl">
+                            <h1 class="text-4xl font-bold text-gray-900 mb-4 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Success Stories</h1>
+                            <p class="text-lg text-gray-600 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in delay-100">Real stories of transformation and impact from our beneficiaries across Africa.</p>
+                        </div>
+                    </section>
+
+                    <!-- Stories Grid -->
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Story 1 -->
+                        <article class="bg-white rounded-xl shadow-sm overflow-hidden group">
+                            <div class="aspect-video bg-gray-100">
+                                <img src="asset/images/success-story-1.jpg" alt="Sarah's Journey" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Sarah's Journey to Digital Empowerment</h3>
+                                <p class="text-gray-600 mb-4">From a rural village to becoming a certified web developer, Sarah's story exemplifies the transformative power of our Digital Skills Program.</p>
+                                <a href="#" class="inline-flex items-center text-primary hover:text-primary/90 transition-colors">
+                                    Read More
+                                    <i class="ri-arrow-right-line ml-1"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- Story 2 -->
+                        <article class="bg-white rounded-xl shadow-sm overflow-hidden group">
+                            <div class="aspect-video bg-gray-100">
+                                <img src="asset/images/success-story-2.jpg" alt="John's Recovery" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">John's Path to Recovery</h3>
+                                <p class="text-gray-600 mb-4">Through our HIV/AIDS program, John found hope, support, and a new purpose in life as a community health advocate.</p>
+                                <a href="#" class="inline-flex items-center text-primary hover:text-primary/90 transition-colors">
+                                    Read More
+                                    <i class="ri-arrow-right-line ml-1"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- Story 3 -->
+                        <article class="bg-white rounded-xl shadow-sm overflow-hidden group">
+                            <div class="aspect-video bg-gray-100">
+                                <img src="asset/images/success-story-3.jpg" alt="Community Initiative" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">A Village Transformed</h3>
+                                <p class="text-gray-600 mb-4">How our Community Outreach Program brought sustainable change to a remote village in Tanzania through education and healthcare.</p>
+                                <a href="#" class="inline-flex items-center text-primary hover:text-primary/90 transition-colors">
+                                    Read More
+                                    <i class="ri-arrow-right-line ml-1"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- Story 4 -->
+                        <article class="bg-white rounded-xl shadow-sm overflow-hidden group">
+                            <div class="aspect-video bg-gray-100">
+                                <img src="asset/images/success-story-4.jpg" alt="Youth Leadership" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Youth Leaders Rising</h3>
+                                <p class="text-gray-600 mb-4">Meet the young leaders who are driving change in their communities through our leadership development initiatives.</p>
+                                <a href="#" class="inline-flex items-center text-primary hover:text-primary/90 transition-colors">
+                                    Read More
+                                    <i class="ri-arrow-right-line ml-1"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center mt-12">
+                        <button class="px-8 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors inline-flex items-center gap-2">
+                            Load More Stories
+                            <i class="ri-arrow-down-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Partners Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-8" data-animate="fade-in">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+              Our Partners & Funders
+            </h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+          </div>
+          <style>
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .partners-track {
+              animation: scroll 40s linear infinite;
+              width: max-content;
+            }
+            .partners-slider:hover .partners-track {
+              animation-play-state: paused;
+            }
+          </style>
+          <div
+            class="partners-slider overflow-hidden"
+            data-animate="slide-up"
+            data-delay="200"
+          >
+            <div class="partners-track flex space-x-8">
+              <!-- First set of partners -->
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/ARFH.jpeg"
+                  alt="ARFH"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/CIHP.png"
+                  alt="CIHP"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/CSIWCA.jpeg"
+                  alt="CSIWCA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/DHRAN.png"
+                  alt="DHRAN"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/DRAC.jpg"
+                  alt="DRAC"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/EGPAF.jpeg"
+                  alt="EGPAF"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/EVA.png"
+                  alt="EVA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/FHI360.png"
+                  alt="FHI360"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/GNYPLH.jpg"
+                  alt="GNYPLH"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/Global Fund.png"
+                  alt="Global Fund"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/HHCSI.jpg"
+                  alt="HHCSI"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/IAS.png"
+                  alt="IAS"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/ISDAO.png"
+                  alt="ISDAO"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/JHPEIGO.png"
+                  alt="JHPEIGO"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <!-- Duplicate slides for continuous scrolling -->
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/KADSACA.jpeg"
+                  alt="KADSACA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/NACA.jpg"
+                  alt="NACA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/NEPWAN.jpg"
+                  alt="NEPWAN"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/NYETHA.jpg"
+                  alt="NYETHA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/Nigeria.jpg"
+                  alt="Nigeria"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/SFH.jpeg"
+                  alt="SFH"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/UNAIDS.jpg"
+                  alt="UNAIDS"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/UNESCO.jpg"
+                  alt="UNESCO"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/UNFPA.png"
+                  alt="UNFPA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/UNICEF.jpeg"
+                  alt="UNICEF"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/Y+ Global.png"
+                  alt="Y+ Global"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/usaid.png"
+                  alt="USAID"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              
+              <!-- Duplicate logos for continuous scrolling -->
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/ARFH.jpeg"
+                  alt="ARFH"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/CIHP.png"
+                  alt="CIHP"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/CSIWCA.jpeg"
+                  alt="CSIWCA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/DHRAN.png"
+                  alt="DHRAN"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/DRAC.jpg"
+                  alt="DRAC"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/EGPAF.jpeg"
+                  alt="EGPAF"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/EVA.png"
+                  alt="EVA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/FHI360.png"
+                  alt="FHI360"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <!-- Animation and Mobile Menu Scripts -->
+    <script>
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

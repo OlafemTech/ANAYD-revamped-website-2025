@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="2022 Annual Report | African Network of Adolescent & Young Persons Development" />
+    <meta name="keywords" content="ANAYD, Annual Report 2022, Impact Report, African Network, Adolescents, Young Persons, Development, UNICEF, UNIAiDs, WHO" />
+    <meta name="author" content="ANAYD" />
+    <title>Annual Report 2022 - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Component libraries -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#3B82F6", secondary: "#10B981" },
+                    borderRadius: { button: "8px" },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+                        'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+                        'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Mobile Menu Toggle -->
+                <div class="lg:hidden mb-6">
+                    <button
+                        id="impact-menu-toggle"
+                        class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+                    >
+                        <span>Impact & Resources</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform" id="impact-menu-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:w-72 flex-shrink-0 hidden lg:block" id="impact-sidebar">
+                    <div class="bg-white rounded-xl shadow-sm p-6 opacity-0 animate-slide-in-left">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Impact</h3>
+                        <nav class="space-y-6">
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Annual Reports</p>
+                                <a href="annual-report-2023.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2023 Report</a>
+                                <a href="annual-report-2022.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium hover:bg-primary/15 transition-all">2022 Report</a>
+                                <a href="annual-report-2021.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2021 Report</a>
+                                <a href="annual-report-2020.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2020 Report</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Other Resources</p>
+                                <a href="statistics.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Statistics</a>
+                                <a href="success-stories.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Success Stories</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Get Involved</p>
+                                <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                                <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                                <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                                <div class="mt-4 bg-gradient-to-br from-blue-500 to-teal-500 rounded-lg p-4 text-white">
+                                    <h4 class="font-semibold mb-2">Support Our Cause</h4>
+                                    <p class="text-sm mb-3">Join us in making a difference in the lives of young people across Africa</p>
+                                    <a href="donate.html" class="inline-block bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors">Donate Now</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="flex-1 space-y-8 opacity-0 animate-slide-in-right delay-200">
+                    <!-- Hero Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group">
+                        <div class="max-w-3xl">
+                            <h1 class="text-4xl font-bold text-gray-900 mb-4 opacity-0 animate-fade-in">Annual Report 2022</h1>
+                            <p class="text-lg text-gray-600 mb-6 opacity-0 animate-fade-in delay-100">A foundational year of establishing strong programs and community connections across Africa.</p>
+                            <a href="asset/files/anayd files/ANAYD-Annual-Report-2022.pdf" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors opacity-0 animate-fade-in delay-200">
+                                <i class="ri-download-line mr-2"></i>
+                                Download Full Report
+                            </a>
+                        </div>
+                    </section>
+                    
+                    <!-- Contents -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="table-of-contents">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">Contents</h2>
+                        <div class="grid md:grid-cols-2 gap-8 opacity-0 animate-slide-up delay-[100ms]">
+                            <div class="space-y-4">
+                                <a href="#year-2022" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">1</div>
+                                        <span class="font-medium text-gray-900">In 2022</span>
+                                    </div>
+                                </a>
+                                <a href="#our-partners" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">2</div>
+                                        <span class="font-medium text-gray-900">Our Partners</span>
+                                    </div>
+                                </a>
+                                <a href="#target-beneficiaries" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">3</div>
+                                        <span class="font-medium text-gray-900">Our Target Beneficiaries</span>
+                                    </div>
+                                </a>
+                                <a href="#our-projects" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">4</div>
+                                        <span class="font-medium text-gray-900">Our Projects</span>
+                                    </div>
+                                </a>
+                                <a href="#star-initiative" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">5</div>
+                                        <span class="font-medium text-gray-900">STAR III Initiative</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="space-y-4">
+                                <a href="#dsf-project" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">6</div>
+                                        <span class="font-medium text-gray-900">DSF Project</span>
+                                    </div>
+                                </a>
+                                <a href="#social-aid" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">7</div>
+                                        <span class="font-medium text-gray-900">Social Aid Fund 2.0</span>
+                                    </div>
+                                </a>
+                                <a href="#pata-summit" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">8</div>
+                                        <span class="font-medium text-gray-900">PATA Summit Virtual Hub</span>
+                                    </div>
+                                </a>
+                                <a href="#financial-statement" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">9</div>
+                                        <span class="font-medium text-gray-900">Financial Statement</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- In 2022 Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="year-2022">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">2022 Summary & Key Highlights</h2>
+                        <div class="space-y-8 opacity-0 animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">2022 was a transformative year for ANAYD.org as we expanded our reach and impact across Africa. We focused on strengthening our programs, building strategic partnerships, and implementing innovative approaches to address the health and socio-economic challenges facing adolescents and young people.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                        <i class="ri-award-line text-primary mr-2"></i>
+                                        Key Achievements
+                                    </h3>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Successfully implemented the STAR III Initiative across multiple regions</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Launched the Social Aid Fund 2.0 Project to support vulnerable communities</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Hosted the virtual hub for the PATA Summit, connecting healthcare providers across Africa</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Conducted groundbreaking research on HIV cure strategies</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Expanded our digital presence through the Education Saves Lives social media campaign</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                        <i class="ri-focus-3-line text-primary mr-2"></i>
+                                        Strategic Focus Areas
+                                    </h3>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>HIV/AIDS prevention, testing, and treatment among young people</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Tuberculosis screening and treatment integration</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Digital skills development and economic empowerment</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Reproductive, maternal, newborn, adolescent, and child health (RMNACH)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-primary mt-1"></i>
+                                            <span>Advocacy for youth-friendly policies and programs</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Looking Forward</h3>
+                                <p class="text-gray-700">Building on our achievements in 2022, we are committed to scaling our impact, strengthening our partnerships, and developing innovative solutions to address the evolving needs of adolescents and young people across Africa. We will continue to advocate for policies and programs that promote the health, well-being, and socio-economic development of our target beneficiaries.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Our Partners -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="our-partners">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">Our Partners</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">Together, we embarked on a journey to empower and uplift adolescents and young people in Africa, making a significant impact on their health, well-being, and socio-economic development.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">UN & International Organizations</h3>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Joint United Nations Programs on HIV/AIDS (UNAIDS)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>United Nations Educational, Scientific and Cultural Organization (UNESCO)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>United Nations Children's Fund (UNICEF)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Johns Hopkins Program for International Education in Gynecology and Obstetrics (JHPIEGO)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>International AIDS Society (IAS)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">NGOs & Research Centers</h3>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Global Health Advocacy, Access and Equity (AVAC)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>African Populations and Health Research Center (APHRC)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Eastern Africa, National Networks of AIDS Service Organization (EANNASO)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Pediatric, Adolescents Treatment Africa (PATA)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Civil Society Institute for HIV and Health in West and Central Africa</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Networks & Advocacy Groups</h3>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Global Network of young people living with HIV (Y+ Global)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Pathfinder International</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Society for Family Health in Nigeria (SFH)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Association of Positive Youths Living with HIV in Nigeria (APYIN)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Nigeria Key Population Network Secretariat</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Government & Ministries</h3>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>National AIDS Control Agency (NACA)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Federal Ministry of Health (FMOH)</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Federal Ministry of Youth and Sports</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Federal Ministry of Education</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                            <span>Federal Ministry of Health-National AIDS and STI Program Control Unit (FMOH-NASCP)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 text-center">
+                                <p class="text-gray-600 italic">We extend our sincere gratitude to all our partners for their unwavering support and collaboration in our mission to improve the lives of adolescents and young people across Africa.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                   <!-- Target Beneficiaries -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="target-beneficiaries">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">Our Target Beneficiaries</h2>
+                        <p class="text-gray-700 mb-8 opacity-0 animate-fade-in delay-100">Our programs and initiatives are designed to address the unique needs of various groups, with a primary focus on adolescents and young people across Africa.</p>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-0 animate-slide-up delay-200">
+                            <!-- Card 1 -->
+                            <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group/card">
+                                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 h-3"></div>
+                                <div class="p-6 bg-white">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4 mx-auto">
+                                        <i class="ri-user-heart-line text-2xl text-blue-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-center mb-3 text-gray-900">Adolescents & Young People</h3>
+                                    <p class="text-gray-600 text-center">Ages 10-24 years, focusing on their health, education, and socio-economic empowerment needs.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group/card">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-3"></div>
+                                <div class="p-6 bg-white">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 mb-4 mx-auto">
+                                        <i class="ri-women-line text-2xl text-purple-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-center mb-3 text-gray-900">Adolescent Girls & Young Women</h3>
+                                    <p class="text-gray-600 text-center">Special focus on addressing gender-specific vulnerabilities and promoting gender equality.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group/card">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-600 h-3"></div>
+                                <div class="p-6 bg-white">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4 mx-auto">
+                                        <i class="ri-virus-line text-2xl text-green-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-center mb-3 text-gray-900">Young People Living with HIV</h3>
+                                    <p class="text-gray-600 text-center">Supporting treatment adherence, reducing stigma, and improving quality of life.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group/card">
+                                <div class="bg-gradient-to-r from-orange-500 to-red-600 h-3"></div>
+                                <div class="p-6 bg-white">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 mb-4 mx-auto">
+                                        <i class="ri-group-line text-2xl text-orange-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-center mb-3 text-gray-900">Key Populations</h3>
+                                    <p class="text-gray-600 text-center">Addressing the unique needs of vulnerable groups with higher risk of HIV and other health issues.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group/card">
+                                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 h-3"></div>
+                                <div class="p-6 bg-white">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-cyan-100 mb-4 mx-auto">
+                                        <i class="ri-community-line text-2xl text-cyan-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-center mb-3 text-gray-900">Community Health Workers</h3>
+                                    <p class="text-gray-600 text-center">Building capacity through training and support to improve healthcare delivery at the community level.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 6 -->
+                            <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group/card">
+                                <div class="bg-gradient-to-r from-yellow-500 to-amber-600 h-3"></div>
+                                <div class="p-6 bg-white">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-yellow-100 mb-4 mx-auto">
+                                        <i class="ri-government-line text-2xl text-yellow-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-center mb-3 text-gray-900">Policy Makers</h3>
+                                    <p class="text-gray-600 text-center">Engaging with government officials and policy makers to advocate for youth-friendly policies and programs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 p-6 bg-gray-50 rounded-xl opacity-0 animate-slide-up delay-300">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">Our Approach</h3>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="text-center">
+                                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                                        <i class="ri-focus-3-line text-xl text-primary"></i>
+                                    </div>
+                                    <h4 class="font-medium text-gray-900 mb-2">Targeted Interventions</h4>
+                                    <p class="text-gray-600 text-sm">Designing programs that address the specific needs of each beneficiary group</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                                        <i class="ri-team-line text-xl text-primary"></i>
+                                    </div>
+                                    <h4 class="font-medium text-gray-900 mb-2">Inclusive Participation</h4>
+                                    <p class="text-gray-600 text-sm">Ensuring beneficiaries are actively involved in program design and implementation</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                                        <i class="ri-scales-3-line text-xl text-primary"></i>
+                                    </div>
+                                    <h4 class="font-medium text-gray-900 mb-2">Sustainable Impact</h4>
+                                    <p class="text-gray-600 text-sm">Creating long-lasting change through capacity building and system strengthening</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Our Projects Header -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="our-projects">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">Our Projects</h2>
+                        <div class="opacity-0 animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700 mb-6">In 2022, ANAYD.org implemented several impactful projects aimed at improving the health, well-being, and socio-economic status of adolescents and young people across Africa. These projects were designed to address critical gaps in healthcare access, education, and economic opportunities.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                                <a href="#star-initiative" class="block">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full hover:shadow-md transition-shadow duration-300 border-l-4 border-blue-500">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">STAR III Initiative</h3>
+                                        <p class="text-gray-600 text-sm mb-4">HIV Self-Testing Africa Initiative focused on increasing access to HIV testing among young people.</p>
+                                        <div class="flex justify-end">
+                                            <span class="text-blue-600 text-sm flex items-center">
+                                                Learn more
+                                                <i class="ri-arrow-right-line ml-1"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <a href="#dsf-project" class="block">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full hover:shadow-md transition-shadow duration-300 border-l-4 border-purple-500">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Demand Side Financing</h3>
+                                        <p class="text-gray-600 text-sm mb-4">Innovative financing approach to increase demand for HIV testing services among vulnerable populations.</p>
+                                        <div class="flex justify-end">
+                                            <span class="text-purple-600 text-sm flex items-center">
+                                                Learn more
+                                                <i class="ri-arrow-right-line ml-1"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <a href="#social-aid" class="block">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full hover:shadow-md transition-shadow duration-300 border-l-4 border-green-500">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Social Aid Fund 2.0</h3>
+                                        <p class="text-gray-600 text-sm mb-4">Financial support and resources for vulnerable communities affected by health and economic challenges.</p>
+                                        <div class="flex justify-end">
+                                            <span class="text-green-600 text-sm flex items-center">
+                                                Learn more
+                                                <i class="ri-arrow-right-line ml-1"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <a href="#pata-summit" class="block">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full hover:shadow-md transition-shadow duration-300 border-l-4 border-orange-500">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">PATA Summit Virtual Hub</h3>
+                                        <p class="text-gray-600 text-sm mb-4">Digital platform connecting healthcare providers focused on pediatric and adolescent HIV care across Africa.</p>
+                                        <div class="flex justify-end">
+                                            <span class="text-orange-600 text-sm flex items-center">
+                                                Learn more
+                                                <i class="ri-arrow-right-line ml-1"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <a href="#education-campaign" class="block">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full hover:shadow-md transition-shadow duration-300 border-l-4 border-red-500">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Education Saves Lives</h3>
+                                        <p class="text-gray-600 text-sm mb-4">Social media campaign promoting health education and awareness among young people.</p>
+                                        <div class="flex justify-end">
+                                            <span class="text-red-600 text-sm flex items-center">
+                                                Learn more
+                                                <i class="ri-arrow-right-line ml-1"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <a href="#hiv-research" class="block">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full hover:shadow-md transition-shadow duration-300 border-l-4 border-cyan-500">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">HIV Cure Research</h3>
+                                        <p class="text-gray-600 text-sm mb-4">Collaborative research efforts focused on advancing HIV cure strategies and treatments.</p>
+                                        <div class="flex justify-end">
+                                            <span class="text-cyan-600 text-sm flex items-center">
+                                                Learn more
+                                                <i class="ri-arrow-right-line ml-1"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- STAR Initiative Project -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="star-initiative">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">HIV Self-Testing Africa (STAR III) Initiative</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up delay-[100ms]">
+                            <div class="flex flex-col md:flex-row gap-8">
+                                <div class="md:w-2/3">
+                                    <p class="text-gray-700 mb-4">The STAR III Initiative is a groundbreaking project aimed at increasing access to HIV self-testing among adolescents and young people across Africa. In 2022, ANAYD.org played a crucial role in implementing this initiative, focusing on community engagement, distribution of self-testing kits, and linkage to care for those who test positive.</p>
+                                    
+                                    <div class="bg-blue-50 rounded-xl p-6 mb-6">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Project Objectives</h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Increase access to HIV testing services among adolescents and young people</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Reduce stigma associated with HIV testing through private self-testing options</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Strengthen linkage to care for individuals who test positive</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Build capacity of community health workers to support HIV self-testing</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Generate evidence on effective strategies for HIV self-testing among young people</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="md:w-1/3">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Achievements</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-blue-600 font-bold text-xl">5K+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">HIV Self-Test Kits</h4>
+                                                    <p class="text-sm text-gray-600">Distributed to young people</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-green-600 font-bold text-xl">90%</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Linkage to Care</h4>
+                                                    <p class="text-sm text-gray-600">For positive test results</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-purple-600 font-bold text-xl">50+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Community Events</h4>
+                                                    <p class="text-sm text-gray-600">For awareness and education</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-orange-600 font-bold text-xl">20+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Health Workers</h4>
+                                                    <p class="text-sm text-gray-600">Trained on self-testing support</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Implementation Approach</h3>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-community-line text-xl text-blue-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Community Engagement</h4>
+                                        <p class="text-sm text-gray-600">Working with local communities to build trust and increase acceptance of HIV self-testing</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-hand-heart-line text-xl text-green-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Peer-Led Distribution</h4>
+                                        <p class="text-sm text-gray-600">Training young people as peer educators to distribute self-test kits and provide support</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-health-book-line text-xl text-purple-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Integrated Services</h4>
+                                        <p class="text-sm text-gray-600">Connecting HIV testing with other health services and support systems for comprehensive care</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Impact Story</h3>
+                                <p class="text-gray-700 italic">"The STAR III Initiative has transformed how we approach HIV testing in our community. Young people now have a private, convenient option that reduces stigma and encourages more people to know their status. The support provided after testing has been crucial in ensuring those who test positive receive the care they need." - Community Health Worker, Lagos</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- DSF Project Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="dsf-project">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">STAR III Project Demand Side Financing (DSF)</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up delay-[100ms]">
+                            <div class="flex flex-col md:flex-row gap-8">
+                                <div class="md:w-2/3">
+                                    <p class="text-gray-700 mb-4">The Demand Side Financing (DSF) component of the STAR III Initiative represents an innovative approach to increasing demand for HIV testing services among vulnerable populations. Through financial incentives and support mechanisms, the DSF project aims to remove economic barriers to accessing HIV testing and care services.</p>
+                                    
+                                    <div class="bg-purple-50 rounded-xl p-6 mb-6">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Project Objectives</h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Remove financial barriers to HIV testing and care services</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Increase uptake of HIV testing among economically disadvantaged populations</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Develop sustainable financing models for HIV services</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Strengthen the capacity of healthcare providers to implement DSF approaches</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Generate evidence on the effectiveness of DSF in increasing HIV testing rates</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="md:w-1/3">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Achievements</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-purple-600 font-bold text-xl">2K+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Vouchers Distributed</h4>
+                                                    <p class="text-sm text-gray-600">For HIV testing services</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-indigo-600 font-bold text-xl">85%</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Voucher Redemption</h4>
+                                                    <p class="text-sm text-gray-600">Rate among recipients</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-pink-600 font-bold text-xl">30%</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Increase in Testing</h4>
+                                                    <p class="text-sm text-gray-600">In target communities</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-violet-600 font-bold text-xl">15</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Health Facilities</h4>
+                                                    <p class="text-sm text-gray-600">Participating in the program</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Implementation Approach</h3>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-coupon-line text-xl text-purple-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Voucher System</h4>
+                                        <p class="text-sm text-gray-600">Distributing vouchers that can be redeemed for free HIV testing and related services</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-money-dollar-circle-line text-xl text-indigo-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Transportation Support</h4>
+                                        <p class="text-sm text-gray-600">Providing transportation allowances to reduce the cost of accessing healthcare facilities</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-hospital-line text-xl text-pink-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Provider Incentives</h4>
+                                        <p class="text-sm text-gray-600">Offering incentives to healthcare providers to improve quality and availability of HIV services</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-purple-50 rounded-xl p-6 border-l-4 border-purple-500">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Success Story</h3>
+                                <p class="text-gray-700 italic">"The voucher program has been a game-changer for our community. Many young people couldn't afford the transportation costs to reach health facilities, but with the DSF support, we've seen a significant increase in the number of people coming for HIV testing. This approach not only addresses financial barriers but also helps reduce stigma as more people are accessing services." - Program Coordinator, Nairobi</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Lessons Learned</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-lightbulb-line text-lg text-purple-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Community Involvement</h4>
+                                            <p class="text-sm text-gray-600">Engaging community leaders in voucher distribution increases trust and uptake</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-lightbulb-line text-lg text-purple-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Integrated Services</h4>
+                                            <p class="text-sm text-gray-600">Combining HIV testing with other health services increases the value of vouchers</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-lightbulb-line text-lg text-purple-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Digital Solutions</h4>
+                                            <p class="text-sm text-gray-600">Mobile vouchers are more efficient and reduce stigma compared to paper vouchers</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-lightbulb-line text-lg text-purple-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Sustainability Planning</h4>
+                                            <p class="text-sm text-gray-600">Early planning for transition from donor funding to local financing is essential</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Social Aid Fund 2.0 Project -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="social-aid">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">Social Aid Fund 2.0 Project</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up delay-[100ms]">
+                            <div class="flex flex-col md:flex-row gap-8">
+                                <div class="md:w-2/3">
+                                    <p class="text-gray-700 mb-4">The Social Aid Fund 2.0 Project was launched in 2022 as a comprehensive support system for vulnerable communities affected by health and economic challenges. Building on the success of the initial Social Aid Fund, this enhanced version focuses on providing financial assistance, resources, and capacity building to help communities become more resilient and self-sufficient.</p>
+                                    
+                                    <div class="bg-green-50 rounded-xl p-6 mb-6">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Project Objectives</h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Provide emergency financial assistance to vulnerable individuals and families</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Support income-generating activities for sustainable livelihoods</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Improve access to essential health services and medications</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Build community capacity for resilience and self-sufficiency</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Develop sustainable community-led support systems</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="md:w-1/3">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Achievements</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-green-600 font-bold text-xl">500+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Families Supported</h4>
+                                                    <p class="text-sm text-gray-600">With financial assistance</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-teal-600 font-bold text-xl">200+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Micro-Businesses</h4>
+                                                    <p class="text-sm text-gray-600">Launched with seed funding</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-emerald-600 font-bold text-xl">20</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Community Groups</h4>
+                                                    <p class="text-sm text-gray-600">Formed for mutual support</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-lime-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-lime-600 font-bold text-xl">70%</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Self-Sufficiency</h4>
+                                                    <p class="text-sm text-gray-600">Rate after 6 months of support</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Support Categories</h3>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-money-dollar-box-line text-xl text-green-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Financial Support</h4>
+                                        <p class="text-sm text-gray-600">Emergency cash transfers, healthcare expense coverage, and education support</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-briefcase-line text-xl text-teal-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Livelihood Support</h4>
+                                        <p class="text-sm text-gray-600">Seed funding for micro-businesses, vocational training, and entrepreneurship mentoring</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-team-line text-xl text-emerald-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Community Building</h4>
+                                        <p class="text-sm text-gray-600">Formation of support groups, community savings schemes, and leadership development</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Transformation Story</h3>
+                                <p class="text-gray-700 italic">"Before the Social Aid Fund 2.0, I was struggling to provide for my family after losing my job due to illness. The emergency support helped us get through the difficult period, and the seed funding allowed me to start a small tailoring business. Now, I can support my family and even employ two other women from my community. The support group we formed continues to meet regularly, providing both emotional and practical support to each other." - Beneficiary, Kampala</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Sustainable Impact Model</h3>
+                                <div class="relative">
+                                    <div class="absolute left-4 h-full w-0.5 bg-green-200"></div>
+                                    <div class="space-y-8 relative">
+                                        <div class="flex items-start gap-4 pl-8">
+                                            <div class="absolute left-2 w-5 h-5 bg-green-500 rounded-full mt-1"></div>
+                                            <div>
+                                                <h4 class="font-medium text-gray-900">Phase 1: Emergency Relief</h4>
+                                                <p class="text-sm text-gray-600">Immediate financial assistance and essential supplies to address urgent needs</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start gap-4 pl-8">
+                                            <div class="absolute left-2 w-5 h-5 bg-green-500 rounded-full mt-1"></div>
+                                            <div>
+                                                <h4 class="font-medium text-gray-900">Phase 2: Capacity Building</h4>
+                                                <p class="text-sm text-gray-600">Skills training, financial literacy, and entrepreneurship development</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start gap-4 pl-8">
+                                            <div class="absolute left-2 w-5 h-5 bg-green-500 rounded-full mt-1"></div>
+                                            <div>
+                                                <h4 class="font-medium text-gray-900">Phase 3: Economic Empowerment</h4>
+                                                <p class="text-sm text-gray-600">Seed funding for income-generating activities and micro-businesses</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start gap-4 pl-8">
+                                            <div class="absolute left-2 w-5 h-5 bg-green-500 rounded-full mt-1"></div>
+                                            <div>
+                                                <h4 class="font-medium text-gray-900">Phase 4: Community Systems</h4>
+                                                <p class="text-sm text-gray-600">Formation of community support groups and savings schemes</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex items-start gap-4 pl-8">
+                                            <div class="absolute left-2 w-5 h-5 bg-green-500 rounded-full mt-1"></div>
+                                            <div>
+                                                <h4 class="font-medium text-gray-900">Phase 5: Sustainable Independence</h4>
+                                                <p class="text-sm text-gray-600">Gradual reduction of external support as communities become self-sufficient</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- PATA Summit Virtual Hub -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="pata-summit">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">PATA Summit - Virtual Hub</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up delay-[100ms]">
+                            <div class="flex flex-col md:flex-row gap-8">
+                                <div class="md:w-2/3">
+                                    <p class="text-gray-700 mb-4">In 2022, ANAYD.org had the honor of hosting the virtual hub for the Pediatric-Adolescent Treatment Africa (PATA) Summit. This digital platform connected healthcare providers focused on pediatric and adolescent HIV care across Africa, facilitating knowledge sharing, networking, and collaborative problem-solving despite travel restrictions and limited resources.</p>
+                                    
+                                    <div class="bg-orange-50 rounded-xl p-6 mb-6">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Virtual Hub Objectives</h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Create an accessible digital platform for healthcare providers across Africa</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Facilitate knowledge sharing and best practices in pediatric and adolescent HIV care</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Enable networking and collaboration among healthcare professionals</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Provide technical support for virtual participation in summit sessions</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Document and disseminate key learnings and outcomes from the summit</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="md:w-1/3">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Achievements</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-orange-600 font-bold text-xl">300+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Participants</h4>
+                                                    <p class="text-sm text-gray-600">From 25 African countries</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-amber-600 font-bold text-xl">20+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Virtual Sessions</h4>
+                                                    <p class="text-sm text-gray-600">On pediatric HIV care</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-yellow-600 font-bold text-xl">15</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Collaborative Projects</h4>
+                                                    <p class="text-sm text-gray-600">Initiated during the summit</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-orange-600 font-bold text-xl">95%</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Satisfaction Rate</h4>
+                                                    <p class="text-sm text-gray-600">Among participants</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Virtual Hub Features</h3>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-live-line text-xl text-orange-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Live Streaming</h4>
+                                        <p class="text-sm text-gray-600">High-quality streaming of all summit sessions with real-time translation options</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-discuss-line text-xl text-amber-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Interactive Forums</h4>
+                                        <p class="text-sm text-gray-600">Discussion boards and Q&A platforms for participants to engage with speakers and peers</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-folder-chart-line text-xl text-yellow-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Resource Library</h4>
+                                        <p class="text-sm text-gray-600">Digital repository of presentations, research papers, and best practice guidelines</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-orange-50 rounded-xl p-6 border-l-4 border-orange-500">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Participant Feedback</h3>
+                                <p class="text-gray-700 italic">"The PATA Summit Virtual Hub was an incredible resource for those of us who couldn't travel to the physical event. The platform was user-friendly, and the interactive features allowed me to connect with colleagues from across the continent. I particularly appreciated the resource library, which I continue to reference in my work with adolescents living with HIV." - Healthcare Provider, Tanzania</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Summit Themes</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-medicine-bottle-line text-lg text-orange-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Treatment Innovations</h4>
+                                            <p class="text-sm text-gray-600">New approaches to pediatric and adolescent HIV treatment and adherence support</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-mental-health-line text-lg text-orange-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Mental Health Integration</h4>
+                                            <p class="text-sm text-gray-600">Strategies for integrating mental health support into HIV care for young people</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-service-line text-lg text-orange-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Differentiated Service Delivery</h4>
+                                            <p class="text-sm text-gray-600">Tailoring HIV services to meet the unique needs of different age groups</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-user-voice-line text-lg text-orange-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Youth Engagement</h4>
+                                            <p class="text-sm text-gray-600">Meaningful involvement of young people in program design and implementation</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Education Saves Lives Campaign -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="education-campaign">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">Education Saves Lives Social Media Campaign</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up delay-[100ms]">
+                            <div class="flex flex-col md:flex-row gap-8">
+                                <div class="md:w-2/3">
+                                    <p class="text-gray-700 mb-4">The "Education Saves Lives" social media campaign was a digital initiative launched in 2022 to promote health education and awareness among young people across Africa. Leveraging the power of social media platforms, the campaign delivered accurate, engaging, and youth-friendly health information to reach adolescents and young people where they spend much of their time.</p>
+                                    
+                                    <div class="bg-red-50 rounded-xl p-6 mb-6">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Campaign Objectives</h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Increase health literacy among adolescents and young people</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Provide accurate information on HIV, sexual health, and general wellness</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Combat misinformation and myths about health issues affecting young people</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Promote health-seeking behaviors and preventive practices</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Create a community of young health advocates</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="md:w-1/3">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Campaign Impact</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-red-600 font-bold text-xl">1M+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Reach</h4>
+                                                    <p class="text-sm text-gray-600">Young people across Africa</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-rose-600 font-bold text-xl">200K</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Engagements</h4>
+                                                    <p class="text-sm text-gray-600">Likes, comments, shares</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-pink-600 font-bold text-xl">50+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Health Topics</h4>
+                                                    <p class="text-sm text-gray-600">Covered in campaign content</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-red-600 font-bold text-xl">30%</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Increase</h4>
+                                                    <p class="text-sm text-gray-600">In health service inquiries</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Campaign Strategies</h3>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-video-line text-xl text-red-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Engaging Content</h4>
+                                        <p class="text-sm text-gray-600">Short videos, infographics, and interactive quizzes designed specifically for young audiences</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-user-star-line text-xl text-rose-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Youth Influencers</h4>
+                                        <p class="text-sm text-gray-600">Partnering with popular youth influencers to amplify health messages and reach wider audiences</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-hashtag-line text-xl text-pink-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Trending Challenges</h4>
+                                        <p class="text-sm text-gray-600">Creating viral challenges that promote health education while being fun and shareable</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-500">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Youth Testimonial</h3>
+                                <p class="text-gray-700 italic">"The 'Education Saves Lives' campaign changed how I think about my health. Before, I was afraid to get tested for HIV because of the stigma, but after watching the videos and participating in the online discussions, I realized how important it is to know my status. The information was presented in a way that was easy to understand and relate to. I've now become a health advocate in my own community." - Campaign Follower, 19, Ghana</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Campaign Themes</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-virus-line text-lg text-red-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">HIV Prevention & Testing</h4>
+                                            <p class="text-sm text-gray-600">Information on HIV prevention methods, the importance of testing, and treatment options</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-heart-pulse-line text-lg text-red-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Sexual & Reproductive Health</h4>
+                                            <p class="text-sm text-gray-600">Comprehensive education on contraception, STIs, and reproductive rights</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-psychotherapy-line text-lg text-red-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Mental Health Awareness</h4>
+                                            <p class="text-sm text-gray-600">Reducing stigma around mental health issues and promoting well-being practices</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-empathize-line text-lg text-red-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Healthy Relationships</h4>
+                                            <p class="text-sm text-gray-600">Education on consent, communication, and recognizing unhealthy relationship patterns</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- HIV Cure Research -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="hiv-research">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">HIV Cure Research</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up delay-[100ms]">
+                            <div class="flex flex-col md:flex-row gap-8">
+                                <div class="md:w-2/3">
+                                    <p class="text-gray-700 mb-4">In 2022, ANAYD.org participated in groundbreaking collaborative research efforts focused on advancing HIV cure strategies and treatments. Working alongside leading research institutions and healthcare providers, we contributed to the growing body of knowledge on potential pathways to an HIV cure, with a specific focus on implications for adolescents and young people.</p>
+                                    
+                                    <div class="bg-cyan-50 rounded-xl p-6 mb-6">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Research Objectives</h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Contribute to the scientific understanding of HIV persistence and potential cure strategies</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Explore the unique considerations for adolescents and young people in HIV cure research</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Facilitate community engagement and education around HIV cure research</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Support ethical recruitment and participation of young people in HIV cure studies</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Disseminate research findings to both scientific and community audiences</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="md:w-1/3">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Research Highlights</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-cyan-600 font-bold text-xl">3</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Research Partnerships</h4>
+                                                    <p class="text-sm text-gray-600">With leading institutions</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-blue-600 font-bold text-xl">2</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Published Papers</h4>
+                                                    <p class="text-sm text-gray-600">In peer-reviewed journals</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-sky-600 font-bold text-xl">10</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Community Workshops</h4>
+                                                    <p class="text-sm text-gray-600">On HIV cure research</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-cyan-600 font-bold text-xl">50+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Young People</h4>
+                                                    <p class="text-sm text-gray-600">Engaged in research literacy</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Research Focus Areas</h3>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-test-tube-line text-xl text-cyan-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Viral Reservoirs</h4>
+                                        <p class="text-sm text-gray-600">Understanding HIV persistence in adolescents and factors that may influence reservoir size and composition</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-microscope-line text-xl text-blue-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Immune Responses</h4>
+                                        <p class="text-sm text-gray-600">Investigating unique aspects of immune responses to HIV in young people and implications for cure strategies</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-user-search-line text-xl text-sky-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Ethical Considerations</h4>
+                                        <p class="text-sm text-gray-600">Addressing unique ethical challenges in involving adolescents and young people in HIV cure research</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-cyan-50 rounded-xl p-6 border-l-4 border-cyan-500">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Research Impact</h3>
+                                <p class="text-gray-700">Our HIV cure research efforts in 2022 have contributed to the global scientific community's understanding of HIV persistence and potential cure strategies, with a specific focus on the unique considerations for adolescents and young people. Through our community engagement activities, we have also increased research literacy among young people living with HIV, empowering them to make informed decisions about participation in research studies and to advocate for research that addresses their specific needs.</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Future Directions</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-arrow-right-circle-line text-lg text-cyan-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Expanded Research Partnerships</h4>
+                                            <p class="text-sm text-gray-600">Developing new collaborations with research institutions focused on HIV cure research</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-arrow-right-circle-line text-lg text-cyan-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Youth-Led Research</h4>
+                                            <p class="text-sm text-gray-600">Supporting young researchers and advocates to lead HIV cure research initiatives</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-arrow-right-circle-line text-lg text-cyan-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Community Education</h4>
+                                            <p class="text-sm text-gray-600">Expanding research literacy programs to reach more young people living with HIV</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-arrow-right-circle-line text-lg text-cyan-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Policy Advocacy</h4>
+                                            <p class="text-sm text-gray-600">Advocating for policies that support ethical and inclusive HIV cure research</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- RMNACH Assessment -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="rmnach-assessment">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">Integration of AYP Interventions - RMNACH Assessment</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up delay-[100ms]">
+                            <div class="flex flex-col md:flex-row gap-8">
+                                <div class="md:w-2/3">
+                                    <p class="text-gray-700 mb-4">In 2022, ANAYD.org conducted a comprehensive assessment of Reproductive, Maternal, Newborn, Adolescent, and Child Health (RMNACH) services across multiple regions, with a focus on the integration of adolescent and young people (AYP) interventions. This assessment aimed to identify gaps, best practices, and opportunities for improving the delivery of integrated health services for young people.</p>
+                                    
+                                    <div class="bg-violet-50 rounded-xl p-6 mb-6">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Assessment Objectives</h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Evaluate the current state of RMNACH services for adolescents and young people</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Identify barriers to accessing integrated health services among young people</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Document best practices in the integration of AYP interventions in RMNACH services</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Develop recommendations for improving service integration and youth-friendliness</span>
+                                            </li>
+                                            <li class="flex items-start gap-2">
+                                                <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                                <span>Create an evidence base for advocacy and policy development</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="md:w-1/3">
+                                    <div class="bg-gray-50 rounded-xl p-6 h-full">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Assessment Scope</h3>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-violet-600 font-bold text-xl">30</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Health Facilities</h4>
+                                                    <p class="text-sm text-gray-600">Assessed across 5 regions</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-purple-600 font-bold text-xl">500+</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Young People</h4>
+                                                    <p class="text-sm text-gray-600">Participated in surveys</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-fuchsia-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-fuchsia-600 font-bold text-xl">50</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Healthcare Providers</h4>
+                                                    <p class="text-sm text-gray-600">Interviewed for insights</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-4">
+                                                <div class="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                                    <span class="text-violet-600 font-bold text-xl">20</span>
+                                                </div>
+                                                <div>
+                                                    <h4 class="font-medium text-gray-900">Policy Documents</h4>
+                                                    <p class="text-sm text-gray-600">Reviewed and analyzed</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Findings</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-violet-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-service-line text-xl text-violet-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Service Integration</h4>
+                                        <p class="text-sm text-gray-600">Only 40% of facilities offered fully integrated services for adolescents and young people, with most providing fragmented care across different departments</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-user-settings-line text-xl text-purple-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Youth-Friendliness</h4>
+                                        <p class="text-sm text-gray-600">Less than 30% of facilities met all criteria for youth-friendly services, with privacy, confidentiality, and convenient hours being major concerns</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-fuchsia-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-nurse-line text-xl text-fuchsia-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Provider Capacity</h4>
+                                        <p class="text-sm text-gray-600">Only 35% of healthcare providers had received specific training on adolescent health and development in the past two years</p>
+                                    </div>
+                                    
+                                    <div class="p-4 border border-gray-200 rounded-lg">
+                                        <div class="w-12 h-12 bg-violet-100 rounded-full flex items-center justify-center mb-3">
+                                            <i class="ri-government-line text-xl text-violet-600"></i>
+                                        </div>
+                                        <h4 class="font-medium text-gray-900 mb-2">Policy Environment</h4>
+                                        <p class="text-sm text-gray-600">While supportive policies exist in most regions, implementation remains inconsistent, with limited resources allocated specifically for adolescent health services</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-violet-50 rounded-xl p-6 border-l-4 border-violet-500">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Best Practices Identified</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-8 h-8 bg-violet-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-violet-600 font-bold">1</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">One-Stop Youth Centers</h4>
+                                            <p class="text-sm text-gray-700">Facilities offering comprehensive health services, education, and recreational activities in a single youth-friendly location showed higher utilization rates and better health outcomes.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-8 h-8 bg-violet-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-violet-600 font-bold">2</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Peer Provider Models</h4>
+                                            <p class="text-sm text-gray-700">Programs that trained young people as peer educators and service navigators significantly improved service uptake and continuation among adolescents.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-8 h-8 bg-violet-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-violet-600 font-bold">3</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Digital Health Platforms</h4>
+                                            <p class="text-sm text-gray-700">Mobile applications and online platforms providing health information, appointment scheduling, and virtual consultations effectively reached young people in both urban and rural areas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Recommendations</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-violet-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-government-line text-lg text-violet-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Policy Level</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
+                                                <li>Develop specific guidelines for integrated AYP services</li>
+                                                <li>Allocate dedicated funding for adolescent health programs</li>
+                                                <li>Establish monitoring frameworks with youth-specific indicators</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-hospital-line text-lg text-purple-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Facility Level</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
+                                                <li>Redesign service delivery to create youth-friendly spaces</li>
+                                                <li>Implement flexible operating hours for young people</li>
+                                                <li>Strengthen referral systems between different services</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-fuchsia-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-user-star-line text-lg text-fuchsia-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Provider Level</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
+                                                <li>Scale up training on adolescent-friendly health services</li>
+                                                <li>Address biases and stigma through sensitization programs</li>
+                                                <li>Develop mentorship programs for healthcare providers</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-violet-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="ri-community-line text-lg text-violet-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900 mb-1">Community Level</h4>
+                                            <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
+                                                <li>Engage parents and community leaders as advocates</li>
+                                                <li>Strengthen school-health service linkages</li>
+                                                <li>Expand peer education and community outreach programs</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Financial Statement Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="financial-statement">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in">Financial Statement</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">In 2022, ANAYD.org maintained strong financial health, with a focus on maximizing program impact while ensuring operational sustainability. Our financial management practices prioritize transparency, accountability, and efficient resource allocation to achieve our mission of improving the lives of adolescents and young people across Africa.</p>
+                            
+                            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <i class="ri-funds-line text-2xl text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900">Total Revenue</h3>
+                                            <p class="text-primary font-medium">$1,250,000</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">A 25% increase from 2021, reflecting expanded partnerships and donor support.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <i class="ri-hand-heart-line text-2xl text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900">Program Expenses</h3>
+                                            <p class="text-primary font-medium">$1,000,000</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">80% of total expenses, demonstrating our commitment to maximizing impact.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <i class="ri-building-line text-2xl text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900">Administrative Costs</h3>
+                                            <p class="text-primary font-medium">$250,000</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">20% of total expenses, reflecting our efficient operational model.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Revenue Breakdown -->
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden mb-6">
+                                <button class="collapsible-header w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                                    <h3 class="text-lg font-semibold text-gray-900">Revenue Breakdown</h3>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm text-gray-500 toggle-text">Show Details</span>
+                                        <i class="ri-arrow-down-s-line text-xl text-gray-500 toggle-icon transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div class="collapsible-content hidden p-4">
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-left">
+                                            <thead>
+                                                <tr class="border-b border-gray-200">
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Source</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Amount (USD)</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Grants</td>
+                                                    <td class="py-3 px-4 text-gray-600">$750,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">60%</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Individual Donations</td>
+                                                    <td class="py-3 px-4 text-gray-600">$250,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">20%</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Corporate Partnerships</td>
+                                                    <td class="py-3 px-4 text-gray-600">$200,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">16%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-3 px-4 text-gray-600">Other Income</td>
+                                                    <td class="py-3 px-4 text-gray-600">$50,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">4%</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="bg-gray-50">
+                                                    <td class="py-3 px-4 font-semibold text-gray-700">Total</td>
+                                                    <td class="py-3 px-4 font-semibold text-gray-700">$1,250,000</td>
+                                                    <td class="py-3 px-4 font-semibold text-gray-700">100%</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Program Expenses Breakdown -->
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden mb-6">
+                                <button class="collapsible-header w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                                    <h3 class="text-lg font-semibold text-gray-900">Program Expenses Breakdown</h3>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm text-gray-500 toggle-text">Show Details</span>
+                                        <i class="ri-arrow-down-s-line text-xl text-gray-500 toggle-icon transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div class="collapsible-content hidden p-4">
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-left">
+                                            <thead>
+                                                <tr class="border-b border-gray-200">
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Program</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Amount (USD)</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">HIV/AIDS Programs</td>
+                                                    <td class="py-3 px-4 text-gray-600">$400,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">40%</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">TB Programs</td>
+                                                    <td class="py-3 px-4 text-gray-600">$150,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">15%</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Digital Skills Programs</td>
+                                                    <td class="py-3 px-4 text-gray-600">$200,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">20%</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">RMNACH Programs</td>
+                                                    <td class="py-3 px-4 text-gray-600">$150,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">15%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-3 px-4 text-gray-600">Research & Advocacy</td>
+                                                    <td class="py-3 px-4 text-gray-600">$100,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">10%</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="bg-gray-50">
+                                                    <td class="py-3 px-4 font-semibold text-gray-700">Total</td>
+                                                    <td class="py-3 px-4 font-semibold text-gray-700">$1,000,000</td>
+                                                    <td class="py-3 px-4 font-semibold text-gray-700">100%</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Administrative Expenses Breakdown -->
+                            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden mb-6">
+                                <button class="collapsible-header w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                                    <h3 class="text-lg font-semibold text-gray-900">Administrative Expenses Breakdown</h3>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm text-gray-500 toggle-text">Show Details</span>
+                                        <i class="ri-arrow-down-s-line text-xl text-gray-500 toggle-icon transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div class="collapsible-content hidden p-4">
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-left">
+                                            <thead>
+                                                <tr class="border-b border-gray-200">
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Category</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Amount (USD)</th>
+                                                    <th class="py-3 px-4 text-gray-700 font-semibold">Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Staff Salaries</td>
+                                                    <td class="py-3 px-4 text-gray-600">$150,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">60%</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Office Rent & Utilities</td>
+                                                    <td class="py-3 px-4 text-gray-600">$50,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">20%</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-200">
+                                                    <td class="py-3 px-4 text-gray-600">Equipment & Supplies</td>
+                                                    <td class="py-3 px-4 text-gray-600">$25,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">10%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-3 px-4 text-gray-600">Other Administrative Costs</td>
+                                                    <td class="py-3 px-4 text-gray-600">$25,000</td>
+                                                    <td class="py-3 px-4 text-gray-600">10%</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="bg-gray-50">
+                                                    <td class="py-3 px-4 font-semibold text-gray-700">Total</td>
+                                                    <td class="py-3 px-4 font-semibold text-gray-700">$250,000</td>
+                                                    <td class="py-3 px-4 font-semibold text-gray-700">100%</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Financial Outlook for 2023</h3>
+                                <p class="text-gray-700">Based on our financial performance in 2022 and secured funding commitments, we project continued growth in 2023. We aim to increase our program funding by 20% while maintaining administrative costs at 20% of total expenses. This will allow us to expand our reach and impact across more communities in Africa, particularly focusing on scaling up our successful HIV/AIDS and Digital Skills programs.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <!-- Animation and Mobile Menu Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation Observer
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px'
+            });
+
+            // Observe all sections and animated groups
+            document.querySelectorAll('section, .group').forEach((element) => {
+                animationObserver.observe(element);
+            });
+
+            const impactMenuToggle = document.getElementById('impact-menu-toggle');
+            const impactMenuIcon = document.getElementById('impact-menu-icon');
+            const impactSidebar = document.getElementById('impact-sidebar');
+
+            // Initialize mobile menu state
+            let isMobileMenuOpen = false;
+
+            impactMenuToggle.addEventListener('click', function() {
+                isMobileMenuOpen = !isMobileMenuOpen;
+                impactSidebar.classList.toggle('hidden', !isMobileMenuOpen);
+                impactSidebar.classList.toggle('lg:block');
+                impactMenuIcon.style.transform = isMobileMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+                
+                // Add animation classes
+                if (isMobileMenuOpen) {
+                    impactSidebar.classList.add('animate-slide-in-left');
+                    impactSidebar.classList.remove('opacity-0');
+                } else {
+                    impactSidebar.classList.remove('animate-slide-in-left');
+                    impactSidebar.classList.add('opacity-0');
+                }
+            });
+
+            function handleResize() {
+                const isLargeScreen = window.innerWidth >= 1024; // lg breakpoint
+                
+                if (isLargeScreen) {
+                    impactSidebar.classList.remove('hidden');
+                    impactSidebar.classList.add('lg:block');
+                    impactSidebar.classList.add('animate-slide-in-left');
+                    impactSidebar.classList.remove('opacity-0');
+                } else if (!isMobileMenuOpen) {
+                    impactSidebar.classList.add('hidden');
+                    impactSidebar.classList.remove('lg:block');
+                    impactSidebar.classList.remove('animate-slide-in-left');
+                    impactSidebar.classList.add('opacity-0');
+                }
+            }
+
+            window.addEventListener('resize', handleResize);
+            handleResize(); // Initial check
+            
+            // Collapsible Financial Tables
+            const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+            
+            collapsibleHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    // Toggle the content visibility
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('hidden');
+                    
+                    // Update the toggle icon and text
+                    const toggleIcon = this.querySelector('.toggle-icon');
+                    const toggleText = this.querySelector('.toggle-text');
+                    
+                    if (content.classList.contains('hidden')) {
+                        toggleIcon.style.transform = 'rotate(0deg)';
+                        toggleText.textContent = 'Show Details';
+                    } else {
+                        toggleIcon.style.transform = 'rotate(180deg)';
+                        toggleText.textContent = 'Hide Details';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="js/animations.js"></script>
+</body>
+</html>

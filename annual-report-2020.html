@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="2020 Annual Report | African Network of Adolescent & Young Persons Development" />
+    <meta name="keywords" content="ANAYD, Annual Report 2020, Impact Report, African Network, Adolescents, Young Persons, Development, UNICEF, UNIAiDs, WHO" />
+    <meta name="author" content="ANAYD" />
+    <title>Annual Report 2020 - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Component libraries -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    <script>
+        // Initialize Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.group');
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                animationObserver.observe(element);
+            });
+
+            // Mobile menu functionality
+            const impactMenuToggle = document.getElementById('impact-menu-toggle');
+            const impactMenuIcon = document.getElementById('impact-menu-icon');
+            const impactSidebar = document.getElementById('impact-sidebar');
+
+            // Initialize mobile menu state
+            let isMobileMenuOpen = false;
+
+            impactMenuToggle.addEventListener('click', function() {
+                isMobileMenuOpen = !isMobileMenuOpen;
+                impactSidebar.classList.toggle('hidden', !isMobileMenuOpen);
+                impactSidebar.classList.toggle('lg:block');
+                impactMenuIcon.style.transform = isMobileMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+                
+                // Add animation classes
+                if (isMobileMenuOpen) {
+                    impactSidebar.classList.add('animate-slide-in-left');
+                    impactSidebar.classList.remove('opacity-0');
+                } else {
+                    impactSidebar.classList.remove('animate-slide-in-left');
+                    impactSidebar.classList.add('opacity-0');
+                }
+            });
+
+            function handleResize() {
+                const isLargeScreen = window.innerWidth >= 1024; // lg breakpoint
+                
+                if (isLargeScreen) {
+                    impactSidebar.classList.remove('hidden');
+                    impactSidebar.classList.add('lg:block');
+                    impactSidebar.classList.add('animate-slide-in-left');
+                    impactSidebar.classList.remove('opacity-0');
+                } else if (!isMobileMenuOpen) {
+                    impactSidebar.classList.add('hidden');
+                    impactSidebar.classList.remove('lg:block');
+                    impactSidebar.classList.remove('animate-slide-in-left');
+                    impactSidebar.classList.add('opacity-0');
+                }
+            }
+
+            window.addEventListener('resize', handleResize);
+            handleResize(); // Initial check
+        });
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#3B82F6", secondary: "#10B981" },
+                    borderRadius: { button: "8px" },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+                        'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+                        'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Mobile Menu Toggle -->
+                <div class="lg:hidden mb-6">
+                    <button
+                        id="impact-menu-toggle"
+                        class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+                    >
+                        <span>Impact & Resources</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform" id="impact-menu-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:w-72 flex-shrink-0 hidden lg:block" id="impact-sidebar">
+                    <div class="bg-white rounded-xl shadow-sm p-6 opacity-0 animate-slide-in-left">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Impact</h3>
+                        <nav class="space-y-6">
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Annual Reports</p>
+                                <a href="annual-report-2023.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2023 Report</a>
+                                <a href="annual-report-2022.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2022 Report</a>
+                                <a href="annual-report-2021.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2021 Report</a>
+                                <a href="annual-report-2020.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium hover:bg-primary/15 transition-all">2020 Report</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Other Resources</p>
+                                <a href="statistics.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Statistics</a>
+                                <a href="success-stories.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Success Stories</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Get Involved</p>
+                                <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                                <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                                <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                                <div class="mt-4 bg-gradient-to-br from-blue-500 to-teal-500 rounded-lg p-4 text-white">
+                                    <h4 class="font-semibold mb-2">Support Our Cause</h4>
+                                    <p class="text-sm mb-3">Join us in making a difference in the lives of young people across Africa</p>
+                                    <a href="donate.html" class="inline-block bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors">Donate Now</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="lg:w-3/4">
+                    <!-- Hero Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group">
+                        <div class="max-w-3xl">
+                            <h1 class="text-4xl font-bold text-gray-900 mb-4 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Annual Report 2020</h1>
+                            <p class="text-lg text-gray-600 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in delay-100">Our founding year of establishing ANAYD's mission and vision for youth development.</p>
+                            <a href="asset/files/anayd files/ANAYD ANNUAL REPORT YEAR 2020.pdf" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors opacity-0 animate-fade-in group-[.in-view]:animate-fade-in delay-200">
+                                <i class="ri-download-line mr-2"></i>
+                                Download Full Report
+                            </a>
+                        </div>
+                    </section>
+                    
+                    <!-- Contents -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="table-of-contents">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Contents</h2>
+                        <div class="grid md:grid-cols-2 gap-8 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <div class="space-y-4">
+                                <a href="#executive-summary" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">1</div>
+                                        <span class="font-medium text-gray-900">Executive Summary</span>
+                                    </div>
+                                </a>
+                                <a href="#key-highlights" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">2</div>
+                                        <span class="font-medium text-gray-900">Key Highlights</span>
+                                    </div>
+                                </a>
+                                <a href="#initial-programs" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">3</div>
+                                        <span class="font-medium text-gray-900">Initial Programs</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="space-y-4">
+                                <a href="#our-foundation" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">4</div>
+                                        <span class="font-medium text-gray-900">Our Foundation</span>
+                                    </div>
+                                </a>
+                                <a href="#looking-forward" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">5</div>
+                                        <span class="font-medium text-gray-900">Looking Forward</span>
+                                    </div>
+                                </a>
+                                <a href="#financial-summary" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">6</div>
+                                        <span class="font-medium text-gray-900">Financial Summary</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Executive Summary -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="executive-summary">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">EXECUTIVE SUMMARY</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">The 2020 Annual Report marks the inaugural year of the African Network of Adolescents and Young Persons Development (ANAYD). Established with a vision to empower adolescents and young people across Africa, ANAYD has laid a strong foundation for addressing key issues affecting youth, including HIV/AIDS awareness, sexual and reproductive health education, and digital advocacy.</p>
+                            
+                            <p class="text-gray-700">Despite the challenges posed by the global COVID-19 pandemic, ANAYD successfully established its organizational structure, formed initial partnerships, and launched several pilot programs. Our focus on creating a youth-led, youth-centered approach has guided our work from inception, ensuring that young people remain at the heart of our mission and activities.</p>
+                            
+                            <p class="text-gray-700">This report outlines our achievements, challenges, and lessons learned during our founding year. It also presents our strategic priorities for the future as we work towards creating a more inclusive, healthy, and empowered generation of young Africans.</p>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">KEY ACHIEVEMENTS OF 2020 INCLUDE:</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Establishing ANAYD as a registered non-profit organization with a clear mission and vision</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Building a core team of dedicated young professionals and volunteers</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Launching pilot programs in HIV/AIDS awareness and sexual health education</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Forming initial partnerships with local community organizations and international agencies</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Developing a strategic plan for 2021-2023 to guide our growth and impact</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Key Highlights -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="key-highlights">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Key Highlights</h2>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+                                        <i class="ri-team-line text-xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Organization Established</h3>
+                                </div>
+                                <p class="text-gray-600">ANAYD was officially registered as a non-profit organization, with a clear mission to empower adolescents and young people across Africa.</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[200ms]">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+                                        <i class="ri-heart-pulse-line text-xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900">HIV/AIDS Awareness</h3>
+                                </div>
+                                <p class="text-gray-600">Launched our first HIV/AIDS awareness campaign, reaching over 500 young people with critical information and resources.</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[300ms]">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+                                        <i class="ri-user-voice-line text-xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Youth Engagement</h3>
+                                </div>
+                                <p class="text-gray-600">Established a youth advisory board to ensure young people's voices are central to our program development and implementation.</p>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[400ms]">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+                                        <i class="ri-global-line text-xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Initial Partnerships</h3>
+                                </div>
+                                <p class="text-gray-600">Formed strategic partnerships with local community organizations and international agencies to expand our reach and impact.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Initial Programs -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="initial-programs">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Initial Programs</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">HIV/AIDS Awareness</h3>
+                                <p class="text-gray-600 mb-4">Our HIV/AIDS awareness program focused on educating young people about prevention, testing, and treatment options. Through community workshops and digital campaigns, we reached over 500 adolescents and young adults.</p>
+                                <div class="grid grid-cols-2 gap-4 mt-6">
+                                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                                        <p class="text-3xl font-bold text-primary">500+</p>
+                                        <p class="text-gray-600">Youth Reached</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                                        <p class="text-3xl font-bold text-primary">5</p>
+                                        <p class="text-gray-600">Community Workshops</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Sexual & Reproductive Health Education</h3>
+                                <p class="text-gray-600 mb-4">Our sexual and reproductive health education program provided comprehensive information to young people, empowering them to make informed decisions about their health and well-being.</p>
+                                <div class="grid grid-cols-2 gap-4 mt-6">
+                                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                                        <p class="text-3xl font-bold text-primary">300+</p>
+                                        <p class="text-gray-600">Youth Educated</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                                        <p class="text-3xl font-bold text-primary">3</p>
+                                        <p class="text-gray-600">School Programs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Digital Advocacy</h3>
+                                <p class="text-gray-600 mb-4">Our digital advocacy program leveraged social media and online platforms to amplify youth voices and advocate for policies that support adolescent health and development.</p>
+                                <div class="grid grid-cols-2 gap-4 mt-6">
+                                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                                        <p class="text-3xl font-bold text-primary">2,000+</p>
+                                        <p class="text-gray-600">Online Reach</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                                        <p class="text-3xl font-bold text-primary">10</p>
+                                        <p class="text-gray-600">Digital Campaigns</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Our Foundation -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="our-foundation">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Our Foundation</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Organizational Structure</h3>
+                                <p class="text-gray-600 mb-4">In our founding year, we established the core organizational structure that would support our future growth:</p>
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-start gap-2">
+                                        <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                        <span>Formed a diverse board of directors with expertise in youth development, healthcare, and education</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                        <span>Recruited a core team of 12 dedicated professionals</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="ri-checkbox-circle-line text-primary mt-1"></i>
+                                        <span>Developed our strategic five-year plan for continental expansion</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Mission & Vision</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="bg-white rounded-lg p-6 shadow-sm border-l-4 border-primary">
+                                        <h4 class="font-semibold text-gray-900 mb-2">Our Mission</h4>
+                                        <p class="text-gray-600">To empower adolescents and young people across Africa through health education, advocacy, and skills development, enabling them to lead healthy, productive lives and contribute to their communities.</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-6 shadow-sm border-l-4 border-primary">
+                                        <h4 class="font-semibold text-gray-900 mb-2">Our Vision</h4>
+                                        <p class="text-gray-600">A continent where all adolescents and young people have equal access to health services, education, and opportunities to reach their full potential.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Core Values</h3>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <div class="bg-white rounded-lg p-4 shadow-sm text-center">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-3">
+                                            <i class="ri-user-heart-line text-xl"></i>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mb-1">Youth-Centered</h4>
+                                        <p class="text-gray-600 text-sm">Prioritizing the needs and voices of young people</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 shadow-sm text-center">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-3">
+                                            <i class="ri-scales-3-line text-xl"></i>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mb-1">Equity</h4>
+                                        <p class="text-gray-600 text-sm">Ensuring fair access to resources and opportunities</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 shadow-sm text-center">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-3">
+                                            <i class="ri-community-line text-xl"></i>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mb-1">Collaboration</h4>
+                                        <p class="text-gray-600 text-sm">Working together with diverse stakeholders</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-4 shadow-sm text-center">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mx-auto mb-3">
+                                            <i class="ri-open-arm-line text-xl"></i>
+                                        </div>
+                                        <h4 class="font-semibold text-gray-900 mb-1">Inclusivity</h4>
+                                        <p class="text-gray-600 text-sm">Embracing diversity in all its forms</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Looking Forward -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="looking-forward">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Looking Forward</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">As we conclude our founding year, we look ahead to 2021 with ambitious goals and a clear roadmap for growth. Building on the foundation established in 2020, we are committed to expanding our reach, deepening our impact, and strengthening our organizational capacity.</p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">1</span>
+                                        Geographic Expansion
+                                    </h3>
+                                    <p class="text-gray-600">Expand our operations to at least 5 African countries, establishing local partnerships and adapting our programs to meet specific regional needs.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">2</span>
+                                        Program Development
+                                    </h3>
+                                    <p class="text-gray-600">Develop comprehensive training programs for youth advocates and expand our HIV/AIDS awareness and sexual health education initiatives.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">3</span>
+                                        Digital Platform
+                                    </h3>
+                                    <p class="text-gray-600">Launch our digital platform for youth engagement, advocacy, and resource sharing, leveraging technology to reach more young people.</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-3">4</span>
+                                        Sustainable Funding
+                                    </h3>
+                                    <p class="text-gray-600">Diversify our funding sources by securing multi-year grants, building corporate partnerships, and developing a sustainable donor base.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Our 2021 Targets</h3>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Reach 10,000+ young people through our programs and digital platforms</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Train 100 youth advocates as peer educators and community leaders</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Establish partnerships with at least 10 new organizations across Africa</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Secure $750,000 in funding to support our expanded programs</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Financial Summary -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="financial-summary">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Financial Summary</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">In our founding year, ANAYD established a strong financial foundation through diverse funding sources and prudent financial management. Our focus was on maximizing program impact while building the organizational infrastructure needed for future growth.</p>
+                            
+                            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center justify-center mb-4">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+                                            <i class="ri-money-dollar-circle-line text-3xl"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900 text-center mb-2">$500,000</h3>
+                                    <p class="text-gray-600 text-center">Total Funding Secured</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center justify-center mb-4">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+                                            <i class="ri-pie-chart-line text-3xl"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900 text-center mb-2">60%</h3>
+                                    <p class="text-gray-600 text-center">Program Allocation</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center justify-center mb-4">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+                                            <i class="ri-funds-line text-3xl"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900 text-center mb-2">3</h3>
+                                    <p class="text-gray-600 text-center">Major Funding Partners</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                    <div class="p-6">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Funding Sources</h3>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <div class="flex justify-between items-center mb-1">
+                                                    <span class="text-gray-600">Founding Partners</span>
+                                                    <span class="font-semibold text-gray-900">$250,000 (50%)</span>
+                                                </div>
+                                                <div class="w-full h-2 bg-gray-100 rounded-full">
+                                                    <div class="h-2 bg-blue-500 rounded-full w-1/2"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between items-center mb-1">
+                                                    <span class="text-gray-600">Seed Grants</span>
+                                                    <span class="font-semibold text-gray-900">$150,000 (30%)</span>
+                                                </div>
+                                                <div class="w-full h-2 bg-gray-100 rounded-full">
+                                                    <div class="h-2 bg-green-500 rounded-full w-[30%]"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between items-center mb-1">
+                                                    <span class="text-gray-600">Individual Donations</span>
+                                                    <span class="font-semibold text-gray-900">$100,000 (20%)</span>
+                                                </div>
+                                                <div class="w-full h-2 bg-gray-100 rounded-full">
+                                                    <div class="h-2 bg-purple-500 rounded-full w-1/5"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                    <div class="p-6">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Expenditure Allocation</h3>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <div class="flex justify-between items-center mb-1">
+                                                    <span class="text-gray-600">Program Implementation</span>
+                                                    <span class="font-semibold text-gray-900">60%</span>
+                                                </div>
+                                                <div class="w-full h-2 bg-gray-100 rounded-full">
+                                                    <div class="h-2 bg-blue-500 rounded-full w-3/5"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between items-center mb-1">
+                                                    <span class="text-gray-600">Operational Costs</span>
+                                                    <span class="font-semibold text-gray-900">25%</span>
+                                                </div>
+                                                <div class="w-full h-2 bg-gray-100 rounded-full">
+                                                    <div class="h-2 bg-green-500 rounded-full w-1/4"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between items-center mb-1">
+                                                    <span class="text-gray-600">Capacity Building</span>
+                                                    <span class="font-semibold text-gray-900">10%</span>
+                                                </div>
+                                                <div class="w-full h-2 bg-gray-100 rounded-full">
+                                                    <div class="h-2 bg-purple-500 rounded-full w-[10%]"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between items-center mb-1">
+                                                    <span class="text-gray-600">Reserve Fund</span>
+                                                    <span class="font-semibold text-gray-900">5%</span>
+                                                </div>
+                                                <div class="w-full h-2 bg-gray-100 rounded-full">
+                                                    <div class="h-2 bg-yellow-500 rounded-full w-[5%]"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
+                                <p class="text-gray-700">ANAYD is committed to financial transparency and accountability. Our financial management practices ensure that resources are used efficiently and effectively to achieve our mission. We maintain detailed financial records and conduct regular audits to ensure compliance with all relevant regulations.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <script src="js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Sexual and Reproductive Health Rights (SRHR) Program - African Network for Adolescents and Young Persons Development (ANAYD)" />
+    <meta name="keywords" content="SRHR, Sexual Health, Reproductive Health, Healthcare Access, Youth Development, HIV/AIDS Prevention, Sex Education, African Network, Adolescents, Young Persons Development" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>SRHR Program - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20 min-h-screen">
+      <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Mobile Program Toggle -->
+          <div class="lg:hidden mb-6">
+            <button
+              id="program-menu-toggle"
+              class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+            >
+              <span>Our Programs</span>
+              <i class="ri-arrow-down-s-line text-xl transition-transform" id="program-menu-icon"></i>
+            </button>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="lg:w-64 flex-shrink-0 hidden lg:block" id="program-sidebar">
+            <div class="bg-white rounded-xl p-6 shadow-sm sticky top-24 space-y-6 opacity-0 animate-slide-in-left">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Our Programs</h3>
+                <nav class="space-y-2">
+                  <a href="hiv-aids-program.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">HIV/AIDS</a>
+                  <a href="malaria-program.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Malaria</a>
+                  <a href="tuberculosis-program.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Tuberculosis</a>
+                  <a href="gbv-program.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">GBV</a>
+                  <a href="srhr-program.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium">SRHR</a>
+                  <a href="digital-skills.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Digital Skills Training</a>
+                  <a href="community-outreach.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Community Outreach</a>
+                </nav>
+
+                <div class="mt-8">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Get Involved</h3>
+                  <nav class="space-y-2">
+                    <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                    <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                    <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                  </nav>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-8 p-6 bg-gradient-to-br from-primary to-secondary rounded-xl text-white">
+                  <h4 class="text-lg font-semibold mb-2">Support Our Cause</h4>
+                  <p class="text-sm text-white/90 mb-4">Join us in making a difference in the lives of young people across Africa.</p>
+                  <a href="donate.html" class="inline-block w-full px-6 py-3 bg-white text-primary font-semibold text-center rounded-lg hover:bg-gray-50 transition-colors">Donate Now</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="flex-1 opacity-0 animate-slide-up">
+            <!-- Hero Section -->
+            <section class="mb-12">
+              <h1 class="text-4xl font-bold text-gray-900 mb-6">Sexual and Reproductive Health Rights (SRHR) Program</h1>
+              <p class="text-lg text-gray-600 mb-8">ANAYD is dedicated to improving access to comprehensive sexual and reproductive health services for adolescents and young people across Africa, ensuring they have the knowledge and resources to make informed decisions about their health.</p>
+            </section>
+
+            <!-- Key Projects Section -->
+            <section class="mb-12">
+              <h2 class="text-2xl font-semibold text-gray-900 mb-6">Key SRHR Projects and Initiatives</h2>
+              
+              <!-- Social Networking Testing Project -->
+              <div class="bg-white rounded-xl p-6 shadow-sm mb-6">
+                <h3 class="text-xl font-semibold text-primary mb-4">Social Networking Testing (SNT) Project</h3>
+                <div class="space-y-4">
+                  <p class="text-gray-600">A USD51,000 EGPAF-supported initiative focused on HIV Testing Services for adolescents and young people:</p>
+                  <ul class="list-disc list-inside text-gray-600 ml-4">
+                    <li>Coverage: 9 Local Government Areas across Benue, Lagos, and Rivers states</li>
+                    <li>Target: Reaching 71,000 adolescents and young people with HIV Testing Services</li>
+                    <li>Duration: 6 months (April-September 2023)</li>
+                    <li>Partner: Elizabeth Glaser Pediatric AIDS Foundation (EGPAF)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- HIV Self Testing Project -->
+              <div class="bg-white rounded-xl p-6 shadow-sm mb-6">
+                <h3 class="text-xl font-semibold text-primary mb-4">HIV Self Testing Initiative</h3>
+                <div class="space-y-4">
+                  <p class="text-gray-600">A comprehensive HIV self-testing program implemented in Lagos State:</p>
+                  <ul class="list-disc list-inside text-gray-600 ml-4">
+                    <li>Achievement Highlights:
+                      <ul class="list-disc list-inside ml-6">
+                        <li>18,500 people reached with HIVST information</li>
+                        <li>18,500 HIV self-testing kits distributed</li>
+                        <li>Comprehensive result tracking and follow-up support</li>
+                      </ul>
+                    </li>
+                    <li>Coverage: Lagos State</li>
+                    <li>Partner: JHPIEGO</li>
+                    <li>Value: USD 57,205</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Our Approach Section -->
+            <section class="mb-12">
+              <h2 class="text-2xl font-semibold text-gray-900 mb-6">Our Approach to SRHR</h2>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <i class="ri-health-book-line text-3xl text-primary mb-4"></i>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-3">Comprehensive Education</h3>
+                  <p class="text-gray-600">We provide comprehensive sexuality education and information about sexual and reproductive health rights to empower informed decision-making.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <i class="ri-service-line text-3xl text-primary mb-4"></i>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-3">Healthcare Access</h3>
+                  <p class="text-gray-600">We facilitate access to quality sexual and reproductive health services, including HIV testing and counseling services.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <i class="ri-group-line text-3xl text-primary mb-4"></i>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-3">Peer Support</h3>
+                  <p class="text-gray-600">We build networks of peer educators and supporters to provide youth-friendly information and guidance on SRHR issues.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                  <i class="ri-shield-check-line text-3xl text-primary mb-4"></i>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-3">Rights Advocacy</h3>
+                  <p class="text-gray-600">We advocate for policies and programs that protect and promote the sexual and reproductive health rights of young people.</p>
+                </div>
+              </div>
+
+              <!-- View All Projects Button -->
+              <div class="text-center mt-8 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in delay-300">
+                <a href="projects.html" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
+                  View All Projects
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </a>
+              </div>
+            </section>
+
+            <!-- Get Involved CTA -->
+            <section class="bg-gradient-to-br from-primary to-secondary rounded-xl p-8 text-white">
+              <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-2xl font-bold mb-4">Support Sexual and Reproductive Health Rights</h2>
+                <p class="text-lg mb-6">Help us ensure that every young person has access to the information and services they need for their sexual and reproductive health.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a href="volunteer-get-involved.html" class="inline-block px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-50 transition-colors">Volunteer With Us</a>
+                  <a href="donate.html" class="inline-block px-6 py-3 bg-primary/20 text-white font-semibold rounded-lg hover:bg-primary/30 transition-colors">Support Our Work</a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Animation and Mobile Menu Scripts -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animation Observer
+        const animationObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '50px'
+        });
+
+        // Observe all sections and animated groups
+        document.querySelectorAll('section, .group').forEach((element) => {
+          animationObserver.observe(element);
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('program-menu-toggle');
+        const menuIcon = document.getElementById('program-menu-icon');
+        const sidebar = document.getElementById('program-sidebar');
+
+        if (menuToggle && menuIcon && sidebar) {
+          menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+            menuIcon.style.transform = sidebar.classList.contains('hidden') ? '' : 'rotate(180deg)';
+          });
+        }
+
+        // Handle resize to show sidebar on larger screens
+        const handleResize = () => {
+          if (window.innerWidth >= 1024) { // lg breakpoint
+            sidebar.classList.remove('hidden');
+            menuIcon.style.transform = '';
+          } else {
+            sidebar.classList.add('hidden');
+          }
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initial check
+      });
+    </script>
+      <script src="js/animations.js"></script>
+</body>
+</html>
+

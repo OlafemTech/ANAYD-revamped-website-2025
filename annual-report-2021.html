@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="2021 Annual Report | African Network of Adolescent & Young Persons Development" />
+    <meta name="keywords" content="ANAYD, Annual Report 2021, Impact Report, African Network, Adolescents, Young Persons, Development, UNICEF, UNIAiDs, WHO" />
+    <meta name="author" content="ANAYD" />
+    <title>Annual Report 2021 - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Component libraries -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    <script>
+        // Initialize Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.group');
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                animationObserver.observe(element);
+            });
+
+            // Collapsible sections functionality
+            const collapsibleTriggers = document.querySelectorAll('.collapsible-trigger');
+            
+            collapsibleTriggers.forEach(trigger => {
+                // Set first one open by default
+                if (trigger === collapsibleTriggers[0]) {
+                    const content = trigger.nextElementSibling;
+                    const arrow = trigger.querySelector('i');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+                
+                trigger.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const arrow = this.querySelector('i');
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        arrow.style.transform = 'rotate(0)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        arrow.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Mobile menu functionality
+            const impactMenuToggle = document.getElementById('impact-menu-toggle');
+            const impactMenuIcon = document.getElementById('impact-menu-icon');
+            const impactSidebar = document.getElementById('impact-sidebar');
+
+            // Initialize mobile menu state
+            let isMobileMenuOpen = false;
+
+            impactMenuToggle.addEventListener('click', function() {
+                isMobileMenuOpen = !isMobileMenuOpen;
+                impactSidebar.classList.toggle('hidden', !isMobileMenuOpen);
+                impactSidebar.classList.toggle('lg:block');
+                impactMenuIcon.style.transform = isMobileMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+                
+                // Add animation classes
+                if (isMobileMenuOpen) {
+                    impactSidebar.classList.add('animate-slide-in-left');
+                    impactSidebar.classList.remove('opacity-0');
+                } else {
+                    impactSidebar.classList.remove('animate-slide-in-left');
+                    impactSidebar.classList.add('opacity-0');
+                }
+            });
+
+            function handleResize() {
+                const isLargeScreen = window.innerWidth >= 1024; // lg breakpoint
+                
+                if (isLargeScreen) {
+                    impactSidebar.classList.remove('hidden');
+                    impactSidebar.classList.add('lg:block');
+                    impactSidebar.classList.add('animate-slide-in-left');
+                    impactSidebar.classList.remove('opacity-0');
+                } else if (!isMobileMenuOpen) {
+                    impactSidebar.classList.add('hidden');
+                    impactSidebar.classList.remove('lg:block');
+                    impactSidebar.classList.remove('animate-slide-in-left');
+                    impactSidebar.classList.add('opacity-0');
+                }
+            }
+
+            window.addEventListener('resize', handleResize);
+            handleResize(); // Initial check
+        });
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#3B82F6", secondary: "#10B981" },
+                    borderRadius: { button: "8px" },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+                        'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+                        'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideInLeft: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .instagram-gradient {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .list-alpha {
+            list-style-type: lower-alpha;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Mobile Menu Toggle -->
+                <div class="lg:hidden mb-6">
+                    <button
+                        id="impact-menu-toggle"
+                        class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+                    >
+                        <span>Impact & Resources</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform" id="impact-menu-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:w-72 flex-shrink-0 hidden lg:block" id="impact-sidebar">
+                    <div class="bg-white rounded-xl shadow-sm p-6 opacity-0 animate-slide-in-left">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Impact</h3>
+                        <nav class="space-y-6">
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Annual Reports</p>
+                                <a href="annual-report-2023.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2023 Report</a>
+                                <a href="annual-report-2022.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2022 Report</a>
+                                <a href="annual-report-2021.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium hover:bg-primary/15 transition-all">2021 Report</a>
+                                <a href="annual-report-2020.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2020 Report</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Other Resources</p>
+                                <a href="statistics.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Statistics</a>
+                                <a href="success-stories.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Success Stories</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-gray-900">Get Involved</p>
+                                <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                                <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                                <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                                <div class="mt-4 bg-gradient-to-br from-blue-500 to-teal-500 rounded-lg p-4 text-white">
+                                    <h4 class="font-semibold mb-2">Support Our Cause</h4>
+                                    <p class="text-sm mb-3">Join us in making a difference in the lives of young people across Africa</p>
+                                    <a href="donate.html" class="inline-block bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors">Donate Now</a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="lg:w-3/4">
+                    <!-- Hero Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group">
+                        <div class="max-w-3xl">
+                            <h1 class="text-4xl font-bold text-gray-900 mb-4 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Annual Report 2021</h1>
+                            <p class="text-lg text-gray-600 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in delay-100">A pivotal year of expansion and program development despite global challenges.</p>
+                            <a href="asset/files/anayd files/ANAYD-Annual-Report-2021.pdf" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors opacity-0 animate-fade-in group-[.in-view]:animate-fade-in delay-200">
+                                <i class="ri-download-line mr-2"></i>
+                                Download Full Report
+                            </a>
+                        </div>
+                    </section>
+                    
+                    <!-- Contents -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="table-of-contents">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Contents</h2>
+                        <div class="grid md:grid-cols-2 gap-8 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <div class="space-y-4">
+                                <a href="#social-media-reach" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">1</div>
+                                        <span class="font-medium text-gray-900">Social Media Reach</span>
+                                    </div>
+                                </a>
+                                <a href="#social-fund" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">2</div>
+                                        <span class="font-medium text-gray-900">Social Fund 1.0 Project</span>
+                                    </div>
+                                </a>
+                                <a href="#target-beneficiaries" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">3</div>
+                                        <span class="font-medium text-gray-900">Target Beneficiaries</span>
+                                    </div>
+                                </a>
+                                <a href="#our-programs" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">4</div>
+                                        <span class="font-medium text-gray-900">Our Programs</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="space-y-4">
+                                <a href="#sgbv" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">5</div>
+                                        <span class="font-medium text-gray-900">COVID-19 and SGBV</span>
+                                    </div>
+                                </a>
+                                <a href="#success-stories" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">6</div>
+                                        <span class="font-medium text-gray-900">Success Stories</span>
+                                    </div>
+                                </a>
+                                <a href="#hiv-self-testing" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">7</div>
+                                        <span class="font-medium text-gray-900">HIV Self-Testing</span>
+                                    </div>
+                                </a>
+                                <a href="#financial-summary" class="block group/item">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">8</div>
+                                        <span class="font-medium text-gray-900">Financial Statement</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Social Media Reach -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group" id="social-media-reach">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Social Media Reach</h2>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                                <div class="flex flex-col items-center text-center gap-4 mb-4">
+                                    <div class="w-16 h-16 text-[#1DA1F2]">
+                                        <i class="ri-twitter-fill text-4xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Twitter</h3>
+                                        <p class="text-primary font-medium text-2xl">106,060</p>
+                                        <p class="text-gray-600 text-sm">People reached/Engagement</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[200ms]">
+                                <div class="flex flex-col items-center text-center gap-4 mb-4">
+                                    <div class="w-16 h-16 text-[#1877F2]">
+                                        <i class="ri-facebook-fill text-4xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Facebook</h3>
+                                        <p class="text-primary font-medium text-2xl">8,276</p>
+                                        <p class="text-gray-600 text-sm">People reached/Engagement</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[300ms]">
+                                <div class="flex flex-col items-center text-center gap-4 mb-4">
+                                    <div class="w-16 h-16">
+                                        <i class="ri-instagram-fill text-4xl instagram-gradient"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Instagram</h3>
+                                        <p class="text-primary font-medium text-2xl">18,900</p>
+                                        <p class="text-gray-600 text-sm">People reached/Engagement</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Social Fund 1.0 Project -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group" id="social-fund">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Social Fund 1.0 Project</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">Adolescents and Young People Living with HIV (AYPLHIV) (10-24 years) are not the faces of this pandemic, however, they risk being among its greatest casualties. While they have fortunately been saved from many of the immediate impacts of COVID-19, the emergency still profoundly affects their mental and physical wellbeing.</p>
+                            
+                            <p class="text-gray-700">The economic impact of COVID-19 is increased stress and tension in households and led to an increase in the frequency and severity of intimate partner and domestic violence, which disproportionately affected women and girls.</p>
+                            
+                            <p class="text-gray-700">Loss of income among households posed an alarming financial challenge and potentially affected the current and future livelihoods of vulnerable households, especially female-headed households, as well as persons with disability. This disruption pushed the affected population, especially women, back into extreme poverty.</p>
+                            
+                            <p class="text-gray-700">ANAYD received the UNAIDS Social Aid Fund from the Global Network of Young People Living with HIV (Y+), to provide support to adolescents and young people (AYPs) in their diversities impacted by the COVID-19 pandemic across in 11 states across the 6 geopolitical zones in Nigeria.</p>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 mt-8">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Purpose of the support</h3>
+                                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                    <li>To identify the impact of Covid-19 on AYPs</li>
+                                    <li>To provide tangible support to AYPs as a way of cushioning the impact of the COVID-19 pandemic</li>
+                                    <li>To conduct advocacy to relevant institutions based on key findings and recommendations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 mt-4">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Process of delivery</h3>
+                                <ol class="list-alpha pl-6 space-y-4 text-gray-700">
+                                    <li class="mb-3">
+                                        <p class="font-medium">Call for application to identify the impact of the COVID-19 pandemic on AYPs, the priority needs and area of support.</p>
+                                    </li>
+                                    <li class="mb-3">
+                                        <p class="font-medium">Situation analysis of impact: This included Focused-Group Discussions and key informant interview (KII) with AYPs and relevant stakeholders.</p>
+                                    </li>
+                                    <li class="mb-3">
+                                        <p class="font-medium">Implementation - Provision of social aid (based on identified needs and the most vulnerable) to 91 AYPs in 11 states across the 6 geopolitical zones of Nigeria.</p>
+                                    </li>
+                                    <li class="mb-3">
+                                        <p class="font-medium">Post implementation analysis to measure the impact of the support and areas of improvement.</p>
+                                    </li>
+                                    <li class="mb-3">
+                                        <p class="font-medium">Advocacy to relevant agencies to share findings and recommendations to improve service delivery for adolescents and Young Persons in Nigeria</p>
+                                    </li>
+                                </ol>
+                            </div>
+                            
+                            <p class="text-gray-700">The situation analysis, which was conducted from December 2020 to January 2021, gathered responses from AYPLHIV including the Young Key population living with HIV in 6 states covering the 6 geo-political zones of Nigeria - Kaduna, Benue, Lagos, Rivers, Anambra, and Taraba states. The states were selected based on the COVID-19 cases, HIV prevalence amongst AYPs, availability of HIV youth networks, and key population-led organizations.</p>
+                            
+                            <p class="text-gray-700 mt-6">The project reached 91 AYPLHIV and young key populations in 11 states. Beneficiaries received social aid support in form of:</p>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700 mt-2">
+                                <li>Food items</li>
+                                <li>COVID-19 PPE</li>
+                                <li>SRHR commodities</li>
+                                <li>Moderate cash support for business</li>
+                                <li>Transport to health facility for ART drugs collection, viral load and CD4</li>
+                                <li>School fees</li>
+                            </ul>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 mt-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Beneficiary Demographics</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full bg-white">
+                                        <thead class="bg-primary/10">
+                                            <tr>
+                                                <th class="py-2 px-4 border-b text-left">Age</th>
+                                                <th class="py-2 px-4 border-b text-left">Male</th>
+                                                <th class="py-2 px-4 border-b text-left">Female</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">10-17</td>
+                                                <td class="py-2 px-4 border-b">9</td>
+                                                <td class="py-2 px-4 border-b">1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">18-24</td>
+                                                <td class="py-2 px-4 border-b">31</td>
+                                                <td class="py-2 px-4 border-b">25</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">25-30</td>
+                                                <td class="py-2 px-4 border-b">7</td>
+                                                <td class="py-2 px-4 border-b">21</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mt-4 bg-gray-100 p-4 rounded-lg italic text-gray-700">
+                                    <p>"I deeply appreciate this support, to our community, it even came when schools reopened. Going for exams with a full stomach is a thing of joy. Thank you so much." — 25 years Young FSW (Benue state, Nigeria)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Target Beneficiaries -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group animated-group" id="target-beneficiaries">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Our Target Beneficiaries</h2>
+                        
+                        <div class="mb-10 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700 max-w-3xl">ANAYD focuses on serving vulnerable populations most affected by health challenges and social inequalities. Our programs are designed to meet the specific needs of these key demographics:</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                            <!-- Beneficiary Card 1 -->
+                            <div class="relative group/card overflow-hidden opacity-0 animate-scale-in group-[.in-view]:animate-scale-in delay-[100ms]">
+                                <div class="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-2xl p-5 shadow-md transform transition-all duration-300 group-hover/card:shadow-lg group-hover/card:-translate-y-1 h-full flex flex-col justify-center">
+                                    <div class="absolute top-3 right-3 bg-white/20 rounded-full w-8 h-8 flex items-center justify-center">
+                                        <i class="ri-user-5-line text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold uppercase text-center text-sm md:text-base">ADOLESCENTS<br>AND YOUNG<br>PERSONS</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Beneficiary Card 2 -->
+                            <div class="relative group/card overflow-hidden opacity-0 animate-scale-in group-[.in-view]:animate-scale-in delay-[200ms]">
+                                <div class="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-2xl p-5 shadow-md transform transition-all duration-300 group-hover/card:shadow-lg group-hover/card:-translate-y-1 h-full flex flex-col justify-center">
+                                    <div class="absolute top-3 right-3 bg-white/20 rounded-full w-8 h-8 flex items-center justify-center">
+                                        <i class="ri-women-line text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold uppercase text-center text-sm md:text-base">ADOLESCENT<br>GIRLS AND<br>YOUNG WOMEN</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Beneficiary Card 3 -->
+                            <div class="relative group/card overflow-hidden opacity-0 animate-scale-in group-[.in-view]:animate-scale-in delay-[300ms]">
+                                <div class="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-2xl p-5 shadow-md transform transition-all duration-300 group-hover/card:shadow-lg group-hover/card:-translate-y-1 h-full flex flex-col justify-center">
+                                    <div class="absolute top-3 right-3 bg-white/20 rounded-full w-8 h-8 flex items-center justify-center">
+                                        <i class="ri-syringe-line text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold uppercase text-center text-sm md:text-base">YOUNG<br>PERSONS WHO<br>INJECT DRUGS</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Beneficiary Card 4 -->
+                            <div class="relative group/card overflow-hidden opacity-0 animate-scale-in group-[.in-view]:animate-scale-in delay-[400ms]">
+                                <div class="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-2xl p-5 shadow-md transform transition-all duration-300 group-hover/card:shadow-lg group-hover/card:-translate-y-1 h-full flex flex-col justify-center">
+                                    <div class="absolute top-3 right-3 bg-white/20 rounded-full w-8 h-8 flex items-center justify-center">
+                                        <i class="ri-user-heart-line text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold uppercase text-center text-sm md:text-base">YOUNG FEMALE<br>SEX WORKERS<br>(YFSW)</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Beneficiary Card 5 -->
+                            <div class="relative group/card overflow-hidden opacity-0 animate-scale-in group-[.in-view]:animate-scale-in delay-[500ms]">
+                                <div class="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-2xl p-5 shadow-md transform transition-all duration-300 group-hover/card:shadow-lg group-hover/card:-translate-y-1 h-full flex flex-col justify-center">
+                                    <div class="absolute top-3 right-3 bg-white/20 rounded-full w-8 h-8 flex items-center justify-center">
+                                        <i class="ri-rainbow-line text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold uppercase text-center text-sm md:text-base">YOUNG<br>LESBIAN, GAY,<br>BISEXUAL</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Beneficiary Card 6 -->
+                            <div class="relative group/card overflow-hidden opacity-0 animate-scale-in group-[.in-view]:animate-scale-in delay-[600ms]">
+                                <div class="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-2xl p-5 shadow-md transform transition-all duration-300 group-hover/card:shadow-lg group-hover/card:-translate-y-1 h-full flex flex-col justify-center">
+                                    <div class="absolute top-3 right-3 bg-white/20 rounded-full w-8 h-8 flex items-center justify-center">
+                                        <i class="ri-men-line text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold uppercase text-center text-sm md:text-base">YOUNG MEN<br>WHO HAVE SEX<br>WITH MEN</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Beneficiary Card 7 -->
+                            <div class="relative group/card overflow-hidden opacity-0 animate-scale-in group-[.in-view]:animate-scale-in delay-[700ms]">
+                                <div class="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-2xl p-5 shadow-md transform transition-all duration-300 group-hover/card:shadow-lg group-hover/card:-translate-y-1 h-full flex flex-col justify-center">
+                                    <div class="absolute top-3 right-3 bg-white/20 rounded-full w-8 h-8 flex items-center justify-center">
+                                        <i class="ri-virus-line text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold uppercase text-center text-sm md:text-base">YOUNG<br>PERSONS LIVING<br>WITH HIV</h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Beneficiary Card 8 -->
+                            <div class="relative group/card overflow-hidden opacity-0 animate-scale-in group-[.in-view]:animate-scale-in delay-[800ms]">
+                                <div class="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-2xl p-5 shadow-md transform transition-all duration-300 group-hover/card:shadow-lg group-hover/card:-translate-y-1 h-full flex flex-col justify-center">
+                                    <div class="absolute top-3 right-3 bg-white/20 rounded-full w-8 h-8 flex items-center justify-center">
+                                        <i class="ri-health-book-line text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold uppercase text-center text-sm md:text-base">ADOLESCENTS<br>AND YOUNG<br>PEOPLE LIVING</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12 bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[900ms]">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-6 text-center">2021 Reach by Gender</h3>
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <!-- Male Stats -->
+                                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl p-6 shadow-md flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mr-6">
+                                            <i class="ri-men-line text-3xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-medium text-white/80">Male Beneficiaries</h4>
+                                            <p class="font-bold text-3xl">2,121</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-5xl font-bold text-white/20">44%</div>
+                                </div>
+                                
+                                <!-- Female Stats -->
+                                <div class="bg-gradient-to-br from-pink-500 to-pink-600 text-white rounded-xl p-6 shadow-md flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mr-6">
+                                            <i class="ri-women-line text-3xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-medium text-white/80">Female Beneficiaries</h4>
+                                            <p class="font-bold text-3xl">2,730</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-5xl font-bold text-white/20">56%</div>
+                                </div>
+                            </div>
+                            <div class="mt-6 text-center text-gray-500 text-sm">
+                                <p>Total beneficiaries reached in 2021: <span class="font-bold text-gray-700">4,851</span></p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Our Programs -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group" id="our-programs">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Our Programs</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="border-2 border-yellow-400 rounded-xl overflow-hidden opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                                <div class="p-6 flex flex-col items-center text-center">
+                                    <div class="w-16 h-16 mb-4">
+                                        <img src="asset/images/icons/covid-response.png" alt="COVID-19 Response" class="w-full h-full object-contain">
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">COVID-19<br>RESPONSE</h3>
+                                    <p class="text-primary font-medium">137 persons reached</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-2 border-yellow-400 rounded-xl overflow-hidden opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[200ms]">
+                                <div class="p-6 flex flex-col items-center text-center">
+                                    <div class="w-16 h-16 mb-4">
+                                        <img src="asset/images/icons/sensitization.png" alt="Sensitization" class="w-full h-full object-contain">
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">SENSITIZATION</h3>
+                                    <p class="text-primary font-medium">1271 persons reached</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-2 border-yellow-400 rounded-xl overflow-hidden opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[300ms]">
+                                <div class="p-6 flex flex-col items-center text-center">
+                                    <div class="w-16 h-16 mb-4">
+                                        <img src="asset/images/icons/prep.png" alt="PrEP" class="w-full h-full object-contain">
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">PrEP</h3>
+                                    <p class="text-primary font-medium">215 persons reached</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-2 border-yellow-400 rounded-xl overflow-hidden opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[400ms]">
+                                <div class="p-6 flex flex-col items-center text-center">
+                                    <div class="w-16 h-16 mb-4">
+                                        <img src="asset/images/icons/hiv-testing.png" alt="HIV Testing" class="w-full h-full object-contain">
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">HIV TESTING</h3>
+                                    <p class="text-primary font-medium">3708 persons reached</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-2 border-yellow-400 rounded-xl overflow-hidden opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[500ms]">
+                                <div class="p-6 flex flex-col items-center text-center">
+                                    <div class="w-16 h-16 mb-4">
+                                        <img src="asset/images/icons/youth-networks.png" alt="Youth Networks" class="w-full h-full object-contain">
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">STRENGTHENING<br>YOUTH NETWORKS</h3>
+                                    <p class="text-primary font-medium">28 networks reached</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-2 border-yellow-400 rounded-xl overflow-hidden opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[600ms]">
+                                <div class="p-6 flex flex-col items-center text-center">
+                                    <div class="w-16 h-16 mb-4">
+                                        <img src="asset/images/icons/srhr.png" alt="SRHR" class="w-full h-full object-contain">
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">SRHR</h3>
+                                    <p class="text-primary font-medium">622 persons reached</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-2 border-yellow-400 rounded-xl overflow-hidden opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[700ms]">
+                                <div class="p-6 flex flex-col items-center text-center">
+                                    <div class="w-16 h-16 mb-4">
+                                        <img src="asset/images/icons/research.png" alt="Research" class="w-full h-full object-contain">
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">RESEARCH</h3>
+                                    <p class="text-primary font-medium">265 persons reached</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- SGBV Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group" id="sgbv">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Civil Society Community Engagement on COVID-19 and SGBV</h2>
+                        <div class="space-y-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <p class="text-gray-700">The COVID-19 pandemic amplified deeply entrenched gender inequalities that put women and girls at higher risk of the pandemic's social and economic impact.</p>
+                            
+                            <p class="text-gray-700">The economic impact of COVID-19 is increased stress and tension in households and led to an increase in the frequency and severity of intimate partner and domestic violence, which disproportionately affected women and girls.</p>
+                            
+                            <p class="text-gray-700">Loss of income among households posed an alarming financial challenge and potentially affected the current and future livelihoods of vulnerable households, especially female-headed households, as well as persons with disability. This disruption pushed the affected population, especially women, back into extreme poverty.</p>
+                            
+                            <p class="text-gray-700">In response to these, EVA (with funding from UNFPA) supported ANAYD to implement sensitization and capacity building activities in 10 communities in Chikun and Kaduna North LGAs of Kaduna state. The intervention bridged the COVID-19 knowledge gap among community members in Kaduna North and Chikun LGAs of Kaduna state, and increased awareness on Sexual Gender-based Violence (SGBV). These efforts reduced the burdens of COVID-19 and SGBV on the state, and Nigeria as a country.</p>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 mt-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Objectives</h3>
+                                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                    <li>To reach community members with awareness and risk mitigation of COVID-19</li>
+                                    <li>To reach community members with knowledge and information on SGBV</li>
+                                    <li>To increase young people's access to SRH information</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-6 mt-4">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Process</h3>
+                                <p class="text-gray-700 mb-4">The quarter's objectives were achieved through the implementation of the activities below:</p>
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full bg-white">
+                                        <thead class="bg-primary/10">
+                                            <tr>
+                                                <th class="py-2 px-4 border-b text-left">S/N</th>
+                                                <th class="py-2 px-4 border-b text-left">Activity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">1</td>
+                                                <td class="py-2 px-4 border-b">Virtual Review meeting with CSOs</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">2</td>
+                                                <td class="py-2 px-4 border-b">One Day Meeting with CSOs</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">3</td>
+                                                <td class="py-2 px-4 border-b">Community sensitization</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">4</td>
+                                                <td class="py-2 px-4 border-b">Review meeting with community stakeholders</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">5</td>
+                                                <td class="py-2 px-4 border-b">Sensitization of adolescents</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">6</td>
+                                                <td class="py-2 px-4 border-b">Community engagement with youths</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">7</td>
+                                                <td class="py-2 px-4 border-b">Capacity building meeting with GBV Responders</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">9</td>
+                                                <td class="py-2 px-4 border-b">Community Engagements by Community Leaders</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">10</td>
+                                                <td class="py-2 px-4 border-b">Feedback meeting with Ministry of Health (MOH), Ministry of Human Services and Social Development (MHSSD)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- HIV Self-Testing Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group" id="hiv-self-testing">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">HIV Self-Testing Africa (STAR III) Initiative</h2>
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="md:w-1/2 opacity-0 animate-slide-in-left group-[.in-view]:animate-slide-in-left delay-[100ms]">
+                                <img src="asset/images/reports/hiv-self-testing.jpg" alt="HIV Self-Testing Guide" class="w-full h-auto rounded-lg shadow-md">
+                            </div>
+                            <div class="md:w-1/2 opacity-0 animate-slide-in-right group-[.in-view]:animate-slide-in-right delay-[200ms]">
+                                <p class="text-gray-700 mb-4">HIV Self-Testing intervention has become the promising approach to reach the underserved and hard-to-reach populations especially for the adolescents and Young People (AYP) in their diversities towards fast-tracking the 95-95-95 cascade target by 2030.</p>
+                                
+                                <p class="text-gray-700 mb-4">In order to reach this ambitious and achievable targets, ANAYD received funding from the John Hopkins University Affiliate (JHpiego) to implement the HIV Self-Testing Africa (STAR) initiative in Lagos, Nigeria. The Goal of STAR III project is "to facilitate rapid HIV Self-Testing (HIVST) scale-up in Nigeria with the aim of increasing knowledge of HIV status and uptake of HIV care and treatment and ultimately reducing HIV-related mortality and morbidity".</p>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6 mt-6">
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Key Achievements</h3>
+                                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                        <li>Increased HIV testing uptake among young key populations</li>
+                                        <li>Improved linkage to care for those testing positive</li>
+                                        <li>Reduced stigma associated with HIV testing</li>
+                                        <li>Empowered youth with knowledge about their HIV status</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Success Stories -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 group" id="success-stories">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Success Stories</h2>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-sm opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ri-user-smile-line text-xl text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Aisha's Journey</h3>
+                                        <p class="text-gray-700 mb-4">"The support from ANAYD came at a critical time during the pandemic. The food items and transport assistance to collect my medications helped me stay adherent to my treatment when I had no income."</p>
+                                        <p class="text-gray-500 text-sm">— 22-year-old AYPLHIV from Kaduna</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 shadow-sm opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[200ms]">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ri-user-smile-line text-xl text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Emmanuel's Story</h3>
+                                        <p class="text-gray-700 mb-4">"The HIV self-testing kit provided by ANAYD allowed me to know my status in privacy. The counseling support afterward gave me confidence to access treatment services."</p>
+                                        <p class="text-gray-500 text-sm">— 19-year-old from Lagos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 shadow-sm opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[300ms]">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ri-user-smile-line text-xl text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Fatima's Transformation</h3>
+                                        <p class="text-gray-700 mb-4">"The SGBV awareness program in my community opened my eyes to recognize abuse. I was able to seek help and now I volunteer to educate other young women."</p>
+                                        <p class="text-gray-500 text-sm">— 24-year-old from Chikun LGA</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 shadow-sm opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[400ms]">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ri-user-smile-line text-xl text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">David's Growth</h3>
+                                        <p class="text-gray-700 mb-4">"The business support grant helped me start a small shop during COVID-19 lockdown. Now I can support myself and no longer worry about affording transportation to get my medication."</p>
+                                        <p class="text-gray-500 text-sm">— 26-year-old YPLHIV from Anambra</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Challenges & Adaptations -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mt-8 group" id="challenges-adaptations">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">Challenges & Adaptations</h2>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Challenge Card 1 -->
+                            <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-6 shadow-sm border-l-4 border-red-400 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ri-virus-line text-xl text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mt-2">COVID-19 Pandemic</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4">The pandemic severely restricted in-person activities and created barriers to healthcare access for our beneficiaries.</p>
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-gray-900 mb-2 flex items-center">
+                                        <i class="ri-lightbulb-flash-line text-yellow-500 mr-2"></i>
+                                        Our Adaptation
+                                    </h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Transitioned 60% of our programs to virtual delivery</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Distributed COVID-19 prevention supplies with health services</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Created hybrid models for essential services with safety protocols</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Challenge Card 2 -->
+                            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-sm border-l-4 border-blue-400 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[200ms]">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ri-funds-line text-xl text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mt-2">Resource Constraints</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4">Limited funding and resources during the economic downturn threatened our ability to maintain service levels.</p>
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-gray-900 mb-2 flex items-center">
+                                        <i class="ri-lightbulb-flash-line text-yellow-500 mr-2"></i>
+                                        Our Adaptation
+                                    </h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Diversified funding sources through new partnerships</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Optimized resource allocation to prioritize critical services</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Leveraged community volunteers to extend our reach</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Challenge Card 3 -->
+                            <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 shadow-sm border-l-4 border-purple-400 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[300ms]">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ri-community-line text-xl text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mt-2">Increased SGBV Cases</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4">Lockdowns and economic stress led to a significant rise in sexual and gender-based violence cases in our communities.</p>
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-gray-900 mb-2 flex items-center">
+                                        <i class="ri-lightbulb-flash-line text-yellow-500 mr-2"></i>
+                                        Our Adaptation
+                                    </h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Established emergency response hotlines for SGBV cases</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Trained community leaders on SGBV identification and response</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Created safe spaces for survivors to access support services</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Challenge Card 4 -->
+                            <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-6 shadow-sm border-l-4 border-green-400 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[400ms]">
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ri-medicine-bottle-line text-xl text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mt-2">Medication Access</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4">AYPLHIV faced difficulties accessing antiretroviral medications due to movement restrictions and supply chain disruptions.</p>
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-gray-900 mb-2 flex items-center">
+                                        <i class="ri-lightbulb-flash-line text-yellow-500 mr-2"></i>
+                                        Our Adaptation
+                                    </h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Implemented medication delivery services to homes</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Negotiated multi-month dispensing of ARVs with health facilities</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <i class="ri-check-line text-green-500 mt-1"></i>
+                                            <span>Provided transportation support for critical medication pickups</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lessons Learned -->
+                        <div class="mt-8 bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[500ms]">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                                <i class="ri-book-open-line text-primary mr-2"></i>
+                                Lessons Learned
+                            </h3>
+                            <div class="grid md:grid-cols-3 gap-4 mt-4">
+                                <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+                                    <div class="text-primary text-3xl font-bold mb-2">01</div>
+                                    <p class="text-gray-700">Digital platforms are essential for program continuity during crises and can expand our reach beyond physical limitations.</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+                                    <div class="text-primary text-3xl font-bold mb-2">02</div>
+                                    <p class="text-gray-700">Community-based approaches are more resilient and effective during emergencies than centralized service delivery models.</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+                                    <div class="text-primary text-3xl font-bold mb-2">03</div>
+                                    <p class="text-gray-700">Flexible funding mechanisms and diverse partnerships are crucial for organizational sustainability during uncertain times.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Financial Summary -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mt-8 group" id="financial-summary">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in">2021 Financial Statement</h2>
+                        
+                        <div class="mb-8 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[100ms]">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Statement of Accounting Policies</h3>
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <p class="text-gray-700 mb-4">The following are the significant accounting policies adopted by the Organization in the preparation of its financial statements:</p>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">1. Basis of Accounting:</h4>
+                                        <p class="text-gray-700 pl-4">The accounts are prepared under the historical cost convention.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">2. Fixed Assets:</h4>
+                                        <p class="text-gray-700 pl-4">Fixed assets are stated at cost less accumulated depreciation.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">3. Depreciation:</h4>
+                                        <p class="text-gray-700 pl-4">Depreciation on fixed assets is calculated on a straight-line basis to write off the cost of the assets over their useful lives at the following annual rates:</p>
+                                        <ul class="pl-8 text-gray-700 space-y-1 mt-2">
+                                            <li>Motor vehicles: 25%</li>
+                                            <li>Office furniture, fixture and fittings: 15%</li>
+                                            <li>Computer equipment: 15%</li>
+                                            <li>Office equipment: 15%</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">4. Foreign currencies:</h4>
+                                        <p class="text-gray-700 pl-4">Transactions in foreign currencies are translated to the Naira at the rate ruling at the date of transaction. Foreign currency balances are converted to the Naira at the rates of exchange ruling at the balance sheet dates. All differences arising from conversion of balance in foreign currencies to Naira (if any) are taken to the Statement of Income and Expenditure.</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">5. Income:</h4>
+                                        <p class="text-gray-700 pl-4">Income represents the grants and donations received from DONORS and TRUSTEES credited when received.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[200ms]">
+                                <button class="collapsible-trigger w-full flex items-center justify-between text-lg font-semibold text-gray-900 mb-4 hover:text-primary transition-colors">
+                                    <span>Statement of Income and Expenditure</span>
+                                    <i class="ri-arrow-down-s-line text-xl transition-transform duration-300"></i>
+                                </button>
+                                <div class="collapsible-content overflow-hidden transition-all duration-300 max-h-0">
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full bg-white">
+                                            <thead class="bg-primary/10">
+                                                <tr>
+                                                    <th class="py-2 px-4 border-b text-left">Income</th>
+                                                    <th class="py-2 px-4 border-b text-right">2021 (₦)</th>
+                                                    <th class="py-2 px-4 border-b text-right">2020 (₦)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Grants/Funds received</td>
+                                                    <td class="py-2 px-4 border-b text-right">53,770,952</td>
+                                                    <td class="py-2 px-4 border-b text-right">10,108,995</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Other income</td>
+                                                    <td class="py-2 px-4 border-b text-right">2,090,077</td>
+                                                    <td class="py-2 px-4 border-b text-right">343,000</td>
+                                                </tr>
+                                                <tr class="font-medium bg-gray-100">
+                                                    <td class="py-2 px-4 border-b">TOTAL INCOME</td>
+                                                    <td class="py-2 px-4 border-b text-right">55,861,029</td>
+                                                    <td class="py-2 px-4 border-b text-right">10,451,995</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="overflow-x-auto mt-6">
+                                        <table class="min-w-full bg-white">
+                                            <thead class="bg-primary/10">
+                                                <tr>
+                                                    <th class="py-2 px-4 border-b text-left">Expenditure</th>
+                                                    <th class="py-2 px-4 border-b text-right">2021 (₦)</th>
+                                                    <th class="py-2 px-4 border-b text-right">2020 (₦)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Office expenditure</td>
+                                                    <td class="py-2 px-4 border-b text-right">56,296,180</td>
+                                                    <td class="py-2 px-4 border-b text-right">10,385,998</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Audit fees</td>
+                                                    <td class="py-2 px-4 border-b text-right">100,000</td>
+                                                    <td class="py-2 px-4 border-b text-right">75,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Depreciation</td>
+                                                    <td class="py-2 px-4 border-b text-right">105,000</td>
+                                                    <td class="py-2 px-4 border-b text-right">23,025</td>
+                                                </tr>
+                                                <tr class="font-medium bg-gray-100">
+                                                    <td class="py-2 px-4 border-b">TOTAL EXPENDITURE</td>
+                                                    <td class="py-2 px-4 border-b text-right">56,501,180</td>
+                                                    <td class="py-2 px-4 border-b text-right">10,484,023</td>
+                                                </tr>
+                                                <tr class="font-medium text-primary">
+                                                    <td class="py-2 px-4 border-b">Surplus/(Deficit) of Income over Expenditure</td>
+                                                    <td class="py-2 px-4 border-b text-right">(640,151)</td>
+                                                    <td class="py-2 px-4 border-b text-right">(32,028)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-6 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[300ms]">
+                                <button class="collapsible-trigger w-full flex items-center justify-between text-lg font-semibold text-gray-900 mb-4 hover:text-primary transition-colors">
+                                    <span>Statement of Financial Position</span>
+                                    <i class="ri-arrow-down-s-line text-xl transition-transform duration-300"></i>
+                                </button>
+                                <div class="collapsible-content overflow-hidden transition-all duration-300 max-h-0">
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full bg-white">
+                                            <thead class="bg-primary/10">
+                                                <tr>
+                                                    <th class="py-2 px-4 border-b text-left">Assets</th>
+                                                    <th class="py-2 px-4 border-b text-right">2021 (₦)</th>
+                                                    <th class="py-2 px-4 border-b text-right">2020 (₦)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Fixed assets at NBV</td>
+                                                    <td class="py-2 px-4 border-b text-right">576,364</td>
+                                                    <td class="py-2 px-4 border-b text-right">128,575</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Current Assets</td>
+                                                    <td class="py-2 px-4 border-b text-right">5,480,250</td>
+                                                    <td class="py-2 px-4 border-b text-right">573,297</td>
+                                                </tr>
+                                                <tr class="font-medium bg-gray-100">
+                                                    <td class="py-2 px-4 border-b">TOTAL ASSETS</td>
+                                                    <td class="py-2 px-4 border-b text-right">6,056,614</td>
+                                                    <td class="py-2 px-4 border-b text-right">701,872</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="overflow-x-auto mt-6">
+                                        <table class="min-w-full bg-white">
+                                            <thead class="bg-primary/10">
+                                                <tr>
+                                                    <th class="py-2 px-4 border-b text-left">Financed By</th>
+                                                    <th class="py-2 px-4 border-b text-right">2021 (₦)</th>
+                                                    <th class="py-2 px-4 border-b text-right">2020 (₦)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Accumulated fund</td>
+                                                    <td class="py-2 px-4 border-b text-right">6,056,614</td>
+                                                    <td class="py-2 px-4 border-b text-right">701,872</td>
+                                                </tr>
+                                                <tr class="font-medium bg-gray-100">
+                                                    <td class="py-2 px-4 border-b">TOTAL FUND</td>
+                                                    <td class="py-2 px-4 border-b text-right">6,056,614</td>
+                                                    <td class="py-2 px-4 border-b text-right">701,872</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="mt-6 text-sm text-gray-500 italic">
+                                        <p>Approved by the Trustees on 11th March 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 opacity-0 animate-slide-up group-[.in-view]:animate-slide-up delay-[400ms]">
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <button class="collapsible-trigger w-full flex items-center justify-between text-lg font-semibold text-gray-900 mb-4 hover:text-primary transition-colors">
+                                    <span>Office Expenditure Breakdown</span>
+                                    <i class="ri-arrow-down-s-line text-xl transition-transform duration-300"></i>
+                                </button>
+                                <div class="collapsible-content overflow-hidden transition-all duration-300 max-h-0">
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full bg-white">
+                                            <thead class="bg-primary/10">
+                                                <tr>
+                                                    <th class="py-2 px-4 border-b text-left">Expenditure Item</th>
+                                                    <th class="py-2 px-4 border-b text-right">2021 (₦)</th>
+                                                    <th class="py-2 px-4 border-b text-right">2020 (₦)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Refreshment and meals</td>
+                                                    <td class="py-2 px-4 border-b text-right">4,102,088</td>
+                                                    <td class="py-2 px-4 border-b text-right">1,731,950</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Hall charges</td>
+                                                    <td class="py-2 px-4 border-b text-right">3,612,000</td>
+                                                    <td class="py-2 px-4 border-b text-right">1,080,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Facility fee</td>
+                                                    <td class="py-2 px-4 border-b text-right">10,000</td>
+                                                    <td class="py-2 px-4 border-b text-right">630,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Honorarium allowance</td>
+                                                    <td class="py-2 px-4 border-b text-right">1,321,100</td>
+                                                    <td class="py-2 px-4 border-b text-right">595,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Personnel cost</td>
+                                                    <td class="py-2 px-4 border-b text-right">2,761,000</td>
+                                                    <td class="py-2 px-4 border-b text-right">-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Transport and traveling</td>
+                                                    <td class="py-2 px-4 border-b text-right">15,985,064</td>
+                                                    <td class="py-2 px-4 border-b text-right">10,083,166</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Consultancy expenses</td>
+                                                    <td class="py-2 px-4 border-b text-right">490,900</td>
+                                                    <td class="py-2 px-4 border-b text-right">398,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Printing and stationeries</td>
+                                                    <td class="py-2 px-4 border-b text-right">3,770,000</td>
+                                                    <td class="py-2 px-4 border-b text-right">1,100,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Sensitization and seminars</td>
+                                                    <td class="py-2 px-4 border-b text-right">18,503,052</td>
+                                                    <td class="py-2 px-4 border-b text-right">400,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Bank charges</td>
+                                                    <td class="py-2 px-4 border-b text-right">28,596</td>
+                                                    <td class="py-2 px-4 border-b text-right">24,082</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Publicity cost</td>
+                                                    <td class="py-2 px-4 border-b text-right">1,734,000</td>
+                                                    <td class="py-2 px-4 border-b text-right">120,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Fuel and lubricants-Gen</td>
+                                                    <td class="py-2 px-4 border-b text-right">45,000</td>
+                                                    <td class="py-2 px-4 border-b text-right">54,600</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Salaries and wages</td>
+                                                    <td class="py-2 px-4 border-b text-right">3,883,580</td>
+                                                    <td class="py-2 px-4 border-b text-right">-</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">Covid-19 materials</td>
+                                                    <td class="py-2 px-4 border-b text-right">25,000</td>
+                                                    <td class="py-2 px-4 border-b text-right">-</td>
+                                                </tr>
+                                                <tr class="font-medium bg-gray-100">
+                                                    <td class="py-2 px-4 border-b">TOTAL</td>
+                                                    <td class="py-2 px-4 border-b text-right">56,296,180</td>
+                                                    <td class="py-2 px-4 border-b text-right">16,984,998</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <script src="js/animations.js"></script>
+</body>
+</html>

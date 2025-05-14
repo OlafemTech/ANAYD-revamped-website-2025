@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Statistics and Impact - African Network for Adolescents and Young Persons Development (ANAYD)" />
+    <meta name="keywords" content="ANAYD statistics, impact data, metrics, African Network, Adolescents, Young Persons Development" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>Statistics - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    
+    <script>
+      // Initialize mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+          const impactMenuToggle = document.getElementById('impact-menu-toggle');
+          const impactMenuIcon = document.getElementById('impact-menu-icon');
+          const impactSidebar = document.getElementById('impact-sidebar');
+
+          // Initialize mobile menu state
+          let isMobileMenuOpen = false;
+
+          if (impactMenuToggle && impactMenuIcon && impactSidebar) {
+              impactMenuToggle.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  isMobileMenuOpen = !isMobileMenuOpen;
+                  impactSidebar.classList.toggle('hidden', !isMobileMenuOpen);
+                  impactSidebar.classList.toggle('lg:block');
+                  impactMenuIcon.style.transform = isMobileMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+                  
+                  // Add animation classes
+                  if (isMobileMenuOpen) {
+                      impactSidebar.classList.add('animate-slide-in-left');
+                      impactSidebar.classList.remove('opacity-0');
+                  } else {
+                      impactSidebar.classList.remove('animate-slide-in-left');
+                      impactSidebar.classList.add('opacity-0');
+                  }
+              });
+
+              function handleResize() {
+                  const isLargeScreen = window.innerWidth >= 1024; // lg breakpoint
+                  
+                  if (isLargeScreen) {
+                      impactSidebar.classList.remove('hidden');
+                      impactSidebar.classList.add('lg:block');
+                      impactSidebar.classList.add('animate-slide-in-left');
+                      impactSidebar.classList.remove('opacity-0');
+                  } else if (!isMobileMenuOpen) {
+                      impactSidebar.classList.add('hidden');
+                      impactSidebar.classList.remove('lg:block');
+                      impactSidebar.classList.remove('animate-slide-in-left');
+                      impactSidebar.classList.add('opacity-0');
+                  }
+              }
+
+              window.addEventListener('resize', handleResize);
+              handleResize(); // Initial check
+          }
+      });
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20 min-h-screen">
+        <div class="container mx-auto px-4 py-12 max-w-7xl">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Mobile Menu Toggle -->
+                <div class="lg:hidden mb-6">
+                    <button
+                        id="impact-menu-toggle"
+                        class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+                    >
+                        <span>Impact & Resources</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform" id="impact-menu-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:w-72 flex-shrink-0 hidden lg:block" id="impact-sidebar">
+                  <div class="bg-white rounded-xl shadow-sm p-6 opacity-0 animate-slide-in-left">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-4">Impact</h3>
+                      <nav class="space-y-6">
+                          <div class="space-y-2">
+                              <p class="font-medium text-gray-900">Annual Reports</p>
+                              <a href="annual-report-2023.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2023 Report</a>
+                              <a href="annual-report-2022.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2022 Report</a>
+                              <a href="annual-report-2021.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2021 Report</a>
+                              <a href="annual-report-2020.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">2020 Report</a>
+                          </div>
+                          <div class="space-y-2">
+                              <p class="font-medium text-gray-900">Other Resources</p>
+                              <a href="statistics.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium hover:bg-primary/15 transition-all">Statistics</a>
+                              <a href="success-stories.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Success Stories</a>
+                          </div>
+                          <div class="space-y-2">
+                              <p class="font-medium text-gray-900">Get Involved</p>
+                              <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                              <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                              <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                              <div class="mt-4 bg-gradient-to-br from-blue-500 to-teal-500 rounded-lg p-4 text-white">
+                                  <h4 class="font-semibold mb-2">Support Our Cause</h4>
+                                  <p class="text-sm mb-3">Join us in making a difference in the lives of young people across Africa</p>
+                                  <a href="donate.html" class="inline-block bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors">Donate Now</a>
+                              </div>
+                          </div>
+                      </nav>
+                  </div>
+              </aside>
+              
+                <!-- Main Content -->
+                <div class="flex-1 space-y-8">
+                    <!-- Our Projects Section -->
+                    <section class="bg-white rounded-xl shadow-sm p-6 lg:p-8 opacity-0 [&.in-view]:animate-fade-in" data-animate>
+                        <h2 class="text-2xl lg:text-3xl font-semibold text-gray-900 mb-4 lg:mb-6">Our Projects</h2>
+                        <p class="text-gray-600 mb-8 lg:mb-10 max-w-3xl">Discover our impactful initiatives and programs that are making a difference in communities across Africa.</p>
+
+                        <!-- Charts Grid -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                            <!-- Project Distribution Chart -->
+                            <div class="bg-gray-50/50 rounded-xl p-6 lg:p-8 opacity-0 translate-x-[-50px] [&.in-view]:animate-swipe-in" data-animate data-delay="100">
+                                <div class="relative w-full max-w-[500px] mx-auto h-[400px]">
+                                    <canvas id="projectDistribution" class="absolute inset-0 w-full h-full"></canvas>
+                                </div>
+                            </div>
+
+                            <!-- Yearly Progress Chart -->
+                            <div class="bg-gray-50/50 rounded-xl p-6 lg:p-8 opacity-0 translate-x-[50px] [&.in-view]:animate-slide-in-right" data-animate data-delay="200">
+                                <div class="relative w-full max-w-[500px] mx-auto h-[400px]">
+                                    <canvas id="yearlyProgress" class="absolute inset-0 w-full h-full"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Metrics Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8">
+                            <!-- Total Fund Raised -->
+                            <div class="bg-gray-50/50 rounded-xl p-4 sm:p-6 text-center hover:bg-gray-50 transition-colors opacity-0 [&.in-view]:animate-fade-up" data-animate data-delay="300">
+                                <h3 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">$448,367</h3>
+                                <p class="text-xs sm:text-sm text-gray-500 mb-1">#151,737,823</p>
+                                <p class="text-sm sm:text-base text-gray-600 font-medium">Total Fund Raised</p>
+                            </div>
+
+                            <!-- Active Projects -->
+                            <div class="bg-gray-50/50 rounded-xl p-6 text-center hover:bg-gray-50 transition-colors opacity-0 [&.in-view]:animate-fade-up" data-animate data-delay="400">
+                                <h3 class="text-4xl font-bold text-gray-900 mb-2">28+</h3>
+                                <p class="text-sm text-gray-500 mb-1">Across Nigeria</p>
+                                <p class="text-gray-600 font-medium">Active Projects</p>
+                            </div>
+
+                            <!-- People Impacted -->
+                            <div class="bg-gray-50/50 rounded-xl p-6 text-center hover:bg-gray-50 transition-colors opacity-0 [&.in-view]:animate-fade-up" data-animate data-delay="500">
+                                <h3 class="text-4xl font-bold text-gray-900 mb-2">6Million+</h3>
+                                <p class="text-sm text-gray-500 mb-1">Direct Beneficiaries</p>
+                                <p class="text-gray-600 font-medium">People Impacted</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 2023 Impact Highlights -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8 opacity-0 [&.in-view]:animate-fade-up" data-animate>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">2023 Impact Highlights</h2>
+                        <div class="space-y-8">
+                            <p class="text-gray-700">In 2023, ANAYD successfully implemented programs across multiple thematic areas, reaching thousands of young people across Africa with health services, education, and advocacy platforms.</p>
+                            
+                            <!-- Beneficiary Stats -->
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                    <div class="p-6">
+                                        <div class="flex flex-col items-center text-center">
+                                            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                                <i class="ri-user-line text-3xl text-primary"></i>
+                                            </div>
+                                            <h3 class="text-2xl font-bold text-primary">11,419</h3>
+                                            <p class="text-gray-600">Male Beneficiaries</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                    <div class="p-6">
+                                        <div class="flex flex-col items-center text-center">
+                                            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                                <i class="ri-women-line text-3xl text-primary"></i>
+                                            </div>
+                                            <h3 class="text-2xl font-bold text-primary">17,589</h3>
+                                            <p class="text-gray-600">Female Beneficiaries</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Gender Distribution Chart -->
+                            <div class="mt-8 bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Gender Distribution of Beneficiaries (2023)</h3>
+                                    <div class="h-64">
+                                        <canvas id="genderDistribution"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Key Achievements -->
+                            <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Achievements</h3>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Trained 121 healthcare workers on providing youth-friendly services</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Reached 19 million people through social media campaigns</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Engaged 55 stakeholders, including government agencies and health professionals</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Conducted advocacy visits to 15 government institutions</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Hosted a virtual hub for the ICASA 2023 Conference with 23 participants</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-primary font-bold">•</span>
+                                        <span>Distributed 5,000+ HIV Self-Test Kits to young people</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Healthcare Impact Chart -->
+                            <div class="mt-8 bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Healthcare Impact Metrics (2022-2023)</h3>
+                                    <div class="h-64">
+                                        <canvas id="healthcareImpact"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Financial Overview -->
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <i class="ri-funds-line text-2xl text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900">Total Revenue</h3>
+                                            <p class="text-primary font-medium">₦50,488,197</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <i class="ri-hand-heart-line text-2xl text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900">Total Expenditure</h3>
+                                            <p class="text-primary font-medium">₦50,257,083</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <i class="ri-line-chart-line text-2xl text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900">Surplus</h3>
+                                            <p class="text-primary font-medium">₦231,114</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Financial Chart -->
+                            <div class="mt-8 bg-white border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Financial Overview Comparison (2022-2023)</h3>
+                                    <div class="h-64">
+                                        <canvas id="financialComparison"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Annual Achievements Timeline -->
+                    <section class="bg-white rounded-xl shadow-sm p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Annual Achievements Timeline</h2>
+                        <p class="text-gray-700 mb-8">Explore ANAYD's key achievements and milestones from 2020 to 2023, showcasing our growth and impact across various programs and initiatives.</p>
+                        
+                        <!-- Timeline -->
+                        <div class="relative">
+                            <!-- Timeline Line -->
+                            <div class="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-gray-200 transform md:translate-x-[-50%] hidden md:block"></div>
+                            
+                            <!-- 2023 Achievements -->
+                            <div class="mb-12 md:mb-24 relative">
+                                <div class="flex flex-col md:flex-row items-start">
+                                    <!-- Year Marker (Left on mobile, centered on desktop) -->
+                                    <div class="md:absolute md:left-1/2 md:transform md:translate-x-[-50%] md:top-0 bg-primary text-white font-bold text-lg rounded-full w-16 h-16 flex items-center justify-center mb-4 md:mb-0 z-10">
+                                        2023
+                                    </div>
+                                    
+                                    <!-- Left Content (on desktop) -->
+                                    <div class="md:w-1/2 md:pr-12 md:text-right hidden md:block">
+                                        <div class="bg-blue-50 rounded-xl p-6 shadow-sm border-r-4 md:border-r-0 md:border-l-4 border-primary inline-block">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Healthcare Impact</h3>
+                                            <ul class="space-y-2 text-left">
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Trained 121 healthcare workers on youth-friendly services</span>
+                                                    <i class="ri-health-book-line text-primary mt-1"></i>
+                                                </li>
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Conducted advocacy visits to 15 government institutions</span>
+                                                    <i class="ri-government-line text-primary mt-1"></i>
+                                                </li>
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Hosted ICASA 2023 Conference Virtual Hub with 23 participants</span>
+                                                    <i class="ri-global-line text-primary mt-1"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right Content (on desktop) - Mobile Full Width -->
+                                    <div class="w-full md:w-1/2 md:pl-12">
+                                        <div class="bg-blue-50 rounded-xl p-6 shadow-sm border-l-4 border-primary">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Outreach & Beneficiaries</h3>
+                                            <ul class="space-y-2">
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-user-line text-primary mt-1"></i>
+                                                    <span>Reached 11,419 male and 17,589 female beneficiaries</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-global-line text-primary mt-1"></i>
+                                                    <span>Reached 19 million people through social media campaigns</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-funds-line text-primary mt-1"></i>
+                                                    <span>Managed total revenue of ₦50,488,197 with a surplus of ₦231,114</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Mobile Only Content (Hidden on Desktop) -->
+                                    <div class="w-full mt-4 md:hidden">
+                                        <div class="bg-blue-50 rounded-xl p-6 shadow-sm border-l-4 border-primary">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Healthcare Impact</h3>
+                                            <ul class="space-y-2">
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-health-book-line text-primary mt-1"></i>
+                                                    <span>Trained 121 healthcare workers on youth-friendly services</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-government-line text-primary mt-1"></i>
+                                                    <span>Conducted advocacy visits to 15 government institutions</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-global-line text-primary mt-1"></i>
+                                                    <span>Hosted ICASA 2023 Conference Virtual Hub with 23 participants</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2022 Achievements -->
+                            <div class="mb-12 md:mb-24 relative">
+                                <div class="flex flex-col md:flex-row items-start">
+                                    <!-- Year Marker -->
+                                    <div class="md:absolute md:left-1/2 md:transform md:translate-x-[-50%] md:top-0 bg-primary text-white font-bold text-lg rounded-full w-16 h-16 flex items-center justify-center mb-4 md:mb-0 z-10">
+                                        2022
+                                    </div>
+                                    
+                                    <!-- Left Content (on desktop) -->
+                                    <div class="md:w-1/2 md:pr-12 md:text-right hidden md:block">
+                                        <div class="bg-indigo-50 rounded-xl p-6 shadow-sm border-r-4 md:border-r-0 md:border-l-4 border-indigo-500 inline-block">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">HIV Self-Testing Initiative</h3>
+                                            <ul class="space-y-2 text-left">
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Distributed over 2,000 vouchers for HIV testing services</span>
+                                                    <i class="ri-health-book-line text-indigo-500 mt-1"></i>
+                                                </li>
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Achieved 85% voucher redemption rate among recipients</span>
+                                                    <i class="ri-percent-line text-indigo-500 mt-1"></i>
+                                                </li>
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Implemented the STAR III Initiative for HIV self-testing</span>
+                                                    <i class="ri-star-line text-indigo-500 mt-1"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right Content (on desktop) - Mobile Full Width -->
+                                    <div class="w-full md:w-1/2 md:pl-12">
+                                        <div class="bg-indigo-50 rounded-xl p-6 shadow-sm border-l-4 border-indigo-500">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Key Projects</h3>
+                                            <ul class="space-y-2">
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-money-dollar-circle-line text-indigo-500 mt-1"></i>
+                                                    <span>Launched Demand Side Financing (DSF) for HIV testing services</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-hand-heart-line text-indigo-500 mt-1"></i>
+                                                    <span>Implemented Social Aid Fund 2.0 for vulnerable communities</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-global-line text-indigo-500 mt-1"></i>
+                                                    <span>Hosted PATA Summit Virtual Hub for healthcare providers</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Mobile Only Content (Hidden on Desktop) -->
+                                    <div class="w-full mt-4 md:hidden">
+                                        <div class="bg-indigo-50 rounded-xl p-6 shadow-sm border-l-4 border-indigo-500">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">HIV Self-Testing Initiative</h3>
+                                            <ul class="space-y-2">
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-health-book-line text-indigo-500 mt-1"></i>
+                                                    <span>Distributed over 2,000 vouchers for HIV testing services</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-percent-line text-indigo-500 mt-1"></i>
+                                                    <span>Achieved 85% voucher redemption rate among recipients</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-star-line text-indigo-500 mt-1"></i>
+                                                    <span>Implemented the STAR III Initiative for HIV self-testing</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2021 Achievements -->
+                            <div class="mb-12 md:mb-24 relative">
+                                <div class="flex flex-col md:flex-row items-start">
+                                    <!-- Year Marker -->
+                                    <div class="md:absolute md:left-1/2 md:transform md:translate-x-[-50%] md:top-0 bg-primary text-white font-bold text-lg rounded-full w-16 h-16 flex items-center justify-center mb-4 md:mb-0 z-10">
+                                        2021
+                                    </div>
+                                    
+                                    <!-- Left Content (on desktop) -->
+                                    <div class="md:w-1/2 md:pr-12 md:text-right hidden md:block">
+                                        <div class="bg-purple-50 rounded-xl p-6 shadow-sm border-r-4 md:border-r-0 md:border-l-4 border-purple-500 inline-block">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">COVID-19 Response</h3>
+                                            <ul class="space-y-2 text-left">
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Reached 137 persons with COVID-19 response services</span>
+                                                    <i class="ri-virus-line text-purple-500 mt-1"></i>
+                                                </li>
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Strengthened 28 youth networks across Africa</span>
+                                                    <i class="ri-team-line text-purple-500 mt-1"></i>
+                                                </li>
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Provided SRHR education to 622 young people</span>
+                                                    <i class="ri-heart-pulse-line text-purple-500 mt-1"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right Content (on desktop) - Mobile Full Width -->
+                                    <div class="w-full md:w-1/2 md:pl-12">
+                                        <div class="bg-purple-50 rounded-xl p-6 shadow-sm border-l-4 border-purple-500">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Program Reach</h3>
+                                            <ul class="space-y-2">
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-user-line text-purple-500 mt-1"></i>
+                                                    <span>Reached 4,851 total beneficiaries (2,121 male, 2,730 female)</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-health-book-line text-purple-500 mt-1"></i>
+                                                    <span>Provided HIV testing services to 3,708 persons</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-megaphone-line text-purple-500 mt-1"></i>
+                                                    <span>Conducted sensitization programs reaching 1,271 persons</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Mobile Only Content (Hidden on Desktop) -->
+                                    <div class="w-full mt-4 md:hidden">
+                                        <div class="bg-purple-50 rounded-xl p-6 shadow-sm border-l-4 border-purple-500">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">COVID-19 Response</h3>
+                                            <ul class="space-y-2">
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-virus-line text-purple-500 mt-1"></i>
+                                                    <span>Reached 137 persons with COVID-19 response services</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-team-line text-purple-500 mt-1"></i>
+                                                    <span>Strengthened 28 youth networks across Africa</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-heart-pulse-line text-purple-500 mt-1"></i>
+                                                    <span>Provided SRHR education to 622 young people</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2020 Achievements -->
+                            <div class="mb-12 md:mb-24 relative">
+                                <div class="flex flex-col md:flex-row items-start">
+                                    <!-- Year Marker -->
+                                    <div class="md:absolute md:left-1/2 md:transform md:translate-x-[-50%] md:top-0 bg-primary text-white font-bold text-lg rounded-full w-16 h-16 flex items-center justify-center mb-4 md:mb-0 z-10">
+                                        2020
+                                    </div>
+                                    
+                                    <!-- Left Content (on desktop) -->
+                                    <div class="md:w-1/2 md:pr-12 md:text-right hidden md:block">
+                                        <div class="bg-teal-50 rounded-xl p-6 shadow-sm border-r-4 md:border-r-0 md:border-l-4 border-teal-500 inline-block">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Founding Achievements</h3>
+                                            <ul class="space-y-2 text-left">
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Established organizational structure with 12 core team members</span>
+                                                    <i class="ri-team-line text-teal-500 mt-1"></i>
+                                                </li>
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Developed five-year strategic plan for continental expansion</span>
+                                                    <i class="ri-road-map-line text-teal-500 mt-1"></i>
+                                                </li>
+                                                <li class="flex items-start gap-2 justify-end">
+                                                    <span>Formed initial partnerships with local and international agencies</span>
+                                                    <i class="ri-global-line text-teal-500 mt-1"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right Content (on desktop) - Mobile Full Width -->
+                                    <div class="w-full md:w-1/2 md:pl-12">
+                                        <div class="bg-teal-50 rounded-xl p-6 shadow-sm border-l-4 border-teal-500">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Initial Programs</h3>
+                                            <ul class="space-y-2">
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-health-book-line text-teal-500 mt-1"></i>
+                                                    <span>Reached 500+ youth through HIV/AIDS awareness programs</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-heart-pulse-line text-teal-500 mt-1"></i>
+                                                    <span>Educated 300+ youth on sexual & reproductive health</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-megaphone-line text-teal-500 mt-1"></i>
+                                                    <span>Reached 2,000+ people through 10 digital advocacy campaigns</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Mobile Only Content (Hidden on Desktop) -->
+                                    <div class="w-full mt-4 md:hidden">
+                                        <div class="bg-teal-50 rounded-xl p-6 shadow-sm border-l-4 border-teal-500">
+                                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Founding Achievements</h3>
+                                            <ul class="space-y-2">
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-team-line text-teal-500 mt-1"></i>
+                                                    <span>Established organizational structure with 12 core team members</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-road-map-line text-teal-500 mt-1"></i>
+                                                    <span>Developed five-year strategic plan for continental expansion</span>
+                                                </li>
+                                                <li class="flex items-start gap-2">
+                                                    <i class="ri-global-line text-teal-500 mt-1"></i>
+                                                    <span>Formed initial partnerships with local and international agencies</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Growth Summary -->
+                            <div class="mt-12 bg-gray-50 rounded-xl p-6 border-l-4 border-primary">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Growth Summary 2020-2023</h3>
+                                <p class="text-gray-700 mb-4">Since our founding in 2020, ANAYD has experienced remarkable growth in reach, impact, and organizational capacity:</p>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <p class="text-gray-600 text-sm">Beneficiaries</p>
+                                        <p class="text-2xl font-bold text-primary">29,000+</p>
+                                        <p class="text-xs text-gray-500">From 800+ in 2020</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <p class="text-gray-600 text-sm">Digital Reach</p>
+                                        <p class="text-2xl font-bold text-primary">19M+</p>
+                                        <p class="text-xs text-gray-500">From 2,000+ in 2020</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <p class="text-gray-600 text-sm">Community Projects</p>
+                                        <p class="text-2xl font-bold text-primary">135+</p>
+                                        <p class="text-xs text-gray-500">From 8 in 2020</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <p class="text-gray-600 text-sm">Partnerships</p>
+                                        <p class="text-2xl font-bold text-primary">50+</p>
+                                        <p class="text-xs text-gray-500">From 5 in 2020</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline content will be added in subsequent edits -->
+                    </section>
+                
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+        <!-- Partners Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-8" data-animate="fade-in">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+              Our Partners & Funders
+            </h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+          </div>
+          <style>
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .partners-track {
+              animation: scroll 40s linear infinite;
+              width: max-content;
+            }
+            .partners-slider:hover .partners-track {
+              animation-play-state: paused;
+            }
+          </style>
+          <div
+            class="partners-slider overflow-hidden"
+            data-animate="slide-up"
+            data-delay="200"
+          >
+            <div class="partners-track flex space-x-8">
+              <!-- First set of partners -->
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/ARFH.jpeg"
+                  alt="ARFH"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/CIHP.png"
+                  alt="CIHP"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/CSIWCA.jpeg"
+                  alt="CSIWCA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/DHRAN.png"
+                  alt="DHRAN"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/DRAC.jpg"
+                  alt="DRAC"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/EGPAF.jpeg"
+                  alt="EGPAF"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/EVA.png"
+                  alt="EVA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/FHI360.png"
+                  alt="FHI360"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/GNYPLH.jpg"
+                  alt="GNYPLH"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/Global Fund.png"
+                  alt="Global Fund"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/HHCSI.jpg"
+                  alt="HHCSI"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/IAS.png"
+                  alt="IAS"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/ISDAO.png"
+                  alt="ISDAO"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/JHPEIGO.png"
+                  alt="JHPEIGO"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <!-- Duplicate slides for continuous scrolling -->
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/KADSACA.jpeg"
+                  alt="KADSACA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/NACA.jpg"
+                  alt="NACA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/NEPWAN.jpg"
+                  alt="NEPWAN"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/NYETHA.jpg"
+                  alt="NYETHA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/Nigeria.jpg"
+                  alt="Nigeria"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/SFH.jpeg"
+                  alt="SFH"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/UNAIDS.jpg"
+                  alt="UNAIDS"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/UNESCO.jpg"
+                  alt="UNESCO"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/UNFPA.png"
+                  alt="UNFPA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/UNICEF.jpeg"
+                  alt="UNICEF"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/Y+ Global.png"
+                  alt="Y+ Global"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/usaid.png"
+                  alt="USAID"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              
+              <!-- Duplicate logos for continuous scrolling -->
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/ARFH.jpeg"
+                  alt="ARFH"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/CIHP.png"
+                  alt="CIHP"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/CSIWCA.jpeg"
+                  alt="CSIWCA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/DHRAN.png"
+                  alt="DHRAN"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/DRAC.jpg"
+                  alt="DRAC"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/EGPAF.jpeg"
+                  alt="EGPAF"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/EVA.png"
+                  alt="EVA"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+              <div class="partner-slide flex-shrink-0">
+                <img
+                  src="asset/images/Partners/FHI360.png"
+                  alt="FHI360"
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <!------------------------------------- Footer ------------------------------------------------>
+        <div id="footer-container"></div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Chart.js global defaults for better mobile display
+                Chart.defaults.font.size = window.innerWidth < 768 ? 12 : 14;
+                Chart.defaults.responsive = true;
+                Chart.defaults.maintainAspectRatio = false;
+
+                // Initialize Project Distribution Chart
+                const projectDistribution = new Chart(
+                    document.getElementById('projectDistribution'),
+                    {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['HIV/AIDS Programs', 'Healthcare Services', 'Youth Leadership', 'Education', 'Digital Advocacy'],
+                            datasets: [{
+                                data: [35, 25, 15, 15, 10],
+                                backgroundColor: [
+                                    '#3B82F6',
+                                    '#EF4444',
+                                    '#10B981',
+                                    '#F59E0B',
+                                    '#8B5CF6'
+                                ],
+                                borderWidth: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: window.innerWidth < 768 ? 'bottom' : 'right',
+                                    labels: {
+                                        padding: window.innerWidth < 768 ? 15 : 20,
+                                        font: {
+                                            size: window.innerWidth < 768 ? 12 : 14
+                                        },
+                                        usePointStyle: true,
+                                        boxWidth: window.innerWidth < 768 ? 8 : 10
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Program Distribution 2023',
+                                    font: {
+                                        size: window.innerWidth < 768 ? 14 : 16,
+                                        weight: 'bold'
+                                    },
+                                    padding: {
+                                        bottom: window.innerWidth < 768 ? 15 : 20
+                                    }
+                                }
+                            }
+                        }
+                    }
+                );
+
+                // Initialize Yearly Progress Chart
+                const yearlyProgress = new Chart(
+                    document.getElementById('yearlyProgress'),
+                    {
+                        type: 'bar',
+                        data: {
+                            labels: ['2020', '2021', '2022', '2023'],
+                            datasets: [{
+                                label: 'People Impacted',
+                                data: [800, 6500, 12000, 29000],
+                                backgroundColor: '#3B82F6',
+                                borderRadius: window.innerWidth < 768 ? 4 : 6
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Yearly Beneficiary Growth',
+                                    font: {
+                                        size: window.innerWidth < 768 ? 14 : 16,
+                                        weight: 'bold'
+                                    },
+                                    padding: {
+                                        bottom: window.innerWidth < 768 ? 15 : 20
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    grid: {
+                                        display: true,
+                                        drawBorder: false,
+                                        color: '#E5E7EB'
+                                    },
+                                    ticks: {
+                                        callback: function(value) {
+                                            return value.toLocaleString();
+                                        },
+                                        font: {
+                                            size: window.innerWidth < 768 ? 11 : 13
+                                        }
+                                    }
+                                },
+                                x: {
+                                    grid: {
+                                        display: false
+                                    },
+                                    ticks: {
+                                        font: {
+                                            size: window.innerWidth < 768 ? 11 : 13
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                );
+
+                // Initialize Gender Distribution Chart
+                const genderDistribution = new Chart(
+                    document.getElementById('genderDistribution'),
+                    {
+                        type: 'pie',
+                        data: {
+                            labels: ['Male Beneficiaries', 'Female Beneficiaries'],
+                            datasets: [{
+                                data: [11419, 17589],
+                                backgroundColor: [
+                                    '#3B82F6',
+                                    '#EF4444'
+                                ],
+                                borderWidth: 0
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: window.innerWidth < 768 ? 'bottom' : 'right',
+                                    labels: {
+                                        padding: window.innerWidth < 768 ? 15 : 20,
+                                        font: {
+                                            size: window.innerWidth < 768 ? 12 : 14
+                                        },
+                                        usePointStyle: true,
+                                        boxWidth: window.innerWidth < 768 ? 8 : 10
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Gender Distribution of Beneficiaries (2023)',
+                                    font: {
+                                        size: window.innerWidth < 768 ? 14 : 16,
+                                        weight: 'bold'
+                                    },
+                                    padding: {
+                                        bottom: window.innerWidth < 768 ? 15 : 20
+                                    }
+                                }
+                            }
+                        }
+                    }
+                );
+
+                // Initialize Financial Comparison Chart
+                const financialComparison = new Chart(
+                    document.getElementById('financialComparison'),
+                    {
+                        type: 'bar',
+                        data: {
+                            labels: ['2022', '2023'],
+                            datasets: [{
+                                label: 'Total Revenue',
+                                data: [50000000, 50488197],
+                                backgroundColor: '#3B82F6',
+                                borderRadius: window.innerWidth < 768 ? 4 : 6
+                            },
+                            {
+                                label: 'Total Expenditure',
+                                data: [50000000, 50257083],
+                                backgroundColor: '#EF4444',
+                                borderRadius: window.innerWidth < 768 ? 4 : 6
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: window.innerWidth < 768 ? 'bottom' : 'right',
+                                    labels: {
+                                        padding: window.innerWidth < 768 ? 15 : 20,
+                                        font: {
+                                            size: window.innerWidth < 768 ? 12 : 14
+                                        },
+                                        usePointStyle: true,
+                                        boxWidth: window.innerWidth < 768 ? 8 : 10
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Financial Overview Comparison (2022-2023)',
+                                    font: {
+                                        size: window.innerWidth < 768 ? 14 : 16,
+                                        weight: 'bold'
+                                    },
+                                    padding: {
+                                        bottom: window.innerWidth < 768 ? 15 : 20
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    grid: {
+                                        display: true,
+                                        drawBorder: false,
+                                        color: '#E5E7EB'
+                                    },
+                                    ticks: {
+                                        callback: function(value) {
+                                            return value.toLocaleString();
+                                        },
+                                        font: {
+                                            size: window.innerWidth < 768 ? 11 : 13
+                                        }
+                                    }
+                                },
+                                x: {
+                                    grid: {
+                                        display: false
+                                    },
+                                    ticks: {
+                                        font: {
+                                            size: window.innerWidth < 768 ? 11 : 13
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                );
+
+                // Initialize Healthcare Impact Chart
+                const healthcareImpact = new Chart(
+                    document.getElementById('healthcareImpact'),
+                    {
+                        type: 'bar',
+                        data: {
+                            labels: ['2022', '2023'],
+                            datasets: [{
+                                label: 'HIV Self-Test Kits Distributed',
+                                data: [2000, 5000],
+                                backgroundColor: '#3B82F6',
+                                borderRadius: window.innerWidth < 768 ? 4 : 6
+                            },
+                            {
+                                label: 'Healthcare Workers Trained',
+                                data: [50, 121],
+                                backgroundColor: '#EF4444',
+                                borderRadius: window.innerWidth < 768 ? 4 : 6
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: window.innerWidth < 768 ? 'bottom' : 'right',
+                                    labels: {
+                                        padding: window.innerWidth < 768 ? 15 : 20,
+                                        font: {
+                                            size: window.innerWidth < 768 ? 12 : 14
+                                        },
+                                        usePointStyle: true,
+                                        boxWidth: window.innerWidth < 768 ? 8 : 10
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Healthcare Impact Metrics (2022-2023)',
+                                    font: {
+                                        size: window.innerWidth < 768 ? 14 : 16,
+                                        weight: 'bold'
+                                    },
+                                    padding: {
+                                        bottom: window.innerWidth < 768 ? 15 : 20
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    grid: {
+                                        display: true,
+                                        drawBorder: false,
+                                        color: '#E5E7EB'
+                                    },
+                                    ticks: {
+                                        callback: function(value) {
+                                            return value.toLocaleString();
+                                        },
+                                        font: {
+                                            size: window.innerWidth < 768 ? 11 : 13
+                                        }
+                                    }
+                                },
+                                x: {
+                                    grid: {
+                                        display: false
+                                    },
+                                    ticks: {
+                                        font: {
+                                            size: window.innerWidth < 768 ? 11 : 13
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                );
+
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    const isMobile = window.innerWidth < 768;
+                    
+                    // Update Project Distribution Chart
+                    projectDistribution.options.plugins.legend.position = isMobile ? 'bottom' : 'right';
+                    projectDistribution.options.plugins.legend.labels.padding = isMobile ? 15 : 20;
+                    projectDistribution.options.plugins.legend.labels.font.size = isMobile ? 12 : 14;
+                    projectDistribution.options.plugins.title.font.size = isMobile ? 14 : 16;
+                    projectDistribution.update();
+
+                    // Update Yearly Progress Chart
+                    yearlyProgress.options.plugins.title.font.size = isMobile ? 14 : 16;
+                    yearlyProgress.data.datasets[0].borderRadius = isMobile ? 4 : 6;
+                    yearlyProgress.update();
+
+                    // Update Gender Distribution Chart
+                    genderDistribution.options.plugins.legend.position = isMobile ? 'bottom' : 'right';
+                    genderDistribution.options.plugins.legend.labels.padding = isMobile ? 15 : 20;
+                    genderDistribution.options.plugins.legend.labels.font.size = isMobile ? 12 : 14;
+                    genderDistribution.options.plugins.title.font.size = isMobile ? 14 : 16;
+                    genderDistribution.update();
+
+                    // Update Financial Comparison Chart
+                    financialComparison.options.plugins.legend.position = isMobile ? 'bottom' : 'right';
+                    financialComparison.options.plugins.legend.labels.padding = isMobile ? 15 : 20;
+                    financialComparison.options.plugins.legend.labels.font.size = isMobile ? 12 : 14;
+                    financialComparison.options.plugins.title.font.size = isMobile ? 14 : 16;
+                    financialComparison.update();
+
+                    // Update Healthcare Impact Chart
+                    healthcareImpact.options.plugins.legend.position = isMobile ? 'bottom' : 'right';
+                    healthcareImpact.options.plugins.legend.labels.padding = isMobile ? 15 : 20;
+                    healthcareImpact.options.plugins.legend.labels.font.size = isMobile ? 12 : 14;
+                    healthcareImpact.options.plugins.title.font.size = isMobile ? 14 : 16;
+                    healthcareImpact.update();
+                });
+
+                // Enhanced Intersection Observer for animations
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            
+                            // Get all cards in this section if it's a section
+                            if (entry.target.tagName === 'SECTION') {
+                                const cards = entry.target.querySelectorAll('.grid > div');
+                                
+                                // Apply staggered animations
+                                cards.forEach((card, index) => {
+                                    setTimeout(() => {
+                                        card.style.opacity = '1';
+                                    }, index * 100); // Staggered delay
+                                });
+                            }
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                // Track scroll direction
+                let lastScrollY = window.scrollY;
+                window.addEventListener('scroll', function() {
+                    // Throttle the scroll event
+                    if (!window.scrollThrottleTimeout) {
+                        window.scrollThrottleTimeout = setTimeout(function() {
+                            lastScrollY = window.scrollY;
+                            window.scrollThrottleTimeout = null;
+                        }, 100);
+                    }
+                });
+
+                document.querySelectorAll('[data-animate]').forEach(element => {
+                    observer.observe(element);
+                });
+            });
+        </script>
+        <script src="js/animations.js"></script>
+    </body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="Explore ANAYD's visual journey through our comprehensive gallery of photos and videos showcasing our impact across Africa. View our community engagements, healthcare initiatives, youth empowerment programs, and partnerships with WHO, UNAIDS, UNFPA, and ECOWAS." />
+    <meta name="keywords" content="ANAYD gallery, photo gallery, video gallery, healthcare initiatives, youth empowerment photos, African development media, community engagement photos, UNFPA collaborations, WHO partnerships, UNAIDS programs, ECOWAS initiatives, youth healthcare photos, African youth development videos, community impact gallery, healthcare documentation, visual storytelling, African youth photos, development programs gallery, NGO media gallery, public health documentation" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="ANAYD Gallery - Visual Journey of Youth Healthcare Transformation in Africa" />
+    <meta property="og:description" content="Experience ANAYD's transformative journey through our curated collection of photos and videos showcasing our impact in youth healthcare and development across Africa." />
+    <meta property="og:image" content="https://anayd.org/asset/images/og-image.jpg" />
+    <meta property="og:url" content="https://anayd.org/gallery" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ANAYD Gallery" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ANAYD_Africa" />
+    <meta name="twitter:title" content="ANAYD Gallery - Visual Journey of African Youth Healthcare" />
+    <meta name="twitter:description" content="Explore our visual documentation of transformative healthcare initiatives and youth development programs across Africa. See the impact of our partnerships with WHO, UNAIDS, UNFPA, and ECOWAS." />
+    <meta name="twitter:image" content="https://anayd.org/asset/images/twitter-card.jpg" />
+    <title>ANAYD Gallery - Visual Journey of Youth Healthcare Transformation in Africa</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <!-- Core libraries first -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- App-specific scripts -->
+    <script src="asset/js/events-carousel.js" defer></script>
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+      .custom-swiper-button {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .custom-swiper-button:hover {
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      .custom-swiper-button.swiper-button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .custom-swiper-button-prev {
+        left: 10px;
+      }
+      .custom-swiper-button-next {
+        right: 10px;
+      }
+      .swiper-pagination-bullet {
+        background: #333;
+        opacity: 0.5;
+      }
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #3B82F6;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-16">
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-b from-primary/10 to-transparent overflow-hidden">
+            <div class="absolute inset-0 bg-[url('asset/images/pattern-grid.svg')] opacity-5"></div>
+            <div class="container mx-auto px-4 py-16 md:py-24">
+                <div class="max-w-4xl mx-auto text-center" data-animate="fade-up">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                        Our Visual Journey
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                        Explore our gallery of impactful moments, transformative initiatives, and the faces of change across Africa.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4" data-animate="fade-up" data-delay="200">
+                        <a href="#photo-gallery" class="inline-flex items-center px-6 py-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors">
+                            <i class="ri-image-line mr-2"></i> Photo Gallery
+                        </a>
+                        <a href="#video-gallery" class="inline-flex items-center px-6 py-3 rounded-full bg-white text-primary border-2 border-primary hover:bg-primary/5 transition-colors">
+                            <i class="ri-video-line mr-2"></i> Video Gallery
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section id="photo-gallery" class="container mx-auto px-4 mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center" data-animate="fade-up">Photo Gallery</h2>
+            <p class="text-gray-600 text-center mb-8 max-w-2xl mx-auto" data-animate="fade-up" data-delay="100">
+                Witness our journey through impactful moments captured across Africa. From community engagements and healthcare initiatives to youth empowerment programs and collaborative partnerships.
+            </p>
+            <div class="swiper photo-swiper" data-animate="fade-up" data-delay="200">
+                <div class="swiper-wrapper">
+                    <!-- Photo slides will be dynamically populated -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="custom-swiper-button custom-swiper-button-prev"><i class="ri-arrow-left-s-line text-xl"></i></div>
+                <div class="custom-swiper-button custom-swiper-button-next"><i class="ri-arrow-right-s-line text-xl"></i></div>
+            </div>
+        </section>
+
+        <!-- Video Gallery Section -->
+        <section id="video-gallery" class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center" data-animate="fade-up">Video Gallery</h2>
+            <p class="text-gray-600 text-center mb-8 max-w-2xl mx-auto" data-animate="fade-up" data-delay="100">
+                Experience the dynamic impact of our programs through video documentation. Watch highlights from our inception meetings, UNFPA collaborations, and various youth-focused initiatives.
+            </p>
+            <div class="swiper video-swiper" data-animate="fade-up" data-delay="200">
+                <div class="swiper-wrapper">
+                    <!-- Video slides will be dynamically populated -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="custom-swiper-button custom-swiper-button-prev"><i class="ri-arrow-left-s-line text-xl"></i></div>
+                <div class="custom-swiper-button custom-swiper-button-next"><i class="ri-arrow-right-s-line text-xl"></i></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    <script src="js/animations.js"></script>
+    <script src="js/sidebar-nav.js"></script>
+    <script src="asset/js/global-navigation.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Photo Swiper
+        const photoSwiper = new Swiper('.photo-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.custom-swiper-button-next',
+                prevEl: '.custom-swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+        // Initialize Video Swiper
+        const videoSwiper = new Swiper('.video-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.custom-swiper-button-next',
+                prevEl: '.custom-swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 2,
+                },
+            },
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-animate]').forEach(element => {
+            element.classList.add('transform', 'transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(element);
+        });
+
+        // Dynamically populate photo gallery
+        const photos = [
+            'asset/images/GEF Inception Project/_SCF2212.png',
+            'asset/images/GEF Inception Project/_DSF2341.png',
+            'asset/images/GEF Inception Project/_SCF2395.png',
+            'asset/images/general/anayd_ISADOSankofa_AYPs.jpg',
+            'asset/images/general/AYP-Consultation_Blog-Image.jpg',
+            'asset/images/general/anayd_unicef_II.jpg',
+            'asset/images/general/anayd_kspc_pcp_2024.jpg',
+            'asset/images/general/anayd_unicef_support.jpg',
+            'asset/images/general/anayd_health.jpg',
+            'asset/images/general/anayd_01.jpg',
+            'asset/images/general/anayd_09.jpg',
+            'asset/images/AID_virtual_hub/AID_virtual_hub_2.jpg',
+            'asset/images/AID_virtual_hub/AID_virtual_hub_3.jpg',
+            'asset/images/AID_virtual_hub/AID_virtual_hub_1.jpg',
+            'asset/images/about/anayd_ict_II.jpg',
+            'asset/images/about/anayd_ict_V.jpg',
+            'asset/images/about/inclusive_health_AYPS.jpg',
+            'asset/images/about/anayd_ed_intl.jpg',
+            'asset/images/about/anayd_ed_IV.jpg',
+            'asset/images/about/img/IMG_1954.jpg',
+            'asset/images/about/img/IMG_2120.jpg',
+            'asset/images/about/img/IMG_4267.jpg',
+            'asset/images/about/img/IMG_4470.jpg',
+            'asset/images/about/img/IMG_4466.jpg',
+            'asset/images/about/img/IMG_4463.jpg',
+            'asset/images/about/img/IMG_4370.jpg',
+            'asset/images/about/img/IMG_1919.jpg',
+            'asset/images/about/img/IMG_1894.jpg',
+            'asset/images/about/img/IMG_2454.jpg',
+            'asset/images/about/img/IMG_2455.jpg',
+            'asset/images/about/img/IMG_2656.jpg',
+            'asset/images/about/img/IMG_2453.jpg',
+            'asset/images/about/img/IMG_1894.jpg',
+            'asset/images/about/img/IMG_2656.jpg',
+            
+            // Add more photos as needed
+        ];
+
+        photos.forEach(photo => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `
+                <img src="${photo}" alt="Gallery Image" class="w-full h-64 object-cover rounded-lg shadow-lg">
+            `;
+            document.querySelector('.photo-swiper .swiper-wrapper').appendChild(slide);
+        });
+
+        // Dynamically populate video gallery
+        const videos = [
+            'asset/video/GEF INCEPTION MEETING - PLENARY SESSION - DR OFEM OBETENmp4.mp4',
+            'asset/video/GEF INCEPTION MEETING OPENING.mp4',
+            'asset/video/ANAYD_EVA_UMFPA.mp4',
+            'asset/video/anayd_unicef.mp4',
+            'asset/video/GEF INCEPTION MEETING OPENING.mp4',
+            'asset/video/anayd_video.mp4',
+            'asset/video/GEF INCEPTION MEETING OPENING (2).mp4',
+            'asset/video/anayd_covid19_news.mp4',
+            
+            // Add more videos as needed
+        ];
+
+        videos.forEach(video => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `
+                <div class="aspect-w-16 aspect-h-9">
+                    <video class="w-full h-full object-cover rounded-lg shadow-lg" controls>
+                        <source src="${video}" type="video/mp4">
+                    </video>
+                </div>
+            `;
+            document.querySelector('.video-swiper .swiper-wrapper').appendChild(slide);
+        });
+    </script>
+</body>
+</html>
+

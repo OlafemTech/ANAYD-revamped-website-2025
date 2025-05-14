@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>ANAYD - Navbar Test</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries first -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Navbar Test Page</h1>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            This page demonstrates the responsive navbar component with mobile menu functionality.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Features</h2>
+          <ul class="list-disc pl-6 space-y-2 text-gray-600">
+            <li>Responsive design for desktop and mobile</li>
+            <li>Dropdown menus for desktop navigation</li>
+            <li>Mobile slide-out menu with animations</li>
+            <li>Nested dropdown menus in mobile view</li>
+            <li>Active page highlighting</li>
+            <li>Scroll behavior with background changes</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Implementation</h2>
+          <p class="text-gray-600 mb-4">
+            The navbar is implemented as a component that can be loaded into any page using the component loader system.
+            It uses Tailwind CSS for styling and vanilla JavaScript for interactions.
+          </p>
+          <p class="text-gray-600">
+            To add this navbar to any page, simply include the component loader script and add a div with id="navbar-container".
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/animations.js"></script>
+  </body>
+</html>

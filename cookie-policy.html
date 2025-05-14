@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="ANAYD leads transformative initiatives in HIV/AIDS prevention, malaria control, youth healthcare, and economic empowerment across Africa. Our programs focus on adolescent health, SRHR, GBV prevention, and sustainable development in partnership with WHO, UNAIDS, UNFPA, and ECOWAS." />
+    <meta name="keywords" content="HIV/AIDS programs, malaria prevention, youth healthcare, adolescent health services, SRHR initiatives, GBV prevention, economic empowerment, WHO partnerships, UNAIDS collaboration, UNFPA programs, ECOWAS health initiatives, African youth development, TB control, mental health support, young people healthcare, adult health services, sexual reproductive health, gender-based violence prevention, sustainable development goals, African health programs, community health initiatives, youth empowerment programs, health capacity building, African healthcare network, adolescent-friendly services, young persons development, NGO healthcare programs, African development initiatives, public health programs, healthcare advocacy" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="ANAYD - African Network of Adolescent & Young Persons Development" />
+    <meta property="og:description" content="Empowering African youth through healthcare initiatives, HIV/AIDS prevention, and sustainable development programs. Join ANAYD in transforming lives across Africa." />
+    <meta property="og:image" content="https://anayd.org/asset/images/og-image.jpg" />
+    <meta property="og:url" content="https://anayd.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ANAYD" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ANAYD_Africa" />
+    <meta name="twitter:title" content="ANAYD - Transforming Youth Healthcare in Africa" />
+    <meta name="twitter:description" content="Leading initiatives in youth healthcare, HIV/AIDS prevention, and sustainable development across Africa. Partnering with WHO, UNAIDS, UNFPA, and ECOWAS." />
+    <meta name="twitter:image" content="https://anayd.org/asset/images/twitter-card.jpg" />
+    <title>Cookie Policy - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    <!-- Core libraries first -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- App-specific scripts -->
+    <script src="asset/js/events-carousel.js" defer></script>
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+      .blob1 { animation: blob1 20s infinite; }
+      .blob2 { animation: blob2 25s infinite; }
+      .blob3 { animation: blob3 30s infinite; }
+      
+      @keyframes blob1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(20%, -15%) scale(1.1); }
+        66% { transform: translate(-20%, 15%) scale(0.9); }
+      }
+      
+      @keyframes blob2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(-15%, 10%) scale(0.9); }
+        66% { transform: translate(15%, -20%) scale(1.1); }
+      }
+      
+      @keyframes blob3 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(15%, 15%) scale(1.1); }
+        66% { transform: translate(-15%, -10%) scale(0.9); }
+      }
+      
+      .hover-card {
+        transition: all 0.3s ease;
+      }
+      
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <header class="bg-[#4361ee] py-20 -mb-16 relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] [mask-image:linear-gradient(to_bottom,white,transparent_50%)]" aria-hidden="true"></div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-6" data-animate="fade-in">Cookie Policy</h1>
+          <p class="text-lg text-blue-100 max-w-2xl mx-auto" data-animate="slide-up" data-delay="200">
+            Learn how we use cookies to enhance your browsing experience.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16 -mt-16 relative z-10">
+      <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-6 md:p-8 space-y-8 md:space-y-12" data-aos="fade-up" data-aos-delay="200">
+        <!-- What Are Cookies Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            What Are Cookies?
+          </h2>
+          <div class="bg-blue-50 rounded-xl p-6 shadow-inner border border-blue-100 transform hover:scale-[1.02] transition-transform duration-300">
+            <p class="text-gray-700 leading-relaxed">
+              Cookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by:
+            </p>
+            <ul class="mt-4 space-y-3">
+              <li class="flex items-start space-x-3">
+                <i class="ri-checkbox-circle-line text-blue-600 text-lg mt-1"></i>
+                <span class="text-gray-700">Remembering your preferences and settings</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="ri-checkbox-circle-line text-blue-600 text-lg mt-1"></i>
+                <span class="text-gray-700">Understanding how you use our website</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="ri-checkbox-circle-line text-blue-600 text-lg mt-1"></i>
+                <span class="text-gray-700">Improving our services and user experience</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Types of Cookies Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Types of Cookies We Use
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Essential Cookies Card -->
+            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+              <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <i class="ri-shield-check-line text-2xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">Essential Cookies</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Required for basic website functionality. These cannot be disabled as they are necessary for the website to work properly.
+              </p>
+            </div>
+
+            <!-- Analytics Cookies Card -->
+            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+              <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <i class="ri-line-chart-line text-2xl text-indigo-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">Analytics Cookies</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Help us understand how visitors interact with our website, allowing us to improve our services.
+              </p>
+            </div>
+
+            <!-- Functional Cookies Card -->
+            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+              <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <i class="ri-settings-4-line text-2xl text-green-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">Functional Cookies</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Enhance website functionality and personalization based on your preferences and interactions.
+              </p>
+            </div>
+
+            <!-- Marketing Cookies Card -->
+            <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group">
+              <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <i class="ri-advertisement-line text-2xl text-purple-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">Marketing Cookies</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Used to track visitors across websites to display relevant advertisements and measure their effectiveness.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cookie Management Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Managing Your Cookie Preferences
+          </h2>
+          <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 shadow-inner border border-blue-100 transform hover:scale-[1.02] transition-transform duration-300">
+            <p class="text-gray-700 leading-relaxed mb-6">
+              You can manage your cookie preferences by:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02]">
+                <div class="flex items-start space-x-3">
+                  <i class="ri-settings-5-line text-2xl text-blue-600 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">Browser Settings</h4>
+                    <p class="text-gray-600 text-sm">Adjust your browser settings to control cookie behavior</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02]">
+                <div class="flex items-start space-x-3">
+                  <i class="ri-delete-bin-line text-2xl text-blue-600 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">Clear Cookies</h4>
+                    <p class="text-gray-600 text-sm">Delete existing cookies from your browser</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02]">
+                <div class="flex items-start space-x-3">
+                  <i class="ri-shield-user-line text-2xl text-blue-600 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">Privacy Settings</h4>
+                    <p class="text-gray-600 text-sm">Configure your privacy preferences on our website</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Updates Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Updates to This Policy
+          </h2>
+          <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 transform hover:scale-[1.02] transition-all duration-300">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              We may update this Cookie Policy periodically to reflect changes in our practices or for legal compliance. The latest version will always be available on our website.
+            </p>
+            <div class="flex items-center space-x-2 text-sm text-gray-500">
+              <i class="ri-time-line"></i>
+              <span>Last updated: May 2025</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Contact Us
+          </h2>
+          <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 transform hover:scale-[1.02] transition-all duration-300">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              For questions about our Cookie Policy, contact us at:
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3 text-gray-600">
+                <i class="ri-mail-line text-blue-600"></i>
+                <span>Email: privacy@anayd.org</span>
+              </div>
+              <div class="flex items-center space-x-3 text-gray-600">
+                <i class="ri-map-pin-line text-blue-600"></i>
+                <span>Address: No. 39A Gyari Avenue GRA, Barnawa, Kaduna State, Nigeria</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+      <script src="js/animations.js"></script>
+</body>
+</html>
+

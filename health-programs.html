@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ANAYD - African Network of Adolescents and Young Persons Development"
+    />
+    <meta
+      name="keywords"
+      content="ANAYD, African Network, Adolescents, Young Persons, Development"
+    />
+    <meta name="author" content="Habeeb Najeeb" />
+    <title>
+      ANAYD - African Network of Adolescents and Young Persons Development
+    </title>
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link href="css/navigation.css" rel="stylesheet">
+    <style>
+      :where([class^="ri-"])::before {
+        content: "\f3c2";
+      }
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", sans-serif;
+      }
+      .dropdown {
+        display: none;
+      }
+      .dropdown-trigger:hover .dropdown {
+        display: block;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .stats-counter {
+        counter-reset: stat;
+        animation: count 2s forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+      .custom-checkbox {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #cbd5e1;
+        border-radius: 4px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .custom-checkbox:checked {
+        background-color: #3b82f6;
+        border-color: #3b82f6;
+      }
+      .custom-checkbox:checked::after {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 2px;
+        width: 6px;
+        height: 12px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+      .custom-switch {
+        position: relative;
+        display: inline-block;
+        width: 48px;
+        height: 24px;
+      }
+      .custom-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .switch-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #e2e8f0;
+        transition: 0.4s;
+        border-radius: 24px;
+      }
+      .switch-slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+      input:checked + .switch-slider {
+        background-color: #3b82f6;
+      }
+      input:checked + .switch-slider:before {
+        transform: translateX(24px);
+      }
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .animate-scroll {
+        animation: scroll 30s linear infinite;
+      }
+    </style>
+      <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+</head>
+  <body class="bg-white">
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+    
+    <!-- Component initialization -->
+    <script src="js/load-components.js" defer></script>
+    <script src="js/navbar.js" defer></script>
+
+    <!-- Malaria Program Content -->
+    <div class="container mx-auto px-4 py-12">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Main Content -->
+        <div class="flex-1">
+          <div class="max-w-4xl">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">
+              Malaria Program
+            </h1>
+            <!-- Hero Image -->
+            <div class="mb-12">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20comprehensive%20malaria%20prevention%20campaign%20in%20Africa%2C%20showing%20healthcare%20workers%20distributing%20mosquito%20nets%20and%20conducting%20educational%20sessions%20about%20malaria%20prevention.%20The%20scene%20includes%20testing%20facilities%2C%20community%20engagement%2C%20and%20preventive%20measures%20being%20demonstrated%20in%20a%20well-organized%20healthcare%20setting&width=800&height=400&seq=malaria1&orientation=landscape"
+                alt="Malaria Program"
+                class="w-full h-64 object-cover object-top rounded-lg shadow-md mb-6"
+              />
+              <p class="text-lg text-gray-600">
+                ANAYD's malaria program focuses on prevention, early detection,
+                and treatment support across Nigeria and West Africa. Through
+                community education and resource distribution, we work to reduce
+                malaria incidence among young people.
+              </p>
+            </div>
+            <!-- Program Components -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div
+                class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary"
+              >
+                <div
+                  class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-primary"
+                  >
+                    <i class="ri-shield-check-line"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                  Prevention Education
+                </h3>
+                <p class="text-gray-600">
+                  Comprehensive malaria prevention education through community
+                  outreach, focusing on environmental management and personal
+                  protection measures.
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary"
+              >
+                <div
+                  class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-primary"
+                  >
+                    <i class="ri-medicine-bottle-line"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                  Treatment Support
+                </h3>
+                <p class="text-gray-600">
+                  Access to rapid diagnostic tests and antimalarial medications
+                  through our network of healthcare partners and mobile clinics.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tuberculosis Program Content -->
+    <div class="container mx-auto px-4 py-12">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Main Content -->
+        <div class="flex-1">
+          <div class="max-w-4xl">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">
+              Tuberculosis Program
+            </h1>
+            <!-- Hero Image -->
+            <div class="mb-12">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20professional%20tuberculosis%20screening%20and%20awareness%20campaign%20in%20Africa%2C%20showing%20healthcare%20workers%20conducting%20TB%20education%20and%20testing.%20The%20scene%20includes%20medical%20equipment%2C%20educational%20materials%2C%20and%20healthcare%20professionals%20in%20a%20clean%2C%20well-organized%20clinic%20setting%20with%20proper%20health%20protocols%20visible&width=800&height=400&seq=tb1&orientation=landscape"
+                alt="Tuberculosis Program"
+                class="w-full h-64 object-cover object-top rounded-lg shadow-md mb-6"
+              />
+              <p class="text-lg text-gray-600">
+                ANAYD's tuberculosis program focuses on early detection,
+                prevention, and treatment support. We work to reduce TB
+                transmission and improve treatment outcomes through
+                comprehensive community-based interventions.
+              </p>
+            </div>
+            <!-- Program Components -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div
+                class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary"
+              >
+                <div
+                  class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-primary"
+                  >
+                    <i class="ri-microscope-line"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                  Early Detection
+                </h3>
+                <p class="text-gray-600">
+                  Comprehensive TB screening and diagnostic services through
+                  mobile clinics and partnership with healthcare facilities.
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary"
+              >
+                <div
+                  class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-primary"
+                  >
+                    <i class="ri-medicine-bottle-line"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                  Treatment Support
+                </h3>
+                <p class="text-gray-600">
+                  Treatment adherence support and monitoring through community
+                  health workers and support groups.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gender-Based Violence Program Content -->
+    <div class="container mx-auto px-4 py-12">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Main Content -->
+        <div class="flex-1">
+          <div class="max-w-4xl">
+            <h1 class="text-4xl font-bold text-gray-900 mb-6">
+              Gender-Based Violence Program
+            </h1>
+            <!-- Hero Image -->
+            <div class="mb-12">
+              <img
+                src="https://readdy.ai/api/search-image?query=A%20professional%20scene%20of%20a%20gender-based%20violence%20awareness%20workshop%20in%20Africa%2C%20showing%20facilitators%20conducting%20an%20educational%20session%20with%20youth.%20The%20scene%20includes%20educational%20materials%20about%20GBV%20prevention%2C%20support%20services%2C%20and%20engaged%20participants%20in%20a%20safe%2C%20supportive%20environment%20with%20purple%20awareness%20ribbons%20visible&width=800&height=400&seq=gbv1&orientation=landscape"
+                alt="GBV Program"
+                class="w-full h-64 object-cover object-top rounded-lg shadow-md mb-6"
+              />
+              <p class="text-lg text-gray-600">
+                ANAYD's Gender-Based Violence program provides comprehensive
+                support services, prevention education, and advocacy for
+                survivors of gender-based violence while working to address root
+                causes and promote gender equality.
+              </p>
+            </div>
+            <!-- Program Components -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div
+                class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary"
+              >
+                <div
+                  class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-primary"
+                  >
+                    <i class="ri-shield-user-line"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                  Prevention & Education
+                </h3>
+                <p class="text-gray-600">
+                  Community-based education and awareness programs focusing on
+                  GBV prevention, gender equality, and healthy relationships.
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-primary"
+              >
+                <div
+                  class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+                >
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-primary"
+                  >
+                    <i class="ri-heart-line"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                  Support Services
+                </h3>
+                <p class="text-gray-600">
+                  Comprehensive support for survivors including counseling, safe
+                  spaces, legal aid, and access to medical services.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+      <script src="js/animations.js"></script>
+</body>
+
+</html>
+

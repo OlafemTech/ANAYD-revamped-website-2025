@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="What We Do - African Network for Adolescents and Young Persons Development (ANAYD)" />
+    <meta name="keywords" content="What We Do, Our Work, Services, Projects, Programs, Core Strategies, Thematic Areas, Donors, Supporters, African Network, Adolescents, Young Persons Development, NGO Funding, Development Partners" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>What We Do - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20 min-h-screen">
+      <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Mobile Program Toggle -->
+          <div class="lg:hidden mb-6">
+            <button
+              id="program-menu-toggle"
+              class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+            >
+              <span>About ANAYD</span>
+              <i class="ri-arrow-down-s-line text-xl transition-transform" id="program-menu-icon"></i>
+            </button>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="lg:w-64 flex-shrink-0 hidden lg:block" id="program-sidebar">
+            <div class="bg-white rounded-xl p-6 shadow-sm sticky top-24 space-y-6 opacity-0 animate-slide-in-left">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">About Us</h3>
+                <nav class="space-y-2">
+                  <a href="who-we-are.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Who We Are</a>
+                  <a href="what-we-do.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium">What We Do</a>
+                  <a href="meet-our-team.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Meet Our Team</a>
+                  <a href="our-funders.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Our Funders</a>
+                </nav>
+
+                <div class="mt-8">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Get Involved</h3>
+                  <nav class="space-y-2">
+                    <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                    <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                    <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                  </nav>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-8 p-6 bg-gradient-to-br from-primary to-secondary rounded-xl text-white">
+                  <h4 class="text-lg font-semibold mb-2">Support Our Cause</h4>
+                  <p class="text-sm text-white/90 mb-4">Join us in making a difference in the lives of young people across Africa.</p>
+                  <a href="donate.html" class="inline-block w-full px-6 py-3 bg-white text-primary font-semibold text-center rounded-lg hover:bg-gray-50 transition-colors">Donate Now</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="flex-1">
+            <!-- Hero Section -->
+            <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-lg mb-8">
+              <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 opacity-0" data-animate="fade-in">What We Do</h1>
+                <p class="text-lg md:text-xl opacity-90 opacity-0" data-animate="slide-up">Discover our approach to empowering African youth and creating lasting positive change.</p>
+              </div>
+            </section>
+
+            <!-- Our Programs Section -->
+            <section id="thematic-areas" class="bg-white rounded-lg shadow-sm p-8 mb-8">
+              <h2 class="text-3xl font-bold text-gray-900 mb-8 opacity-0" data-animate="fade-in" data-delay="400">Our Programs</h2>
+              <div class="grid md:grid-cols-2 gap-8">
+                <!-- Area Card 1: HIV/AIDS -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="600">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-heart-pulse-line text-2xl text-red-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">HIV/AIDS</h3>
+                      <p class="text-gray-600">Prevention, treatment, care, and support services for adolescents and young people living with or affected by HIV/AIDS.</p>
+                      <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-red-600 mt-1"></i>
+                          <span class="text-gray-600">HIV testing and counseling</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-red-600 mt-1"></i>
+                          <span class="text-gray-600">Treatment adherence support</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-red-600 mt-1"></i>
+                          <span class="text-gray-600">Prevention education</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area Card 2: SRHR -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-right" data-delay="800">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-mental-health-line text-2xl text-purple-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Sexual & Reproductive Health Rights</h3>
+                      <p class="text-gray-600">Comprehensive SRHR education and services for young people.</p>
+                      <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                          <span class="text-gray-600">Family planning services</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                          <span class="text-gray-600">STI prevention and treatment</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                          <span class="text-gray-600">Sexual health education</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area Card 3: Tuberculosis -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="1000">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-lungs-line text-2xl text-green-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Tuberculosis</h3>
+                      <p class="text-gray-600">TB prevention, diagnosis, and treatment support for young people.</p>
+                      <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                          <span class="text-gray-600">TB screening and testing</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                          <span class="text-gray-600">Treatment monitoring</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                          <span class="text-gray-600">Contact tracing</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area Card 4: Malaria -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-right" data-delay="1200">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-virus-line text-2xl text-yellow-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Malaria</h3>
+                      <p class="text-gray-600">Prevention and treatment of malaria among young populations.</p>
+                      <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-yellow-600 mt-1"></i>
+                          <span class="text-gray-600">Distribution of bed nets</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-yellow-600 mt-1"></i>
+                          <span class="text-gray-600">Early diagnosis support</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-yellow-600 mt-1"></i>
+                          <span class="text-gray-600">Prevention education</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area Card 5: GBV -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="1400">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-hand-heart-line text-2xl text-pink-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Gender-Based Violence</h3>
+                      <p class="text-gray-600">Prevention and response to gender-based violence affecting young people.</p>
+                      <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-pink-600 mt-1"></i>
+                          <span class="text-gray-600">Support services</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-pink-600 mt-1"></i>
+                          <span class="text-gray-600">Advocacy</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-pink-600 mt-1"></i>
+                          <span class="text-gray-600">Prevention programs</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area Card 6: Mental Health -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-right" data-delay="1600">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-psychotherapy-line text-2xl text-blue-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Mental Health</h3>
+                      <p class="text-gray-600">Mental health support and counseling services for young people.</p>
+                      <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-blue-600 mt-1"></i>
+                          <span class="text-gray-600">Counseling services</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-blue-600 mt-1"></i>
+                          <span class="text-gray-600">Support groups</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-blue-600 mt-1"></i>
+                          <span class="text-gray-600">Mental health education</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="text-gray-600">Promoting gender equality and addressing gender-specific challenges.</p>
+                </div>
+
+                <!-- Area 9: ICT -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-up" data-delay="1000">
+                  <div class="flex items-start mb-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-computer-line text-2xl text-cyan-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 ml-4 mt-2">Information and Communication Technology</h3>
+                  </div>
+                  <p class="text-gray-600">Leveraging technology for youth development and digital inclusion.</p>
+                </div>
+
+                <!-- Area Card 7: Community Development -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="1800">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-community-line text-2xl text-amber-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Community Development</h3>
+                      <p class="text-gray-600">Building stronger, more resilient communities through participatory development initiatives.</p>
+                      <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-amber-600 mt-1"></i>
+                          <span class="text-gray-600">Community mobilization</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-amber-600 mt-1"></i>
+                          <span class="text-gray-600">Capacity building programs</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-amber-600 mt-1"></i>
+                          <span class="text-gray-600">Infrastructure development</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area Card 8: Economic Empowerment -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-right" data-delay="2000">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-funds-line text-2xl text-emerald-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Economic Empowerment</h3>
+                      <p class="text-gray-600">Promoting financial independence and sustainable livelihoods for youth.</p>
+                      <ul class="mt-4 space-y-2">
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-emerald-600 mt-1"></i>
+                          <span class="text-gray-600">Skills training and development</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-emerald-600 mt-1"></i>
+                          <span class="text-gray-600">Entrepreneurship support</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <i class="ri-checkbox-circle-line text-emerald-600 mt-1"></i>
+                          <span class="text-gray-600">Financial literacy programs</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Our Thematic Areas Section -->
+            <section class="bg-white rounded-lg shadow-sm p-8 mb-8">
+              <h2 class="text-3xl font-bold text-gray-900 mb-8 opacity-0" data-animate="fade-in" data-delay="400">Our Thematic Areas</h2>
+              <div class="grid md:grid-cols-3 gap-6">
+                <!-- Area 1: Human Rights -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="600">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-scales-3-line text-2xl text-blue-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Human Rights</h3>
+                      <p class="text-gray-600">Advocating for and protecting fundamental human rights.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area 2: Humanitarian Response -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="700">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-first-aid-kit-line text-2xl text-red-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Humanitarian Response</h3>
+                      <p class="text-gray-600">Providing emergency aid and support during crises.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area 3: Governance and Policy -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="800">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-government-line text-2xl text-purple-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Governance and Policy</h3>
+                      <p class="text-gray-600">Influencing policy and promoting good governance.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area 4: Health -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-right" data-delay="900">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-heart-pulse-line text-2xl text-green-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Health</h3>
+                      <p class="text-gray-600">Promoting healthcare access and wellness programs.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area 5: Socio-Economic Empowerment -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-right" data-delay="1000">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-hand-coin-line text-2xl text-yellow-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Socio-Economic Empowerment</h3>
+                      <p class="text-gray-600">Building economic resilience and opportunities.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area 6: Education -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-right" data-delay="1100">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-book-open-line text-2xl text-indigo-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Education</h3>
+                      <p class="text-gray-600">Promoting quality education and learning opportunities.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area 7: Entertainment -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="1200">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-movie-2-line text-2xl text-pink-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Entertainment</h3>
+                      <p class="text-gray-600">Creating engaging and educational entertainment content.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area 8: Gender -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="1300">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-men-line text-2xl text-teal-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Gender</h3>
+                      <p class="text-gray-600">Promoting gender equality and empowerment.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Area 9: ICT -->
+                <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow opacity-0" data-animate="slide-in-left" data-delay="1400">
+                  <div class="flex items-start">
+                    <div class="flex-shrink-0 w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
+                      <i class="ri-computer-line text-2xl text-cyan-600"></i>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">Information and Communication Technology</h3>
+                      <p class="text-gray-600">Leveraging technology for social impact and development.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Core Strategies Section -->
+            <section id="core-strategies" class="bg-white rounded-lg shadow-sm p-8 mb-8">
+              <h2 class="text-3xl font-bold text-center mb-12" data-animate="fade-in">Core Strategies</h2>
+              <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-megaphone-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Demand Creation</h3>
+                  <p class="text-gray-600 text-sm">Generating awareness and interest in our programs and services.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-team-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Peer Education</h3>
+                  <p class="text-gray-600 text-sm">Empowering youth to educate and support their peers.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-group-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Platform Settings</h3>
+                  <p class="text-gray-600 text-sm">Creating supportive environments for youth engagement and growth.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-discuss-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Community Dialogue</h3>
+                  <p class="text-gray-600 text-sm">Fostering open discussions and understanding within communities.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-speaker-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Advocacy</h3>
+                  <p class="text-gray-600 text-sm">Championing youth rights and promoting positive policy changes.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-building-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Capacity Building</h3>
+                  <p class="text-gray-600 text-sm">Strengthening skills and capabilities of individuals and organizations.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-database-2-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Data Hub</h3>
+                  <p class="text-gray-600 text-sm">Collecting and analyzing data to inform decision-making.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-search-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Research</h3>
+                  <p class="text-gray-600 text-sm">Conducting studies to understand youth needs and challenges.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-customer-service-2-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Consultancy</h3>
+                  <p class="text-gray-600 text-sm">Providing expert advice and guidance to organizations.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-user-heart-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Volunteerism</h3>
+                  <p class="text-gray-600 text-sm">Engaging volunteers to support community development.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-user-star-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Mentorship</h3>
+                  <p class="text-gray-600 text-sm">Guiding and supporting youth through personal development.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-global-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Social Media</h3>
+                  <p class="text-gray-600 text-sm">Leveraging digital platforms for outreach and engagement.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow" data-animate="slide-up">
+                  <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                    <i class="ri-hand-heart-line text-2xl text-blue-600"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Partnership</h3>
+                  <p class="text-gray-600 text-sm">Building strategic alliances for greater impact.</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Coalition & Platform Membership Section -->
+            <section id="coalition-membership" class="bg-white rounded-lg shadow-sm p-8 mb-8">
+              <h2 class="text-3xl font-bold text-center mb-6" data-animate="fade-in">Coalition & Platform Membership</h2>
+              <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">We are proud members of these influential coalitions and platforms working towards positive change.</p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Platform 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up">
+                  <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="ri-global-line text-2xl text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-2">Global HIV Prevention Coalition</h3>
+                      <p class="text-gray-600">Active member contributing to global HIV prevention strategies and youth engagement.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Platform 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="100">
+                  <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="ri-team-line text-2xl text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-2">African Youth and Adolescents Network</h3>
+                      <p class="text-gray-600">Regional network focusing on youth health and development across Africa.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Platform 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="200">
+                  <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="ri-heart-line text-2xl text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-2">UNAIDS Youth Advisory Forum</h3>
+                      <p class="text-gray-600">Providing youth perspective and advocacy in global HIV/AIDS response.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Platform 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="300">
+                  <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="ri-group-line text-2xl text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-2">Civil Society Forum on HIV</h3>
+                      <p class="text-gray-600">Collaborating with civil society organizations to strengthen HIV response.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Platform 5 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="400">
+                  <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="ri-shield-star-line text-2xl text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-2">WHO Youth Council</h3>
+                      <p class="text-gray-600">Representing youth voices in global health policy and decision-making.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Platform 6 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="500">
+                  <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="ri-hand-heart-line text-2xl text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-lg font-semibold text-gray-900 mb-2">Youth Health Rights Coalition</h3>
+                      <p class="text-gray-600">Advocating for youth health rights and access to healthcare services.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Target Population Section -->
+            <section id="target-population" class="bg-white rounded-lg shadow-sm p-8 mb-8">
+              <h2 class="text-3xl font-bold text-center mb-12" data-animate="fade-in">Target Population</h2>
+              
+              <!-- Group 1: Pediatric & Adolescent -->
+              <div class="mb-8 transform transition-all duration-300 hover:scale-[1.01]" data-animate="fade-in">
+                <button class="w-full flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg group" onclick="toggleCollapsible(this)" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                    <div class="bg-blue-100 p-3 rounded-full">
+                      <i class="ri-user-heart-line text-xl text-blue-600"></i>
+                    </div>
+                    <div class="text-left">
+                      <h3 class="text-xl font-semibold text-gray-900">Group 1: Pediatric & Adolescent</h3>
+                      <p class="text-sm text-gray-600">Children (0-9) and adolescents (10-19) living with HIV/TB</p>
+                    </div>
+                  </div>
+                  <i class="ri-arrow-down-s-line text-2xl text-blue-600 transition-transform duration-300 group-aria-expanded:rotate-180"></i>
+                </button>
+                
+                <div class="collapsible-content overflow-hidden max-h-0 transition-all duration-300">
+                  <div class="p-6 bg-white border border-blue-100 rounded-b-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <!-- Needs Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Needs</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-blue-600 mt-1"></i>
+                            <span>Parents to child disclosure</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-blue-600 mt-1"></i>
+                            <span>Educational/Nutrition support</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-blue-600 mt-1"></i>
+                            <span>Quality service</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <!-- Interventions Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Interventions</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-blue-600 mt-1"></i>
+                            <span>Parent-children support group, counseling, and parent-child peer mentoring</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-blue-600 mt-1"></i>
+                            <span>Sensitization of school heads to prevent stigma/discrimination</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-blue-600 mt-1"></i>
+                            <span>Counseling on good hygiene/balanced diet</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-blue-600 mt-1"></i>
+                            <span>Capacity building for health service providers on youth-friendly and pediatric services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-blue-600 mt-1"></i>
+                            <span>Establish forums for knowledge sharing and synergy</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Group 2: Young Adults -->
+              <div class="mb-8 transform transition-all duration-300 hover:scale-[1.01]" data-animate="fade-in" data-delay="100">
+                <button class="w-full flex items-center justify-between bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg group" onclick="toggleCollapsible(this)" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                    <div class="bg-green-100 p-3 rounded-full">
+                      <i class="ri-team-line text-xl text-green-600"></i>
+                    </div>
+                    <div class="text-left">
+                      <h3 class="text-xl font-semibold text-gray-900">Group 2: Young Adults</h3>
+                      <p class="text-sm text-gray-600">Young people (20-24) living with HIV/TB</p>
+                    </div>
+                  </div>
+                  <i class="ri-arrow-down-s-line text-2xl text-green-600 transition-transform duration-300 group-aria-expanded:rotate-180"></i>
+                </button>
+                
+                <div class="collapsible-content overflow-hidden max-h-0 transition-all duration-300">
+                  <div class="p-6 bg-white border border-green-100 rounded-b-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <!-- Needs Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Needs</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                            <span>Life building skill</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                            <span>Sex reproductive health services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                            <span>Family planning service</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                            <span>Income generation introduction</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                            <span>Forming a right decision in a relationship</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                            <span>Basic right protection</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-green-600 mt-1"></i>
+                            <span>Career decision making</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <!-- Interventions Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Interventions</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-green-600 mt-1"></i>
+                            <span>Training on problem solving skills and building of self esteem</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-green-600 mt-1"></i>
+                            <span>Conduct sensitization and comprehensive reproductive health/services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-green-600 mt-1"></i>
+                            <span>Conduct training/sensitization of family planning</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-green-600 mt-1"></i>
+                            <span>Training on skills acquisition</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-green-600 mt-1"></i>
+                            <span>Assertiveness training/guidance and counseling</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-green-600 mt-1"></i>
+                            <span>Courtesy visits to law makers/Gov. to ensure enactment of HIV workplace policy</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-green-600 mt-1"></i>
+                            <span>Engagement of guidance and counseling professionals</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Group 3: Youth -->
+              <div class="mb-8 transform transition-all duration-300 hover:scale-[1.01]" data-animate="fade-in" data-delay="200">
+                <button class="w-full flex items-center justify-between bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg group" onclick="toggleCollapsible(this)" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                    <div class="bg-purple-100 p-3 rounded-full">
+                      <i class="ri-group-line text-xl text-purple-600"></i>
+                    </div>
+                    <div class="text-left">
+                      <h3 class="text-xl font-semibold text-gray-900">Group 3: Youth</h3>
+                      <p class="text-sm text-gray-600">Adults (25-35) living with HIV/TB, including married individuals</p>
+                    </div>
+                  </div>
+                  <i class="ri-arrow-down-s-line text-2xl text-purple-600 transition-transform duration-300 group-aria-expanded:rotate-180"></i>
+                </button>
+                
+                <div class="collapsible-content overflow-hidden max-h-0 transition-all duration-300">
+                  <div class="p-6 bg-white border border-purple-100 rounded-b-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <!-- Needs Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Needs</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                            <span>Financial Management skills</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                            <span>Investment skills</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                            <span>Need for disclosure to partner</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                            <span>Career development facilitation</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                            <span>Family planning and parental guidance</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                            <span>Couple counseling</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-purple-600 mt-1"></i>
+                            <span>Prevention of new infections</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <!-- Interventions Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Interventions</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-purple-600 mt-1"></i>
+                            <span>Comprehensive training on financial management skills and investment</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-purple-600 mt-1"></i>
+                            <span>Enhancing system to support reaction to partner disclosure</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-purple-600 mt-1"></i>
+                            <span>Comprehensive knowledge on family planning and parental guidance</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-purple-600 mt-1"></i>
+                            <span>Enhance system for psychological support</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-purple-600 mt-1"></i>
+                            <span>Training on life economic empowerment skills</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-purple-600 mt-1"></i>
+                            <span>Couple counseling comprehensive knowledge on legal right for protection</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-purple-600 mt-1"></i>
+                            <span>Enhance system for career guidance development and employment</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Group 4: Key Population -->
+              <div class="mb-8 transform transition-all duration-300 hover:scale-[1.01]" data-animate="fade-in" data-delay="300">
+                <button class="w-full flex items-center justify-between bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg group" onclick="toggleCollapsible(this)" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                    <div class="bg-orange-100 p-3 rounded-full">
+                      <i class="ri-user-settings-line text-xl text-orange-600"></i>
+                    </div>
+                    <div class="text-left">
+                      <h3 class="text-xl font-semibold text-gray-900">Group 4: Key Population</h3>
+                      <p class="text-sm text-gray-600">FSW, MSM, IDUs, and YFSW</p>
+                    </div>
+                  </div>
+                  <i class="ri-arrow-down-s-line text-2xl text-orange-600 transition-transform duration-300 group-aria-expanded:rotate-180"></i>
+                </button>
+                
+                <div class="collapsible-content overflow-hidden max-h-0 transition-all duration-300">
+                  <div class="p-6 bg-white border border-orange-100 rounded-b-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <!-- Needs Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Needs</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-orange-600 mt-1"></i>
+                            <span>Income Generation</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-orange-600 mt-1"></i>
+                            <span>Right protection</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-orange-600 mt-1"></i>
+                            <span>Access to health services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-orange-600 mt-1"></i>
+                            <span>Exit skills</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-orange-600 mt-1"></i>
+                            <span>Basic life skills</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-orange-600 mt-1"></i>
+                            <span>Key population prevention services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-orange-600 mt-1"></i>
+                            <span>Confidentiality</span>
+                            <ul class="ml-6 mt-2 space-y-2">
+                              <li class="flex items-start gap-2">
+                                <i class="ri-arrow-right-s-line text-orange-600 mt-1"></i>
+                                <span>Partner disclosure</span>
+                              </li>
+                              <li class="flex items-start gap-2">
+                                <i class="ri-arrow-right-s-line text-orange-600 mt-1"></i>
+                                <span>Reaction to partner disclosure</span>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <!-- Interventions Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Interventions</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-orange-600 mt-1"></i>
+                            <span>Skill acquisition</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-orange-600 mt-1"></i>
+                            <span>Micro credits</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-orange-600 mt-1"></i>
+                            <span>Sensitization on FHRS</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-orange-600 mt-1"></i>
+                            <span>Health Services:</span>
+                            <ul class="ml-6 mt-2 space-y-2">
+                              <li class="flex items-start gap-2">
+                                <i class="ri-arrow-right-s-line text-orange-600 mt-1"></i>
+                                <span>Family planning</span>
+                              </li>
+                              <li class="flex items-start gap-2">
+                                <i class="ri-arrow-right-s-line text-orange-600 mt-1"></i>
+                                <span>HCT</span>
+                              </li>
+                              <li class="flex items-start gap-2">
+                                <i class="ri-arrow-right-s-line text-orange-600 mt-1"></i>
+                                <span>ART</span>
+                              </li>
+                              <li class="flex items-start gap-2">
+                                <i class="ri-arrow-right-s-line text-orange-600 mt-1"></i>
+                                <span>STI management</span>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-orange-600 mt-1"></i>
+                            <span>Rehabilitation and integration services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-orange-600 mt-1"></i>
+                            <span>Self esteem</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-orange-600 mt-1"></i>
+                            <span>HIV Prevention, STI's services, family planning, PHDP and HCT</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-orange-600 mt-1"></i>
+                            <span>Sensitization of confidentiality ethics</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Group 5: YPWID -->
+              <div class="mb-8 transform transition-all duration-300 hover:scale-[1.01]" data-animate="fade-in" data-delay="400">
+                <button class="w-full flex items-center justify-between bg-gradient-to-r from-teal-50 to-teal-100 p-4 rounded-lg group" onclick="toggleCollapsible(this)" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                    <div class="bg-teal-100 p-3 rounded-full">
+                      <i class="ri-mental-health-line text-xl text-teal-600"></i>
+                    </div>
+                    <div class="text-left">
+                      <h3 class="text-xl font-semibold text-gray-900">Group 5: YPWID</h3>
+                      <p class="text-sm text-gray-600">Young People Who Inject Drugs</p>
+                    </div>
+                  </div>
+                  <i class="ri-arrow-down-s-line text-2xl text-teal-600 transition-transform duration-300 group-aria-expanded:rotate-180"></i>
+                </button>
+                
+                <div class="collapsible-content overflow-hidden max-h-0 transition-all duration-300">
+                  <div class="p-6 bg-white border border-teal-100 rounded-b-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <!-- Needs Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Needs</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>Rehabilitations and reintegration</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>Needs for specialize service</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>Need for treatment care and support</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>Right and protection against stigma and sexual violence</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>The need for access to HIV prevention and support services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>Need for HIV education, information and prevention services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>Need for YPWID friendly services and facility</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>PABA</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>Need for awareness</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-teal-600 mt-1"></i>
+                            <span>Need for protection against stigma</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <!-- Interventions Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Interventions</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-teal-600 mt-1"></i>
+                            <span>Rehabilitation services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-teal-600 mt-1"></i>
+                            <span>Promote access to treatment that are sensitize to their needs</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-teal-600 mt-1"></i>
+                            <span>Advocate for comprehensive TC and support services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-teal-600 mt-1"></i>
+                            <span>Advocate for policies and laws to protect rights of PLWD</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-teal-600 mt-1"></i>
+                            <span>Meeting with health care givers to strengthen services to PLWD</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-teal-600 mt-1"></i>
+                            <span>Advocate for services that are PWD friendly</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-teal-600 mt-1"></i>
+                            <span>Create sensitization and awareness programs</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-teal-600 mt-1"></i>
+                            <span>Advocate for policies that protects them</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Group 6: YMSM -->
+              <div class="mb-8 transform transition-all duration-300 hover:scale-[1.01]" data-animate="fade-in" data-delay="500">
+                <button class="w-full flex items-center justify-between bg-gradient-to-r from-indigo-50 to-indigo-100 p-4 rounded-lg group" onclick="toggleCollapsible(this)" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                    <div class="bg-indigo-100 p-3 rounded-full">
+                      <i class="ri-group-line text-xl text-indigo-600"></i>
+                    </div>
+                    <div class="text-left">
+                      <h3 class="text-xl font-semibold text-gray-900">Group 6: YMSM</h3>
+                      <p class="text-sm text-gray-600">Young Men who have Sex with Men</p>
+                    </div>
+                  </div>
+                  <i class="ri-arrow-down-s-line text-2xl text-indigo-600 transition-transform duration-300 group-aria-expanded:rotate-180"></i>
+                </button>
+                
+                <div class="collapsible-content overflow-hidden max-h-0 transition-all duration-300">
+                  <div class="p-6 bg-white border border-indigo-100 rounded-b-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <!-- Needs Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Needs</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-indigo-600 mt-1"></i>
+                            <span>Right to access services</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-indigo-600 mt-1"></i>
+                            <span>Life skills</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-indigo-600 mt-1"></i>
+                            <span>Target group focused sensitization</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-indigo-600 mt-1"></i>
+                            <span>Right to condom use</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-checkbox-circle-line text-indigo-600 mt-1"></i>
+                            <span>Right to dignity</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <!-- Interventions Column -->
+                      <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Interventions</h4>
+                        <ul class="space-y-3">
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-indigo-600 mt-1"></i>
+                            <span>Identification of target group to train them as champions to mobilize their cohorts to access care and treatment</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-indigo-600 mt-1"></i>
+                            <span>Skill acquisition training</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-indigo-600 mt-1"></i>
+                            <span>Formation of support groups</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-indigo-600 mt-1"></i>
+                            <span>Education on condom use and distribution of condoms</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                            <i class="ri-arrow-right-circle-line text-indigo-600 mt-1"></i>
+                            <span>Equal services at service deliver points</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="bg-white rounded-lg shadow-sm p-8 mb-8">
+              <h2 class="text-3xl font-bold text-center mb-6" data-animate="fade-in">Our Projects</h2>
+              <p class="text-gray-600 text-center mb-8 max-w-3xl mx-auto">Discover our impactful initiatives and projects making a difference across Africa.</p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Featured Project 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up">
+                  <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="ri-health-book-line text-3xl text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-center gap-2 mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">Inclusive Health For All</h3>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Current</span>
+                      </div>
+                      <p class="text-sm text-blue-600 mb-2">USD 30,000 | Oct 2023 - Jan 2024</p>
+                      <p class="text-gray-600 line-clamp-3">Improving key population friendly public healthcare service in Nigeria across Anambra, Benue, Kaduna and Rivers states.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Featured Project 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100" data-animate="slide-up" data-delay="100">
+                  <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <i class="ri-test-tube-line text-3xl text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-xl font-semibold text-gray-900 mb-2">Social Networking Testing (SNT) Project</h3>
+                      <p class="text-sm text-blue-600 mb-2">USD 51,000 | Apr - Sep 2023</p>
+                      <p class="text-gray-600 line-clamp-3">Reaching 71,000 adolescents and young people with HIV Testing Service across Benue, Lagos and Rivers state.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <a href="projects.html" class="inline-flex items-center gap-2 text-primary hover:text-primary/90 font-medium">
+                  <i class="ri-arrow-right-line"></i>
+                  <span>View All Projects</span>
+                </a>
+              </div>
+            </section>
+
+            <!-- Collapsible Content Script -->
+            <script>
+              function toggleCollapsible(button) {
+                const content = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                
+                button.setAttribute('aria-expanded', !isExpanded);
+                if (!isExpanded) {
+                  content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                  content.style.maxHeight = '0';
+                }
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    <script src="js/animations.js"></script>
+    <script src="js/sidebar-nav.js"></script>
+    <script src="asset/js/global-navigation.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Impact Chart
+        const chartDom = document.getElementById("impact-chart");
+        if (chartDom) {
+          const myChart = echarts.init(chartDom);
+          const option = {
+            animation: false,
+            tooltip: {
+              trigger: "axis",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              textStyle: {
+                color: "#1f2937",
+              },
+            },
+            legend: {
+              data: ["Youth Reached", "Communities Served", "Volunteers"],
+              textStyle: {
+                color: "#1f2937",
+              },
+            },
+            grid: {
+              left: "3%",
+              right: "4%",
+              bottom: "3%",
+              containLabel: true,
+            },
+            xAxis: {
+              type: "category",
+              boundaryGap: false,
+              data: [
+                "2018",
+                "2019",
+                "2020",
+                "2021",
+                "2022",
+                "2023",
+                "2024",
+                "2025",
+              ],
+              axisLabel: {
+                color: "#1f2937",
+              },
+            },
+            yAxis: {
+              type: "value",
+              axisLabel: {
+                color: "#1f2937",
+              },
+            },
+            series: [
+              {
+                name: "Youth Reached",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "rgba(87, 181, 231, 1)",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(87, 181, 231, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(87, 181, 231, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [5000, 8000, 12000, 15000, 18000, 21000, 23000, 25000],
+              },
+              {
+                name: "Communities Served",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "rgba(141, 211, 199, 1)",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(141, 211, 199, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(141, 211, 199, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [20, 35, 50, 65, 80, 95, 110, 120],
+              },
+              {
+                name: "Volunteers",
+                type: "line",
+                smooth: true,
+                lineStyle: {
+                  width: 3,
+                  color: "rgba(251, 191, 114, 1)",
+                },
+                areaStyle: {
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: "rgba(251, 191, 114, 0.3)",
+                    },
+                    {
+                      offset: 1,
+                      color: "rgba(251, 191, 114, 0.1)",
+                    },
+                  ]),
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [30, 45, 65, 85, 100, 120, 135, 150],
+              },
+            ],
+          };
+
+          myChart.setOption(option);
+
+          window.addEventListener("resize", function () {
+            myChart.resize();
+          });
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animation Observer
+        const animationObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '50px'
+        });
+
+        // Observe all sections and animated groups
+        document.querySelectorAll('section, .group').forEach((element) => {
+          animationObserver.observe(element);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="description" content="What We Do - African Network for Adolescents and Young Persons Development (ANAYD)" />
+    <meta name="keywords" content="What We Do, Our Work, Services, Projects, Programs, Core Strategies, Thematic Areas, Donors, Supporters, African Network, Adolescents, Young Persons Development, NGO Funding, Development Partners" />
+    <meta name="author" content="Habeeb Oluwafemi" />
+    <title>What We Do - ANAYD</title>
+    <link rel="icon" type="image/png" href="asset/images/favicon-1.png" />
+    
+    <!-- Core libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    
+    <!-- Component libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <!-- Our components and initialization -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <!-- Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3B82F6", secondary: "#10B981" },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-in-out forwards',
+              'slide-up': 'slideUp 0.6s ease-in-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-in-out forwards',
+              'slide-in-left': 'slideInLeft 0.6s ease-in-out forwards',
+              'scale-in': 'scaleIn 0.6s ease-in-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main class="pt-20 min-h-screen">
+      <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Mobile Program Toggle -->
+          <div class="lg:hidden mb-6">
+            <button
+              id="program-menu-toggle"
+              class="w-full px-4 py-2 bg-white text-gray-900 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between font-medium hover:bg-gray-50 transition-colors"
+            >
+              <span>Our Programs</span>
+              <i class="ri-arrow-down-s-line text-xl transition-transform" id="program-menu-icon"></i>
+            </button>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="lg:w-64 flex-shrink-0 hidden lg:block" id="program-sidebar">
+            <div class="bg-white rounded-xl p-6 shadow-sm sticky top-24 space-y-6 opacity-0 animate-slide-in-left">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Our Programs</h3>
+                <nav class="space-y-2">
+                  <a href="hiv-aids-program.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">HIV/AIDS</a>
+                  <a href="malaria-program.html" class="block px-4 py-2 rounded-lg bg-primary/10 text-primary font-medium">Malaria</a>
+                  <a href="tuberculosis-program.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Tuberculosis</a>
+                  <a href="gbv-program.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">GBV</a>
+                  <a href="srhr-program.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">SRHR</a>
+                  <a href="digital-skills.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Digital Skills Training</a>
+                  <a href="community-outreach.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Community Outreach</a>
+                </nav>
+
+                <div class="mt-8">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Get Involved</h3>
+                  <nav class="space-y-2">
+                    <a href="volunteer-get-involved.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Volunteer</a>
+                    <a href="donate.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Donate</a>
+                    <a href="partnership.html" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-primary transition-all">Partner With Us</a>
+                  </nav>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-8 p-6 bg-gradient-to-br from-primary to-secondary rounded-xl text-white">
+                  <h4 class="text-lg font-semibold mb-2">Support Our Cause</h4>
+                  <p class="text-sm text-white/90 mb-4">Join us in making a difference in the lives of young people across Africa.</p>
+                  <a href="donate.html" class="inline-block w-full px-6 py-3 bg-white text-primary font-semibold text-center rounded-lg hover:bg-gray-50 transition-colors">Donate Now</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="flex-1 space-y-16">
+            <!-- Hero Section -->
+            <section class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div class="relative h-[400px]">
+                <!-- Hero Slides -->
+                <div class="hero-slide">
+                  <img
+                    src="images/malaria-program/hero-1.jpg"
+                    alt="Malaria Prevention"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div class="p-8 text-white max-w-3xl">
+                      <h1 class="text-4xl font-bold mb-4 opacity-0 animate-fade-in">
+                        Fighting Malaria Together
+                      </h1>
+                      <p class="text-lg opacity-90 opacity-0 animate-slide-up delay-200">
+                        Our comprehensive approach combines prevention, education, and treatment 
+                        to create malaria-free communities.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hero-slide hidden">
+                  <img
+                    src="images/malaria-program/hero-2.jpg"
+                    alt="Community Education"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div class="p-8 text-white max-w-3xl">
+                      <h1 class="text-4xl font-bold mb-4 opacity-0 animate-fade-in">
+                        Empowering Communities
+                      </h1>
+                      <p class="text-lg opacity-90 opacity-0 animate-slide-up delay-200">
+                        Through education and awareness, we're helping communities take charge 
+                        of their health and well-being.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Hero Navigation Dots -->
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                  <button class="hero-dot w-2 h-2 rounded-full bg-primary transition-colors"></button>
+                  <button class="hero-dot w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
+                </div>
+              </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="stats-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="text-4xl font-bold text-primary mb-2">
+                  <span class="stat-number" data-target="5000">0</span>+
+                </div>
+                <p class="text-gray-600">Bed Nets Distributed</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="text-4xl font-bold text-primary mb-2">
+                  <span class="stat-number" data-target="10">0</span>
+                </div>
+                <p class="text-gray-600">Communities Served</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="text-4xl font-bold text-primary mb-2">
+                  <span class="stat-number" data-target="50">0</span>
+                </div>
+                <p class="text-gray-600">Health Workers Trained</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="text-4xl font-bold text-primary mb-2">
+                  <span class="stat-number" data-target="15000">0</span>+
+                </div>
+                <p class="text-gray-600">People Reached</p>
+              </div>
+            </section>
+
+            <!-- Current Projects -->
+            <section class="space-y-8">
+              <h2 class="text-2xl font-bold text-gray-900">Current Projects</h2>
+              <div class="space-y-6">
+                <!-- Project Cards -->
+                <div class="project-card bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                    <div class="p-6 md:col-span-2 space-y-4">
+                      <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 text-sm font-medium bg-green-100 text-green-800 rounded-full">Active</span>
+                        <span class="text-sm text-gray-500">September 2022</span>
+                      </div>
+                      <h3 class="text-xl font-semibold text-gray-900">Education Save Life Campaign</h3>
+                      <p class="text-gray-600">A UNESCO-funded initiative focused on education and awareness in communities. The campaign aims to educate and empower local communities with knowledge about malaria prevention and treatment.</p>
+                      <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Education</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Community Outreach</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Health Awareness</span>
+                      </div>
+                    </div>
+                    <div class="p-6 bg-gray-50 flex flex-col justify-between">
+                      <div>
+                        <div class="text-sm font-medium text-gray-500 mb-1">Project Budget</div>
+                        <div class="text-2xl font-bold text-primary">$3,614</div>
+                      </div>
+                      <div class="mt-6">
+                        <a href="projects.html" class="inline-flex items-center text-primary hover:text-primary/80 font-medium group/link">
+                          Learn More
+                          <i class="ri-arrow-right-line ml-2 transition-transform group-hover/link:translate-x-1"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- UNFPA Project -->
+                <div class="project-card bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                    <div class="p-6 md:col-span-2 space-y-4">
+                      <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full">Ongoing</span>
+                        <span class="text-sm text-gray-500">2020 - Present</span>
+                      </div>
+                      <h3 class="text-xl font-semibold text-gray-900">Community Engagement Project</h3>
+                      <p class="text-gray-600">Partnership with EVA and UNFPA Nigeria targeting 10 communities in Kaduna State. Reached 50 community leaders and 2000+ community members with health awareness programs.</p>
+                      <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                          <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Community Health</span>
+                          <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Leadership</span>
+                          <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Training</span>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                          <h4 class="font-semibold text-gray-900 mb-2">Key Achievements:</h4>
+                          <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Trained 23 law enforcement official responders</li>
+                            <li>Empowered 10 CSOs organizations</li>
+                            <li>Strengthened community reporting systems</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-6 bg-gray-50 flex flex-col justify-between">
+                      <div class="space-y-4">
+                        <div>
+                          <div class="text-sm font-medium text-gray-500 mb-1">Communities</div>
+                          <div class="text-2xl font-bold text-primary">10</div>
+                        </div>
+                        <div>
+                          <div class="text-sm font-medium text-gray-500 mb-1">Members Reached</div>
+                          <div class="text-2xl font-bold text-primary">2000+</div>
+                        </div>
+                      </div>
+                      <div class="mt-6">
+                        <a href="projects.html" class="inline-flex items-center text-primary hover:text-primary/80 font-medium group/link">
+                          View Details
+                          <i class="ri-arrow-right-line ml-2 transition-transform group-hover/link:translate-x-1"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- UNICEF Project -->
+                <div class="project-card bg-white rounded-xl shadow-sm transition-all duration-300">
+                  <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                    <div class="p-6 md:col-span-2 space-y-4">
+                      <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full">Ongoing</span>
+                        <span class="text-sm text-gray-500">August 2020 - Present</span>
+                      </div>
+                      <h3 class="text-xl font-semibold text-gray-900">Adolescents Kits Intervention</h3>
+                      <p class="text-gray-600">UNICEF partnership project in Igabi and Lere LGA of Kaduna State, focusing on youth development and community engagement.</p>
+                      <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                          <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Youth Development</span>
+                          <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Community Health</span>
+                          <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Training</span>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                          <h4 class="font-semibold text-gray-900 mb-2">Project Impact:</h4>
+                          <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>4 trained master trainers</li>
+                            <li>24 community facilitators selected</li>
+                            <li>200+ adolescents and young people engaged</li>
+                            <li>8 monthly community circle sessions</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="p-6 bg-gray-50 flex flex-col justify-between">
+                      <div class="space-y-4">
+                        <div>
+                          <div class="text-sm font-medium text-gray-500 mb-1">Trainers</div>
+                          <div class="text-2xl font-bold text-primary">4</div>
+                        </div>
+                        <div>
+                          <div class="text-sm font-medium text-gray-500 mb-1">Facilitators</div>
+                          <div class="text-2xl font-bold text-primary">24</div>
+                        </div>
+                      </div>
+                      <div class="mt-6">
+                        <a href="projects.html" class="inline-flex items-center text-primary hover:text-primary/80 font-medium group/link">
+                          View Impact
+                          <i class="ri-arrow-right-line ml-2 transition-transform group-hover/link:translate-x-1"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- View All Projects Button -->
+              <div class="flex justify-center mt-8 opacity-0 animate-fade-in group-[.in-view]:animate-fade-in delay-[600ms]">
+                <a href="projects.html" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
+                  <span>View All Projects</span>
+                  <i class="ri-arrow-right-line ml-2"></i>
+                </a>
+              </div>
+            </section>
+
+            <!-- Get Involved Section -->
+            <section class="space-y-6">
+              <h2 class="text-2xl font-bold text-gray-900">Get Involved</h2>
+              <div class="bg-white rounded-xl p-8 shadow-sm">
+                <p class="text-gray-600 mb-8">
+                  Join our mission to create malaria-free communities. Whether you're interested in 
+                  becoming a community health worker, supporting our programs, or accessing our services, 
+                  we're here to help.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="volunteer-get-involved.html" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
+                    <span class="mr-2">Become a Volunteer</span>
+                    <i class="ri-arrow-right-line"></i>
+                  </a>
+                  <a href="donate.html" class="inline-flex items-center px-6 py-3 bg-white text-primary border-2 border-primary rounded-full hover:bg-gray-50 transition-colors">
+                    <span class="mr-2">Support Our Work</span>
+                    <i class="ri-arrow-right-line"></i>
+                  </a>
+                </div>
+              </div>
+            </section>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                  Become a Community Champion
+                </h3>
+                <p class="text-gray-600 mb-6">
+                  Join our network of community health champions and help us
+                  fight malaria in your community. We provide comprehensive
+                  training and support.
+                </p>
+                <a
+                  href="volunteer-get-involved.html"
+                  class="inline-block bg-primary text-white hover:bg-primary/90 transition-colors px-6 py-3 !rounded-button"
+                  >Join Us</a
+                >
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                  Support Our Work
+                </h3>
+                <p class="text-gray-600 mb-6">
+                  Your donation helps us provide more nets, testing kits, and
+                  treatment support to communities in need.
+                </p>
+                <a
+                  href="donate.html"
+                  class="inline-block bg-primary text-white hover:bg-primary/90 transition-colors px-6 py-3 !rounded-button"
+                  >Donate Today</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Animation and Mobile Menu Scripts -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animation Observer
+        const animationObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '50px'
+        });
+
+        // Observe all sections and animated groups
+        document.querySelectorAll('section, .group').forEach((element) => {
+          animationObserver.observe(element);
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('program-menu-toggle');
+        const menuIcon = document.getElementById('program-menu-icon');
+        const sidebar = document.getElementById('program-sidebar');
+
+        if (menuToggle && menuIcon && sidebar) {
+          menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+            menuIcon.style.transform = sidebar.classList.contains('hidden') ? '' : 'rotate(180deg)';
+          });
+        }
+
+        // Handle resize to show sidebar on larger screens
+        const handleResize = () => {
+          if (window.innerWidth >= 1024) { // lg breakpoint
+            sidebar.classList.remove('hidden');
+            menuIcon.style.transform = '';
+          } else {
+            sidebar.classList.add('hidden');
+          }
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initial check
+      });
+    </script>
+      <script src="js/animations.js"></script>
+</body>
+</html>
+
